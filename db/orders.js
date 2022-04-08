@@ -7,18 +7,33 @@ const getAllOrders = async () => {
   return res.rows;
 };
 
-// const getAllOrdersById= ();
+const getAllOrdersById = async () => {
+  try {
+  } catch (error) {
+    throw error;
+  }
+};
 
+const updateOrder = async () => {
+  try {
+  } catch (error) {
+    throw error;
+  }
+};
 
-// const updateOrder();
+const checkoutOrder = async () => {
+  try {
+  } catch (error) {
+    throw error;
+  }
+};
 
-// const createOrder();
-
-
-// const updateOrder();
-
-
-// const deleteOrder();
+const cancelOrder = async () => {
+  try {
+  } catch (error) {
+    throw error;
+  }
+};
 
 module.exports = {
   getAllOrders,

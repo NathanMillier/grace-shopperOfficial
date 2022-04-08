@@ -17,6 +17,7 @@ const getProductById = async (productId) => {
   } catch (error) {
     throw error
   }
+
 }
 
 const createProduct = ({productId, productName, productDescription }) => {
