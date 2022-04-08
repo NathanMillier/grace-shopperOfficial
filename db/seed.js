@@ -13,6 +13,7 @@ const dropTables = async () => {
   await client.query(`
   
     DROP TABLE IF EXISTS products_categories;
+    DROP TABLE IF EXISTS order_items;
     DROP TABLE IF EXISTS orders;
     DROP TABLE IF EXISTS categories;
     DROP TABLE IF EXISTS products;
@@ -83,6 +84,7 @@ async function createInitialUsers() {
     throw error;
   }
 }
+
 // async function createInitialOrders() {
 //   try {
 //     console.log("starting to create orders...");
