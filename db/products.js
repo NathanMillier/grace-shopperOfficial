@@ -7,6 +7,12 @@ const getProducts = async () => {
   return response.rows;
 };
 
+
+const getProductById = async (productId) => {
+  const response = await client.query(`
+  SELECT * FROM products WHERE id =$1;`)
+  return response.rows;
+=======
 const getProductById = async (productId) => {
   try {
     const { rows } = await client.query(`
@@ -17,6 +23,7 @@ const getProductById = async (productId) => {
   } catch (error) {
     throw error
   }
+
 }
 
 const createProduct = ({productId, productName, productDescription }) => {
