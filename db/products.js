@@ -1,4 +1,4 @@
-const client = require("./index");
+const client = require("./");
 
 const getProducts = async () => {
   const response = await client.query(`
@@ -7,45 +7,48 @@ const getProducts = async () => {
   return response.rows;
 };
 
-
-const getProductById = async (productId) => {
-  const response = await client.query(`
-  SELECT * FROM products WHERE id =$1;`)
-  return response.rows;
-=======
 const getProductById = async (productId) => {
   try {
-    const { rows } = await client.query(`
+    const { rows } = await client.query(
+      `
     SELECT id FROM products
     WHERE id = $1;
-    `, [productId])
+    `,
+      [productId]
+    );
     return rows;
   } catch (error) {
-    throw error
+    throw error;
   }
+};
 
-}
-
-const createProduct = ({productId, productName, productDescription }) => {
+const createProduct = async ({
+  productName,
+  productDescription,
+  stock,
+  price,
+}) => {
   try {
-    const { rows: [products] } = await client.query(`
-    INSERT INTO products(productId, productName, productDescripion)
-    VALUES ($1, $2, $3)
+    const {
+      rows: [products],
+    } = await client.query(
+      `
+    INSERT INTO products(title, description, stock, price)
+    VALUES ($1, $2, $3, $4)
     RETURNING *;
-    `[productId, productName, productDescription]
+    `,
+      [productName, productDescription, stock, price]
     );
     return products;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
 
-getProductsByCategory()
-
-
+// getProductsByCategory();
 
 module.exports = {
   getProducts,
   createProduct,
-  getProductById
+  getProductById,
 };
