@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const client = require("./client");
+const client = require("./index.js");
 
 const createUser = async ({ email, password }) => {
   try {
