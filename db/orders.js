@@ -1,6 +1,4 @@
-const client = require('./');
-
-
+const client = require("./");
 
 const getAllOrders = async () => {
   const res = await client.query(`
@@ -9,15 +7,14 @@ const getAllOrders = async () => {
   return res.rows;
 };
 
+// const getAllOrdersById= ();
 
-const getAllOrdersById= ();
+// const updateOrder();
 
-const updateOrder();
+// const createOrder();
 
-const createOrder();
-
-const deleteOrder();
+// const deleteOrder();
 
 module.exports = {
-    getAllOrders
-  };
+  getAllOrders,
+};

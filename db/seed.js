@@ -4,6 +4,7 @@ const client = require("./");
 const seedDB = async () => {
   await dropTables();
   await createTables();
+  await createInitialOrders();
 };
 
 const dropTables = async () => {
