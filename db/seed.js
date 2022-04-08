@@ -62,7 +62,8 @@ const createTables = async () => {
       id SERIAL PRIMARY KEY,
       "orderId" INTEGER REFERENCES orders(id),
       "productId" INTEGER REFERENCES products(id),
-      price INTEGER NOT NULL
+      price INTEGER NOT NULL,
+      quantity INTEGER NOT NULL
     );
   `);
 
@@ -85,7 +86,6 @@ async function createInitialUsers() {
     throw error;
   }
 }
-
 
 // async function createInitialOrders() {
 //   try {
@@ -133,6 +133,5 @@ async function createInitialUsers() {
 //     throw err;
 //   }
 // }
-
 
 seedDB();
