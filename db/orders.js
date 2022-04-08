@@ -11,10 +11,31 @@ const getAllOrders = async () => {
 
 // const updateOrder();
 
-// const createOrder();
+const createOrder = async ({
+  creatorId,
+  isPublic,
+  order,
+  color,
+  quantity,
+  price,
+}) => {
+  try {
+    const { rows: orders } = await client.query(
+      `INSERT INTO routines ("creatorId", "isPublic", order, color, quantit, price)
+         VALUES ($1, $2, $3, $4 $5, $6)
+         RETURNING *;`,
+      [creatorId, isPublic, order, color, quantity, price]
+    );
+
+    return orders[0];
+  } catch (error) {
+    throw error;
+  }
+};
 
 // const deleteOrder();
 
 module.exports = {
   getAllOrders,
+  createOrder,
 };
