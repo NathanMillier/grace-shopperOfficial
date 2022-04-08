@@ -1,12 +1,15 @@
 require("dotenv").config();
 const client = require("./");
+const { createUser, getUser, getUserById, getUserByEmail } = require("./users");
 
 const seedDB = async () => {
   await dropTables();
   await createTables();
+  await createInitialUsers();
 };
 
 const dropTables = async () => {
+  console.log("Starting to drop tables");
   await client.query(`
   
     DROP TABLE IF EXISTS products_categories;
@@ -20,6 +23,7 @@ const dropTables = async () => {
 };
 
 const createTables = async () => {
+  console.log("Starting to create tables");
   await client.query(`
 
     CREATE TABLE users(
@@ -62,6 +66,24 @@ const createTables = async () => {
 
   console.log("Tables created...");
 };
+
+
+async function createInitialUsers() {
+  console.log("Starting to create users...");
+  try {
+    const usersToCreate = [
+      { email: "albert@gmail.com", password: "bertie99" },
+      { email: "sandra@gmail.com", password: "sandra123" },
+      { email: "glamgal@hotmail.com", password: "glamgal123" },
+    ];
+    const users = await Promise.all(usersToCreate.map(createUser));
+
+    console.log("Finished creating users!");
+  } catch (error) {
+    console.error("Error creating users!");
+    throw error;
+  }
+}
 
 async function createInitialOrders() {
   try {
@@ -107,6 +129,7 @@ async function createInitialOrders() {
     console.log("Finished creating orders.");
   } catch (err) {
     throw err;
+
   }
 }
 
