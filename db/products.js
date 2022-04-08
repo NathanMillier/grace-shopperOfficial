@@ -7,7 +7,7 @@ const getProducts = async () => {
   return response.rows;
 };
 
-getProductById = async (productId) => {
+const getProductById = async (productId) => {
   try {
     const { rows } = await client.query(`
     SELECT id FROM products
