@@ -71,38 +71,38 @@ async function createInitialOrders() {
       {
         creatorId: 2,
         isPublic: false,
-        Order: "Air Jordan 1 Retro",
-        Color: "Red/White",
-        Quantity: 1,
-        Price: 160,
+        order: "Air Jordan 1 Retro",
+        color: "Red/White",
+        quantity: 1,
+        price: 160,
       },
       {
         creatorId: 2,
         isPublic: false,
-        Order: "Yeezy 350",
-        Color: "Cinder",
-        Quantity: 1,
-        Price: 215,
+        order: "Yeezy 350",
+        color: "Cinder",
+        quantity: 1,
+        price: 215,
       },
       {
         creatorId: 2,
         isPublic: false,
-        Order: "Air Jordan 4 Retro",
-        Color: "Black/Cement",
-        Quantity: 1,
-        Price: 160,
+        order: "Air Jordan 4 Retro",
+        color: "Black/Cement",
+        quantity: 1,
+        price: 160,
       },
       {
         creatorId: 2,
         isPublic: false,
-        Order: "WaveRunner 5000",
-        Color: "Blue/White",
-        Quantity: 1,
-        Price: 160,
+        order: "WaveRunner 5000",
+        color: "Blue/White",
+        quantity: 1,
+        price: 160,
       },
     ];
     const orders = await Proimse.all(
-      ordersToCreate.map((orders) => createInitialOrders(orders))
+      ordersToCreate.map((orders) => createOrder(orders))
     );
     console.log("Finished creating orders.");
   } catch (err) {
