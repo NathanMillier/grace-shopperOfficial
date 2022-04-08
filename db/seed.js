@@ -86,6 +86,7 @@ async function createInitialUsers() {
   }
 }
 
+
 // async function createInitialOrders() {
 //   try {
 //     console.log("starting to create orders...");
@@ -132,5 +133,6 @@ async function createInitialUsers() {
 //     throw err;
 //   }
 // }
+
 
 seedDB();
