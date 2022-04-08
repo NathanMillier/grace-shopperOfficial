@@ -13,6 +13,7 @@ const dropTables = async () => {
   await client.query(`
   
     DROP TABLE IF EXISTS products_categories;
+    DROP TABLE IF EXISTS order_items;
     DROP TABLE IF EXISTS orders;
     DROP TABLE IF EXISTS categories;
     DROP TABLE IF EXISTS products;
@@ -54,19 +55,19 @@ const createTables = async () => {
 
     CREATE TABLE orders(
       id SERIAL PRIMARY KEY,
-      "creatorId" INTEGER REFERENCES users(id),
-      "isPublic" BOOLEAN DEFAULT false,
-      order VARCHAR(255) UNIQUE NOT NULL,
-      color TEXT NOT NULL,
-      quantity INTEGER NOT NULL,
-      price INTEGER NOT NULL
+      "creatorId" INTEGER REFERENCES users(id)
     );
 
-    `);
+    CREATE TABLE order_items(
+      id SERIAL PRIMARY KEY,
+      "orderId" INTEGER REFERENCES orders(id),
+      "productId" INTEGER REFERENCES products(id),
+      price INTEGER NOT NULL
+    );
+  `);
 
   console.log("Tables created...");
 };
-
 
 async function createInitialUsers() {
   console.log("Starting to create users...");
@@ -85,52 +86,53 @@ async function createInitialUsers() {
   }
 }
 
-async function createInitialOrders() {
-  try {
-    console.log("starting to create orders...");
 
-    const ordersToCreate = [
-      {
-        creatorId: 2,
-        isPublic: false,
-        Order: "Air Jordan 1 Retro",
-        Color: "Red/White",
-        Quantity: 1,
-        Price: 160,
-      },
-      {
-        creatorId: 2,
-        isPublic: false,
-        Order: "Yeezy 350",
-        Color: "Cinder",
-        Quantity: 1,
-        Price: 215,
-      },
-      {
-        creatorId: 2,
-        isPublic: false,
-        Order: "Air Jordan 4 Retro",
-        Color: "Black/Cement",
-        Quantity: 1,
-        Price: 160,
-      },
-      {
-        creatorId: 2,
-        isPublic: false,
-        Order: "WaveRunner 5000",
-        Color: "Blue/White",
-        Quantity: 1,
-        Price: 160,
-      },
-    ];
-    const orders = await Proimse.all(
-      ordersToCreate.map((orders) => createInitialOrders(orders))
-    );
-    console.log("Finished creating orders.");
-  } catch (err) {
-    throw err;
+// async function createInitialOrders() {
+//   try {
+//     console.log("starting to create orders...");
 
-  }
-}
+//     const ordersToCreate = [
+//       {
+//         creatorId: 2,
+//         isPublic: false,
+//         Order: "Air Jordan 1 Retro",
+//         Color: "Red/White",
+//         Quantity: 1,
+//         Price: 160,
+//       },
+//       {
+//         creatorId: 2,
+//         isPublic: false,
+//         Order: "Yeezy 350",
+//         Color: "Cinder",
+//         Quantity: 1,
+//         Price: 215,
+//       },
+//       {
+//         creatorId: 2,
+//         isPublic: false,
+//         Order: "Air Jordan 4 Retro",
+//         Color: "Black/Cement",
+//         Quantity: 1,
+//         Price: 160,
+//       },
+//       {
+//         creatorId: 2,
+//         isPublic: false,
+//         Order: "WaveRunner 5000",
+//         Color: "Blue/White",
+//         Quantity: 1,
+//         Price: 160,
+//       },
+//     ];
+//     const orders = await Proimse.all(
+//       ordersToCreate.map((orders) => createInitialOrders(orders))
+//     );
+//     console.log("Finished creating orders.");
+//   } catch (err) {
+//     throw err;
+//   }
+// }
+
 
 seedDB();
