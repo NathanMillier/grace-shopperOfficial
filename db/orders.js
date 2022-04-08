@@ -1,16 +1,14 @@
-const client = require('./client');
+const client = require('./');
+
+
 
 const getAllOrders = async () => {
-    try {
-        const {rows: orders} = await client.query(`
-        SELECT orders.*, users.username AS "creatorName"
-        FROM ordersJOIN users ON users.id = orders."creatorId";
-        
-        `);
-
-    }
-
+  const res = await client.query(`
+    SELECT * FROM orders;
+    `);
+  return res.rows;
 };
+
 
 const getAllOrdersById= ();
 
@@ -19,3 +17,7 @@ const updateOrder();
 const createOrder();
 
 const deleteOrder();
+
+module.exports = {
+    getAllOrders
+  };
