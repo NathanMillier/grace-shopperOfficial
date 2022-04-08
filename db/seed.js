@@ -61,7 +61,8 @@ const createTables = async () => {
     CREATE TABLE order_items(
       id SERIAL PRIMARY KEY,
       "orderId" INTEGER REFERENCES orders(id),
-      "productId" INTEGER REFERENCES products(id)
+      "productId" INTEGER REFERENCES products(id),
+      price INTEGER NOT NULL
     );
   `);
 
