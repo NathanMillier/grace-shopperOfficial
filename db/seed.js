@@ -67,7 +67,6 @@ const createTables = async () => {
   console.log("Tables created...");
 };
 
-
 async function createInitialUsers() {
   console.log("Starting to create users...");
   try {
@@ -129,7 +128,6 @@ async function createInitialOrders() {
     console.log("Finished creating orders.");
   } catch (err) {
     throw err;
-
   }
 }
 
