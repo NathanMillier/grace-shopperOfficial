@@ -1,6 +1,4 @@
-const client = require('./');
-
-
+const client = require("./");
 
 const getAllOrders = async () => {
   const res = await client.query(`
@@ -9,15 +7,35 @@ const getAllOrders = async () => {
   return res.rows;
 };
 
+// const getAllOrdersById= ();
 
-const getAllOrdersById= ();
+// const updateOrder();
 
-const updateOrder();
+const createOrder = async ({
+  creatorId,
+  isPublic,
+  order,
+  color,
+  quantity,
+  price,
+}) => {
+  try {
+    const { rows: orders } = await client.query(
+      `INSERT INTO routines ("creatorId", "isPublic", order, color, quantit, price)
+         VALUES ($1, $2, $3, $4 $5, $6)
+         RETURNING *;`,
+      [creatorId, isPublic, order, color, quantity, price]
+    );
 
-const createOrder();
+    return orders[0];
+  } catch (error) {
+    throw error;
+  }
+};
 
-const deleteOrder();
+// const deleteOrder();
 
 module.exports = {
-    getAllOrders
-  };
+  getAllOrders,
+  createOrder,
+};
