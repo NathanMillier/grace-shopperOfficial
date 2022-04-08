@@ -1,4 +1,4 @@
-const client = require("./");
+const client = require("./index");
 
 const getProducts = async () => {
   const response = await client.query(`
@@ -7,10 +7,16 @@ const getProducts = async () => {
   return response.rows;
 };
 
-getProductsById = async (productId) => {
-  const response = await client.query(`
-  SELECT * FROM products WHERE id =$1;`)
-  return response.rows;
+getProductById = async (productId) => {
+  try {
+    const { rows } = await client.query(`
+    SELECT id FROM products
+    WHERE id = $1;
+    `, [productId])
+    return rows;
+  } catch (error) {
+    throw error
+  }
 }
 
 const createProduct = ({productId, productName, productDescription }) => {
@@ -33,4 +39,6 @@ getProductsByCategory()
 
 module.exports = {
   getProducts,
+  createProduct,
+  getProductById
 };
