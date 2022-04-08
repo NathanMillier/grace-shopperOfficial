@@ -7,12 +7,12 @@ const getProducts = async () => {
   return response.rows;
 };
 
-getProductsById = async (productId) => {
+getProductById = async (productId) => {
   try {
     const { rows } = await client.query(`
     SELECT id FROM products
     WHERE id = $1;
-    `,[productId])
+    `, [productId])
     return rows;
   } catch (error) {
     throw error
@@ -40,5 +40,5 @@ getProductsByCategory()
 module.exports = {
   getProducts,
   createProduct,
-
+  getProductById
 };
