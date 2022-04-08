@@ -37,6 +37,7 @@ const createTables = async () => {
       title VARCHAR(255) UNIQUE NOT NULL,
       description TEXT NOT NULL,
       stock INTEGER NOT NULL,
+      color TEXT NOT NULL,
       price INTEGER NOT NULL
     );
 
@@ -56,7 +57,12 @@ const createTables = async () => {
       "creatorId" INTEGER REFERENCES users(id)
     );
 
-    `);
+    CREATE TABLE order_items(
+      id SERIAL PRIMARY KEY,
+      "orderId" INTEGER REFERENCES orders(id),
+      "productId" INTEGER REFERENCES products(id)
+    );
+  `);
 
   console.log("Tables created...");
 };
@@ -77,5 +83,51 @@ async function createInitialUsers() {
     throw error;
   }
 }
+// async function createInitialOrders() {
+//   try {
+//     console.log("starting to create orders...");
+
+//     const ordersToCreate = [
+//       {
+//         creatorId: 2,
+//         isPublic: false,
+//         Order: "Air Jordan 1 Retro",
+//         Color: "Red/White",
+//         Quantity: 1,
+//         Price: 160,
+//       },
+//       {
+//         creatorId: 2,
+//         isPublic: false,
+//         Order: "Yeezy 350",
+//         Color: "Cinder",
+//         Quantity: 1,
+//         Price: 215,
+//       },
+//       {
+//         creatorId: 2,
+//         isPublic: false,
+//         Order: "Air Jordan 4 Retro",
+//         Color: "Black/Cement",
+//         Quantity: 1,
+//         Price: 160,
+//       },
+//       {
+//         creatorId: 2,
+//         isPublic: false,
+//         Order: "WaveRunner 5000",
+//         Color: "Blue/White",
+//         Quantity: 1,
+//         Price: 160,
+//       },
+//     ];
+//     const orders = await Proimse.all(
+//       ordersToCreate.map((orders) => createInitialOrders(orders))
+//     );
+//     console.log("Finished creating orders.");
+//   } catch (err) {
+//     throw err;
+//   }
+// }
 
 seedDB();
