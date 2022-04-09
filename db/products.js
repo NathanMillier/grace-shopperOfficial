@@ -51,7 +51,7 @@ const updateProduct = async ({ id, title, description, stock, price }) => {
       if (title) {
         client.query(
           `
-          UPDATE product
+          UPDATE products
           SET "title" = $1
           WHERE id = $2;
         `,
@@ -61,7 +61,7 @@ const updateProduct = async ({ id, title, description, stock, price }) => {
       if (description) {
         client.query(
           `
-          UPDATE product
+          UPDATE products
           SET description = $1
           WHERE id = $2;
         `,
@@ -71,7 +71,7 @@ const updateProduct = async ({ id, title, description, stock, price }) => {
       if (stock) {
         client.query(
           `
-          UPDATE product
+          UPDATE products
           SET stock = $1
           WHERE id = $2;
         `,
@@ -81,7 +81,7 @@ const updateProduct = async ({ id, title, description, stock, price }) => {
       if (price) {
         client.query(
           `
-        UPDATE product
+        UPDATE products
         SET price = $1 
         WHERE id = $2
         `,
@@ -92,7 +92,7 @@ const updateProduct = async ({ id, title, description, stock, price }) => {
 
     const response = await client.query(
       `
-      SELECT * FROM product
+      SELECT * FROM products
       WHERE id = $1;
     `,
       [id]
