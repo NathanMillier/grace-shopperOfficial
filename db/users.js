@@ -12,6 +12,7 @@ const createUser = async ({ email, password }) => {
       [email, hashPassword]
     );
     delete response.rows[0].password;
+
     return response.rows[0];
   } catch (err) {
     throw err;
@@ -41,7 +42,7 @@ const getUser = async ({ email, password }) => {
     const user = await client.query(
       `
         SELECT * FROM users
-        WHERE email = $1
+        WHERE email = $1;
     `,
       [email]
     );
