@@ -2,14 +2,10 @@ const client = require("./index");
 
 const getAllCategories = async () => {
   try {
-    const response = await client.query(`
+    const res = await client.query(`
     SELECT * FROM categories;
     `);
-
-    console.log(response.rows);
-
-    return response.rows;
-
+    return res.rows;
   } catch (error) {
     throw error;
   }
@@ -35,14 +31,26 @@ const createCategory = async ({ name }) => {
 
 const updateCategory = async ({ id, name }) => {
   try {
-    const update = await client.query(
+    if (id != undefined) {
+      if (name) {
+        client.query(
+          `UPDATE categories
+            SET "name" = $1
+            WHERE id = $2;
+     `,
+          [name, id]
+        );
+      }
+    }
+    const res = await client.query(
       `
-        UPDATE categories SET name = $1, WHERE id = $3
-        RETURNING*;
+        SELECT * FROM categories
+        WHERE id = $1;
       `,
-      [name, id]
+      [id]
     );
-    return update.rows[0];
+    console.log(res.rows[0]);
+    return res.rows;
   } catch (err) {
     throw err;
   }
