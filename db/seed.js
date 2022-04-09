@@ -1,11 +1,13 @@
 require("dotenv").config();
 const client = require("./");
 const { createUser, getUser, getUserById, getUserByEmail } = require("./users");
+const { createProduct, getProducts, getProductById } = require("./products");
 
 const seedDB = async () => {
   await dropTables();
   await createTables();
   await createInitialUsers();
+  await createInitialProducts();
 };
 
 const dropTables = async () => {
@@ -38,7 +40,6 @@ const createTables = async () => {
       title VARCHAR(255) UNIQUE NOT NULL,
       description TEXT NOT NULL,
       stock INTEGER NOT NULL,
-      color TEXT NOT NULL,
       price INTEGER NOT NULL
     );
 
@@ -62,7 +63,8 @@ const createTables = async () => {
       id SERIAL PRIMARY KEY,
       "orderId" INTEGER REFERENCES orders(id),
       "productId" INTEGER REFERENCES products(id),
-      price INTEGER NOT NULL
+      price INTEGER NOT NULL,
+      quantity INTEGER NOT NULL
     );
   `);
 
@@ -86,6 +88,65 @@ async function createInitialUsers() {
   }
 }
 
+async function createInitialProducts() {
+  console.log("Starting to add products...");
+  try {
+    const productsToAdd = [
+      {
+        productName: "Red Nike",
+        productDescription: "These nike will make you run hella fast g",
+        stock: 5,
+        price: 100,
+      },
+      {
+        productName: "Blue Puma",
+        productDescription: "These puma will make you swim hella nice g",
+        stock: 7,
+        price: 75,
+      },
+      {
+        productName: "High Sk8 Van's",
+        productDescription: "These Van's will make you like the goat bro",
+        stock: 2,
+        price: 80,
+      },
+      {
+        productName: "Timberland",
+        productDescription:
+          "These Timberland will make you walk like a real hiker dude",
+        stock: 10,
+        price: 150,
+      },
+      {
+        productName: "Black converse",
+        productDescription:
+          "These converse will make you look bad dont buy them",
+        stock: 1,
+        price: 10,
+      },
+    ];
+
+    const shoes = await Promise.all(productsToAdd.map(createProduct));
+
+    console.log("Finished adding the products...");
+  } catch (error) {
+    throw error;
+  }
+}
+
+// async function testusers() {
+//   try {
+//     let email = "glamgal@hotmail.com";
+//     await getUserByEmail(email);
+//     await getUser({ email: "albert@gmail.com", password: "bertie99" });
+//     await getUserById(1);
+//     console.log(
+//       await getUser({ email: "albert@gmail.com", password: "bertie99" })
+//     );
+//   } catch (error) {
+//     console.log("didnt fuckign work");
+//   }
+// }
 
 // async function createInitialOrders() {
 //   try {
@@ -133,6 +194,5 @@ async function createInitialUsers() {
 //     throw err;
 //   }
 // }
-
 
 seedDB();

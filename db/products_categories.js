@@ -6,3 +6,12 @@ const getProductsByCategory = async () => {
     throw error;
   }
 };
+
+const addProductToCategory = async () => {
+  try {
+  } catch (error) {
+    throw error;
+  }
+};
+
+c;
