@@ -22,12 +22,7 @@ const getProductById = async (productId) => {
   }
 };
 
-const createProduct = async ({
-  productName,
-  productDescription,
-  stock,
-  price,
-}) => {
+const createProduct = async ({ title, description, stock, price }) => {
   try {
     const {
       rows: [products],
@@ -37,7 +32,7 @@ const createProduct = async ({
     VALUES ($1, $2, $3, $4)
     RETURNING *;
     `,
-      [productName, productDescription, stock, price]
+      [title, description, stock, price]
     );
     return products;
   } catch (error) {
@@ -104,7 +99,7 @@ const updateProduct = async ({ id, title, description, stock, price }) => {
   }
 };
 
-const destroyProduct = async (productId) => {
+const destroyProduct = async ({ productId }) => {
   try {
     await client.query(
       `
