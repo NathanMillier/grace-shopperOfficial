@@ -1,4 +1,4 @@
-const client = require("./");
+const client = require("./index");
 
 const getProducts = async () => {
   const response = await client.query(`
@@ -45,10 +45,98 @@ const createProduct = async ({
   }
 };
 
+const updateProduct = async ({ id, title, description, stock, price }) => {
+  try {
+    if (id != undefined) {
+      if (title) {
+        client.query(
+          `
+          UPDATE product
+          SET "title" = $1
+          WHERE id = $2;
+        `,
+          [title, id]
+        );
+      }
+      if (description) {
+        client.query(
+          `
+          UPDATE product
+          SET description = $1
+          WHERE id = $2;
+        `,
+          [description, id]
+        );
+      }
+      if (stock) {
+        client.query(
+          `
+          UPDATE product
+          SET stock = $1
+          WHERE id = $2;
+        `,
+          [stock, id]
+        );
+      }
+      if (price) {
+        client.query(
+          `
+        UPDATE product
+        SET price = $1 
+        WHERE id = $2
+        `,
+          [price, id]
+        );
+      }
+    }
+
+    const response = await client.query(
+      `
+      SELECT * FROM product
+      WHERE id = $1;
+    `,
+      [id]
+    );
+
+    return response.rows[0];
+  } catch (err) {
+    throw err;
+  }
+};
+
+const destroyProduct = async (productId) => {
+  try {
+    await client.query(
+      `
+      DELETE FROM products_categories pc
+      WHERE pc."productId" = $1;
+    `,
+      [productId]
+    );
+
+    const {
+      rows: [deletedProduct],
+    } = await client.query(
+      `
+      DELETE FROM products p
+      WHERE p.id = $1
+      RETURNING *;
+    `,
+      [productId]
+    );
+
+    return deletedProduct;
+  } catch (err) {
+    throw err;
+  }
+};
+
 // getProductsByCategory();
 
 module.exports = {
   getProducts,
   createProduct,
   getProductById,
+  updateProduct,
+  destroyProduct,
 };

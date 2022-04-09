@@ -13,3 +13,5 @@ const addProductToCategory = async () => {
     throw error;
   }
 };
+
+c;

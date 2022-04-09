@@ -134,6 +134,20 @@ async function createInitialProducts() {
   }
 }
 
+// async function testusers() {
+//   try {
+//     let email = "glamgal@hotmail.com";
+//     await getUserByEmail(email);
+//     await getUser({ email: "albert@gmail.com", password: "bertie99" });
+//     await getUserById(1);
+//     console.log(
+//       await getUser({ email: "albert@gmail.com", password: "bertie99" })
+//     );
+//   } catch (error) {
+//     console.log("didnt fuckign work");
+//   }
+// }
+
 // async function createInitialOrders() {
 //   try {
 //     console.log("starting to create orders...");
