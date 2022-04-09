@@ -5,11 +5,13 @@ const getAllCategories = async () => {
     const response = await client.query(`
     SELECT * FROM categories;
     `);
-    return response.rows;
+    console.log(response.rows);
   } catch (error) {
     throw error;
   }
 };
+
+getAllCategories();
 
 const createCategory = async ({ name }) => {
   try {
