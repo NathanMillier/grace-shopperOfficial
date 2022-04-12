@@ -38,7 +38,8 @@ const createTables = async () => {
     CREATE TABLE users(
       id SERIAL PRIMARY KEY,
       email VARCHAR(255) UNIQUE NOT NULL,
-      password VARCHAR(255) NOT NULL
+      password VARCHAR(255) NOT NULL,
+      "isAdmin" boolean DEFAULT false
     );
 
     CREATE TABLE products(
@@ -81,6 +82,7 @@ async function createInitialUsers() {
   console.log("Starting to create users...");
   try {
     const usersToCreate = [
+      { email: "admin@gmail.com", password: "admin1234" },
       { email: "albert@gmail.com", password: "bertie99" },
       { email: "sandra@gmail.com", password: "sandra123" },
       { email: "glamgal@hotmail.com", password: "glamgal123" },
@@ -108,7 +110,7 @@ async function createInitialProducts() {
       {
         title: "PUMA SUEDE CLASSIC XXI",
         description:
-          "The Suede hit the scene in 1968 and has been changing the game ever since. It’s been worn by the icons of every generation and it’s",
+          "The Suede hit the scene in 1968 and has been changing the game ever since. It's been worn by the icons of every generation and it's",
         stock: 100,
         price: 75,
       },
