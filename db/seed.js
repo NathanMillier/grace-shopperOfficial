@@ -2,12 +2,14 @@ require("dotenv").config();
 const client = require("./");
 const { createUser, getUser, getUserById, getUserByEmail } = require("./users");
 const { createProduct, getProducts, getProductById } = require("./products");
+const { getProductsByCategory } = require("./products_categories");
 
 const seedDB = async () => {
   await dropTables();
   await createTables();
   await createInitialUsers();
   await createInitialProducts();
+  await getProductsByCategory();
 };
 
 const dropTables = async () => {
