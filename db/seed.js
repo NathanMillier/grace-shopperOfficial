@@ -99,50 +99,50 @@ async function createInitialProducts() {
   try {
     const productsToAdd = [
       {
-        productName: "NIKE AIR JORDAN 4 RETRO",
-        productDescription:
+        title: "NIKE AIR JORDAN 4 RETRO",
+        description:
           "The Air Jordan IV was MJ's first signature model to take flight. Complete with never before seen “Wings” acting as lace locks and an unforgettable color scheme, the silhouette now returns in its truest form. Nodding to its 1989 debut, the new Air Jordan IV features iconic Nike Air branding on both the heel and outsole.",
         stock: 25,
         price: 250,
       },
       {
-        productName: "PUMA SUEDE CLASSIC XXI",
-        productDescription:
+        title: "PUMA SUEDE CLASSIC XXI",
+        description:
           "The Suede hit the scene in 1968 and has been changing the game ever since. It’s been worn by the icons of every generation and it’s",
         stock: 100,
         price: 75,
       },
       {
-        productName: "VANS SK8-HI",
-        productDescription:
+        title: "VANS SK8-HI",
+        description:
           "The Sk8-Hi was introduced in 1978 as Style 38, and showcased the now-iconic Vans Sidestripe on a new, innovative high top silhouette. As only the second model featuring the recognizable marker formerly known as the “jazz stripe,” the Sk8-Hi brought a whole new look to the Vans family.  Honoring that first legendary high top, the Sk8-Hi is made with sturdy suede and canvas uppers in a variety of classic and unexpected colorways. This lace-up shoe also includes re-enforced toe caps, supportive padded collars, and signature rubber waffle outsoles.",
         stock: 150,
         price: 80,
       },
       {
-        productName: "TIMBERLAND® PREMIUM 6-INCH WATERPROOF BOOTS",
-        productDescription:
+        title: "TIMBERLAND® PREMIUM 6-INCH WATERPROOF BOOTS",
+        description:
           "Inspired by our original waterproof boot, this all-season style gives you tireless waterproof performance and instantly recognizable work-boot styling. Other essential features include 400 grams of warm, down-free PrimaLoft® insulation, a padded collar for a comfortable fit around the ankle, a rubber lug outsole for traction, and materials sourced with respect for the planet.",
         stock: 55,
         price: 200,
       },
       {
-        productName: "CONVERSE CHUCK TAYLOR ALLSTARS HI",
-        productDescription:
+        title: "CONVERSE CHUCK TAYLOR ALLSTARS HI",
+        description:
           "You need a style to rely on. The Chuck Taylor All-Star is a staple: the high-top and low-top silhouettes stay simply classic, while the white laces and star ankle patch give a nod to the legacy of the Chuck. This is the go-with-everything go-to that you won’t get sick of going to. Stock up.",
         stock: 150,
         price: 75,
       },
       {
-        productName: "SPEEDO SURF KNIT PRO",
-        productDescription:
+        title: "SPEEDO SURF KNIT PRO",
+        description:
           "Step into the water sporting the aquatic Speedo® Surf Knit Pro slip-on water shoes.Surf Knit upper engineered for ultimate support and breathability.Pull tabs in front and back allows easy on and off.Hydrophobic rubber EVA insole. STRAC outsole is designed to disperse water and provide improved performance and traction.",
         stock: 25,
         price: 75,
       },
       {
-        productName: "REEBOK NANO X2 TRAINING SHOES",
-        productDescription:
+        title: "REEBOK NANO X2 TRAINING SHOES",
+        description:
           "From pistol squats to burpees, there's no shortage of moves to take your workout to the next level. Reach for these men's Reebok shoes to stay confident in or out of the gym. They have a Flexweave® woven upper that's breathable and durable, with integrated support for stable movement in every direction. The rubber outsole with a strategic lug pattern gives you secure traction.",
         stock: 47,
         price: 135,
@@ -186,66 +186,5 @@ async function createInitialCategories() {
     throw err;
   }
 }
-
-// async function testusers() {
-//   try {
-//     let email = "glamgal@hotmail.com";
-//     await getUserByEmail(email);
-//     await getUser({ email: "albert@gmail.com", password: "bertie99" });
-//     await getUserById(1);
-//     console.log(
-//       await getUser({ email: "albert@gmail.com", password: "bertie99" })
-//     );
-//   } catch (error) {
-//     console.log("didnt fuckign work");
-//   }
-// }
-
-// async function createInitialOrders() {
-//   try {
-//     console.log("starting to create orders...");
-
-//     const ordersToCreate = [
-//       {
-//         creatorId: 2,
-//         isPublic: false,
-//         Order: "Air Jordan 1 Retro",
-//         Color: "Red/White",
-//         Quantity: 1,
-//         Price: 160,
-//       },
-//       {
-//         creatorId: 2,
-//         isPublic: false,
-//         Order: "Yeezy 350",
-//         Color: "Cinder",
-//         Quantity: 1,
-//         Price: 215,
-//       },
-//       {
-//         creatorId: 2,
-//         isPublic: false,
-//         Order: "Air Jordan 4 Retro",
-//         Color: "Black/Cement",
-//         Quantity: 1,
-//         Price: 160,
-//       },
-//       {
-//         creatorId: 2,
-//         isPublic: false,
-//         Order: "WaveRunner 5000",
-//         Color: "Blue/White",
-//         Quantity: 1,
-//         Price: 160,
-//       },
-//     ];
-//     const orders = await Proimse.all(
-//       ordersToCreate.map((orders) => createInitialOrders(orders))
-//     );
-//     console.log("Finished creating orders.");
-//   } catch (err) {
-//     throw err;
-//   }
-// }
 
 seedDB();
