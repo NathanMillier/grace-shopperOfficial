@@ -5,7 +5,7 @@ const {
   updateCategory,
   deleteCategory,
   getCategoryById,
-} = require(".../db/categories");
+} = require("../db/categories");
 const { getProductsByCategory } = require("../db/products_categories");
 
 const categoriesRouter = express.Router();
@@ -23,13 +23,14 @@ categoriesRouter.get("/", async (req, res) => {
 categoriesRouter.post("/", async (req, res, next) => {
   try {
     const { id, name } = req.body;
-    if (!req.user) {
-      next({
-        name: "missing name",
-        message: "Please enter username and description",
-      });
-      return;
-    }
+    console.log(req.body, "HITSSS");
+    // if (!req.user.isAdmin) {
+    //   next({
+    //     name: "missing name",
+    //     message: "Please enter username and description",
+    //   });
+    //   return;
+    // }
     const newCategory = await createCategory(req.body);
     res.send(newCategory);
   } catch (err) {
@@ -61,10 +62,4 @@ categoriesRouter.get("/:categoryId/products", async (req, res, next) => {
   }
 });
 
-module.exports = {
-  getAllCategories,
-  createCategory,
-  updateCategory,
-  deleteCategory,
-  getCategoryById,
-};
+module.exports = categoriesRouter;
