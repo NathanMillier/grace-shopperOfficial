@@ -23,13 +23,14 @@ categoriesRouter.get("/", async (req, res) => {
 categoriesRouter.post("/", async (req, res, next) => {
   try {
     const { id, name } = req.body;
-    if (!req.user) {
-      next({
-        name: "missing name",
-        message: "Please enter username and description",
-      });
-      return;
-    }
+    console.log(req.body, "HITSSS");
+    // if (!req.user.isAdmin) {
+    //   next({
+    //     name: "missing name",
+    //     message: "Please enter username and description",
+    //   });
+    //   return;
+    // }
     const newCategory = await createCategory(req.body);
     res.send(newCategory);
   } catch (err) {

@@ -4,6 +4,7 @@ const {
   createProduct,
   updateProduct,
   destroyProduct,
+  getProductById,
 } = require("../db/products");
 
 const productRouter = express.Router();
@@ -14,6 +15,7 @@ productRouter.get("/", async (req, res) => {
 });
 
 productRouter.post("/", async (req, res) => {
+  console.log(req.body);
   try {
     const response = await createProduct(req.body);
     res.send(response);
@@ -33,9 +35,19 @@ productRouter.patch("/", async (req, res) => {
 });
 
 productRouter.delete("/", async (req, res) => {
-  console.log(req.body);
+  console.log(req.body, "test");
   try {
     const response = await destroyProduct(req.body);
+    console.log(response);
+    res.send(response);
+  } catch (error) {
+    throw error;
+  }
+});
+
+productRouter.get("/:productId", async (req, res) => {
+  try {
+    const response = await getProductById({ productId: req.params.productId });
     console.log(response);
     res.send(response);
   } catch (error) {
