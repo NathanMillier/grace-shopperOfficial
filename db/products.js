@@ -1,4 +1,4 @@
-const client = require("./");
+const client = require("./index");
 
 const getProducts = async () => {
   const response = await client.query(`
@@ -22,12 +22,7 @@ const getProductById = async (productId) => {
   }
 };
 
-const createProduct = async ({
-  productName,
-  productDescription,
-  stock,
-  price,
-}) => {
+const createProduct = async ({ title, description, stock, price }) => {
   try {
     const {
       rows: [products],
@@ -37,11 +32,97 @@ const createProduct = async ({
     VALUES ($1, $2, $3, $4)
     RETURNING *;
     `,
-      [productName, productDescription, stock, price]
+      [title, description, stock, price]
     );
     return products;
   } catch (error) {
     throw error;
+  }
+};
+
+const updateProduct = async ({ id, title, description, stock, price }) => {
+  try {
+    if (id != undefined) {
+      if (title) {
+        client.query(
+          `
+          UPDATE products
+          SET "title" = $1
+          WHERE id = $2;
+        `,
+          [title, id]
+        );
+      }
+      if (description) {
+        client.query(
+          `
+          UPDATE products
+          SET description = $1
+          WHERE id = $2;
+        `,
+          [description, id]
+        );
+      }
+      if (stock) {
+        client.query(
+          `
+          UPDATE products
+          SET stock = $1
+          WHERE id = $2;
+        `,
+          [stock, id]
+        );
+      }
+      if (price) {
+        client.query(
+          `
+        UPDATE products
+        SET price = $1 
+        WHERE id = $2
+        `,
+          [price, id]
+        );
+      }
+    }
+
+    const response = await client.query(
+      `
+      SELECT * FROM products
+      WHERE id = $1;
+    `,
+      [id]
+    );
+
+    return response.rows[0];
+  } catch (err) {
+    throw err;
+  }
+};
+
+const destroyProduct = async ({ productId }) => {
+  try {
+    await client.query(
+      `
+      DELETE FROM products_categories pc
+      WHERE pc."productId" = $1;
+    `,
+      [productId]
+    );
+
+    const {
+      rows: [deletedProduct],
+    } = await client.query(
+      `
+      DELETE FROM products p
+      WHERE p.id = $1
+      RETURNING *;
+    `,
+      [productId]
+    );
+
+    return deletedProduct;
+  } catch (err) {
+    throw err;
   }
 };
 
@@ -51,4 +132,6 @@ module.exports = {
   getProducts,
   createProduct,
   getProductById,
+  updateProduct,
+  destroyProduct,
 };
