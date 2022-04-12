@@ -5,7 +5,7 @@ const {
   updateCategory,
   deleteCategory,
   getCategoryById,
-} = require(".../db/categories");
+} = require("../db/categories");
 const { getProductsByCategory } = require("../db/products_categories");
 
 const categoriesRouter = express.Router();
@@ -61,10 +61,4 @@ categoriesRouter.get("/:categoryId/products", async (req, res, next) => {
   }
 });
 
-module.exports = {
-  getAllCategories,
-  createCategory,
-  updateCategory,
-  deleteCategory,
-  getCategoryById,
-};
+module.exports = categoriesRouter;
