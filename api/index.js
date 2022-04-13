@@ -6,6 +6,8 @@ const userRouter = require("./userRouter");
 const categoriesRouter = require("./categoriesRouter");
 
 
+const products_categoriesRouter = require("./products_categoriesRouter");
+
 const apiRouter = express.Router();
 
 apiRouter.use("/products", productRouter);
