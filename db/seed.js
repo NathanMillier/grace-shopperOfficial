@@ -7,6 +7,7 @@ const {
   createCategory,
   updateCategory,
 } = require("./categories");
+const { createOrder } = require("./orders");
 
 const seedDB = async () => {
   await dropTables();
@@ -14,6 +15,7 @@ const seedDB = async () => {
   await createInitialUsers();
   await createInitialProducts();
   await createInitialCategories();
+  await createInitialOrders();
 };
 
 const dropTables = async () => {
@@ -63,7 +65,8 @@ const createTables = async () => {
 
     CREATE TABLE orders(
       id SERIAL PRIMARY KEY,
-      "creatorId" INTEGER REFERENCES users(id)
+      "creatorId" INTEGER REFERENCES users(id),
+      "isPurchased" BOOLEAN DEFAULT false
     );
 
     CREATE TABLE order_items(
@@ -82,7 +85,7 @@ async function createInitialUsers() {
   console.log("Starting to create users...");
   try {
     const usersToCreate = [
-      { email: "admin@gmail.com", password: "admin1234" },
+      { email: "admin@gmail.com", password: "admin1234", isAdmin: true },
       { email: "albert@gmail.com", password: "bertie99" },
       { email: "sandra@gmail.com", password: "sandra123" },
       { email: "glamgal@hotmail.com", password: "glamgal123" },
@@ -186,6 +189,29 @@ async function createInitialCategories() {
     console.log("Finished adding the categories...");
   } catch (err) {
     throw err;
+  }
+}
+
+async function createInitialOrders() {
+  try {
+    console.log("Starting to create orders...");
+
+    const ordersToCreate = [
+      {
+        creatorId: 1,
+      },
+      {
+        creatorId: 2,
+      },
+      {
+        creatorId: 3,
+      },
+    ];
+
+    const orders = await Promise.all(ordersToCreate.map(createOrder));
+  } catch (error) {
+    console.error("Error creating orders");
+    throw error;
   }
 }
 
