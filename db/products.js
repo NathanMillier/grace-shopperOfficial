@@ -7,22 +7,28 @@ const getProducts = async () => {
   return response.rows;
 };
 
-const getProductById = async (productId) => {
+const getProductById = async ({ productId }) => {
   try {
-    const { rows } = await client.query(
+    const response = await client.query(
       `
-    SELECT id FROM products
-    WHERE id = $1;
+    SELECT * FROM products
+    WHERE id = $1
+    ;
     `,
       [productId]
     );
-    return rows;
+    return response.rows;
   } catch (error) {
     throw error;
   }
 };
 
-const createProduct = async ({ title, description, stock, price }) => {
+const createProduct = async ({
+  productName,
+  productDescription,
+  stock,
+  price,
+}) => {
   try {
     const {
       rows: [products],
@@ -32,7 +38,7 @@ const createProduct = async ({ title, description, stock, price }) => {
     VALUES ($1, $2, $3, $4)
     RETURNING *;
     `,
-      [title, description, stock, price]
+      [productName, productDescription, stock, price]
     );
     return products;
   } catch (error) {
@@ -93,7 +99,7 @@ const updateProduct = async ({ id, title, description, stock, price }) => {
       [id]
     );
 
-    return response.rows[0];
+    return response.rows;
   } catch (err) {
     throw err;
   }
@@ -109,18 +115,16 @@ const destroyProduct = async ({ productId }) => {
       [productId]
     );
 
-    const {
-      rows: [deletedProduct],
-    } = await client.query(
+    const response = await client.query(
       `
-      DELETE FROM products p
-      WHERE p.id = $1
+      DELETE FROM products
+      WHERE id = $1
       RETURNING *;
     `,
       [productId]
     );
 
-    return deletedProduct;
+    return response.rows;
   } catch (err) {
     throw err;
   }

@@ -35,4 +35,11 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
+userRouter.get("/me", async (req, res, next) => {
+  if (!req.user) {
+    return res.status(401).send({ error: "no user" });
+  }
+  res.send(req.user);
+});
+
 module.exports = userRouter;
