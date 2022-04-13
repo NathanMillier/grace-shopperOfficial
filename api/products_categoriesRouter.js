@@ -16,6 +16,4 @@ products_categoriesRouter.get("/", async (req, res) => {
   const categories = await getAllCategories;
 });
 
-products_categoriesRouter.delete("/", async (req, res) => {
-    const 
-})
+products_categoriesRouter.delete("/", async (req, res) => {});
