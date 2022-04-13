@@ -21,15 +21,16 @@ categoriesRouter.get("/", async (req, res) => {
 });
 
 categoriesRouter.post("/", async (req, res, next) => {
+  console.log(req.body);
   try {
     const { id, name } = req.body;
-    if (!req.user) {
-      next({
-        name: "missing name",
-        message: "Please enter username and description",
-      });
-      return;
-    }
+    // if (!req.user.isAdmin) {
+    //   next({
+    //     name: "missing name",
+    //     message: "Please enter username and description",
+    //   });
+    //   return;
+    // }
     const newCategory = await createCategory(req.body);
     res.send(newCategory);
   } catch (err) {
@@ -42,6 +43,7 @@ categoriesRouter.patch("/:categoryId", async (req, res, next) => {
   const { name } = req.body;
 
   const updateFields = { id, name };
+  console.log(req.body);
   try {
     const category = await updateCategory(updateFields);
     res.send(category);
@@ -50,15 +52,26 @@ categoriesRouter.patch("/:categoryId", async (req, res, next) => {
   }
 });
 
-categoriesRouter.get("/:categoryId/products", async (req, res, next) => {
-  const categories = await getProductsByCategory({
-    id: req.params.categoryId,
-  });
+categoriesRouter.delete("/", async (req, res) => {
+  console.log(req.body);
   try {
-    res.send(categories);
+    const response = await deleteCategory(req.body);
+    console.log(response);
+    res.send(response);
   } catch (err) {
     throw err;
   }
 });
+
+// categoriesRouter.get("/:categoryId/products", async (req, res, next) => {
+//   const categories = await getCategoryById({
+//     id: req.params.categoryId,
+//   });
+//   try {
+//     res.send(categories);
+//   } catch (err) {
+//     throw err;
+//   }
+// });
 
 module.exports = categoriesRouter;

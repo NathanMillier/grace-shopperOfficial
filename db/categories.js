@@ -56,14 +56,14 @@ const updateCategory = async ({ id, name }) => {
   }
 };
 
-const deleteCategory = async (categoryId) => {
+const deleteCategory = async ({ categoryId }) => {
   try {
     await client.query(
       `
         DELETE FROM products_categories pc
-        WHERE pc."productId" = $1;
+        WHERE pc."categoryId" = $1;
       `,
-      [routineId]
+      [categoryId]
     );
 
     const {
