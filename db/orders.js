@@ -15,7 +15,7 @@ const getAllOrdersById = async (Orderid) => {
   try {
     const res = await client.query(
       `
-      SELECT * FROM orders WHERE id = 1$
+      SELECT * FROM orders WHERE id = $1
       `,
       [id]
     );
