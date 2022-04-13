@@ -7,6 +7,7 @@ const {
   createCategory,
   updateCategory,
 } = require("./categories");
+const { createOrder } = require("./orders");
 
 const seedDB = async () => {
   await dropTables();
@@ -14,6 +15,7 @@ const seedDB = async () => {
   await createInitialUsers();
   await createInitialProducts();
   await createInitialCategories();
+  await createInitialOrders();
 };
 
 const dropTables = async () => {
@@ -63,7 +65,8 @@ const createTables = async () => {
 
     CREATE TABLE orders(
       id SERIAL PRIMARY KEY,
-      "creatorId" INTEGER REFERENCES users(id)
+      "creatorId" INTEGER REFERENCES users(id),
+      "isPurchased" BOOLEAN DEFAULT false
     );
 
     CREATE TABLE order_items(
@@ -82,7 +85,7 @@ async function createInitialUsers() {
   console.log("Starting to create users...");
   try {
     const usersToCreate = [
-      { email: "admin@gmail.com", password: "admin1234" },
+      { email: "admin@gmail.com", password: "admin1234", isAdmin: true },
       { email: "albert@gmail.com", password: "bertie99" },
       { email: "sandra@gmail.com", password: "sandra123" },
       { email: "glamgal@hotmail.com", password: "glamgal123" },
@@ -189,65 +192,27 @@ async function createInitialCategories() {
   }
 }
 
-// async function testusers() {
-//   try {
-//     let email = "glamgal@hotmail.com";
-//     await getUserByEmail(email);
-//     await getUser({ email: "albert@gmail.com", password: "bertie99" });
-//     await getUserById(1);
-//     console.log(
-//       await getUser({ email: "albert@gmail.com", password: "bertie99" })
-//     );
-//   } catch (error) {
-//     console.log("didnt fuckign work");
-//   }
-// }
+async function createInitialOrders() {
+  try {
+    console.log("Starting to create orders...");
 
-// async function createInitialOrders() {
-//   try {
-//     console.log("starting to create orders...");
+    const ordersToCreate = [
+      {
+        creatorId: 1,
+      },
+      {
+        creatorId: 2,
+      },
+      {
+        creatorId: 3,
+      },
+    ];
 
-//     const ordersToCreate = [
-//       {
-//         creatorId: 2,
-//         isPublic: false,
-//         Order: "Air Jordan 1 Retro",
-//         Color: "Red/White",
-//         Quantity: 1,
-//         Price: 160,
-//       },
-//       {
-//         creatorId: 2,
-//         isPublic: false,
-//         Order: "Yeezy 350",
-//         Color: "Cinder",
-//         Quantity: 1,
-//         Price: 215,
-//       },
-//       {
-//         creatorId: 2,
-//         isPublic: false,
-//         Order: "Air Jordan 4 Retro",
-//         Color: "Black/Cement",
-//         Quantity: 1,
-//         Price: 160,
-//       },
-//       {
-//         creatorId: 2,
-//         isPublic: false,
-//         Order: "WaveRunner 5000",
-//         Color: "Blue/White",
-//         Quantity: 1,
-//         Price: 160,
-//       },
-//     ];
-//     const orders = await Proimse.all(
-//       ordersToCreate.map((orders) => createInitialOrders(orders))
-//     );
-//     console.log("Finished creating orders.");
-//   } catch (err) {
-//     throw err;
-//   }
-// }
+    const orders = await Promise.all(ordersToCreate.map(createOrder));
+  } catch (error) {
+    console.error("Error creating orders");
+    throw error;
+  }
+}
 
 seedDB();

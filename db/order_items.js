@@ -1,4 +1,4 @@
-const client = require("pg/lib/native/client");
+const client = require("./index");
 
 const addItemToOrder = async ({ productId, orderID, price, quantity }) => {
   try {

@@ -11,11 +11,11 @@ const getAllOrders = async () => {
   }
 };
 
-const getAllOrdersById = async (Orderid) => {
+const getAllOrdersById = async (orderId) => {
   try {
     const res = await client.query(
       `
-      SELECT * FROM orders WHERE id = 1$
+      SELECT * FROM orders WHERE id = $1
       `,
       [id]
     );
@@ -72,16 +72,16 @@ const destroyOrder = async (orderId) => {
   }
 };
 
-const createOrder = async (creatorId) => {
+const createOrder = async ({ creatorId }) => {
   const res = await client.query(
     `
-  INSERT INTO orders("creatorId")
+  INSERT INTO orders ("creatorId")
   VALUES ($1)
   RETURNING *;
     `,
     [creatorId]
   );
-  return res.rows;
+  return res.rows[0];
 };
 
 const checkoutOrder = async (orderId) => {
@@ -90,10 +90,26 @@ const checkoutOrder = async (orderId) => {
       `
       UPDATE orders
       SET "isPurchased" = true
-      WHERE id = $2;
+      WHERE id = $1;
     `,
       [orderId, id]
     );
+  } catch (error) {
+    throw error;
+  }
+};
+
+const getCartByUserId = async (creatorId) => {
+  try {
+    const cart = await client.query(
+      `
+      SELECT * FROM orders
+      WHERE "creatorId" = $1
+      AND "isPurchased" = false;
+    `,
+      [creatorId]
+    );
+    return cart.rows[0];
   } catch (error) {
     throw error;
   }
@@ -106,4 +122,5 @@ module.exports = {
   updateOrder,
   createOrder,
   checkoutOrder,
+  getCartByUserId,
 };
