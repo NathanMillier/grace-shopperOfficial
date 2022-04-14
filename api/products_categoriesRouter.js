@@ -1,3 +1,5 @@
+//working on this one tomorrow (4/13/2022) additional review needed -Wells
+
 const express = require("express");
 const {
   getProductsByCategory,
@@ -16,4 +18,9 @@ products_categoriesRouter.get("/", async (req, res) => {
   const categories = await getAllCategories;
 });
 
+
 products_categoriesRouter.delete("/", async (req, res) => {});
+module.exports = products_categoriesRouter;
+
+
+
