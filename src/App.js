@@ -5,6 +5,11 @@ import Register from "./Register";
 
 const App = () => {
   const [products, setProducts] = useState([]);
+  const [token, setToken] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
 
   const fetchProducts = async () => {
     const response = await fetch("/api/products");
@@ -12,8 +17,8 @@ const App = () => {
     setProducts(info);
   };
 
-  useEffect(() => {
-    fetchProducts();
+  useEffect(async () => {
+    await fetchProducts();
   }, [token]);
 
   return (
@@ -38,11 +43,27 @@ const App = () => {
       </Route>
 
       <Route exact path="/register">
-        <Register setToken={setToken} />
+        <Register
+          setToken={setToken}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          confirm={setConfirm}
+          error={error}
+          setError={setError}
+        />
       </Route>
 
       <Route exact path="/login">
-        <Login setToken={setToken} />
+        <Login
+          setToken={setToken}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          confirm={setConfirm}
+          error={error}
+          setError={setError}
+        />
       </Route>
     </>
   );
