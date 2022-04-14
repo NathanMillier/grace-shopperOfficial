@@ -10,11 +10,12 @@ const App = () => {
     setProducts(info);
   };
 
-  useEffect(() => {
-    fetchProducts();
+  useEffect(() async => {
+    await fetchProducts();
   }, []);
 
   return <>Full-Stack App!!!!</>;
+  console.log(products);
 };
 
 export default App;
