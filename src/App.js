@@ -1,49 +1,33 @@
-import { token } from "morgan";
 import { useState } from "react";
 import { useEffect } from "react";
-import Register from "./Register";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./Navbar";
+import Home from "./Home";
 
 const App = () => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
-    const response = await fetch("/api/products");
+    const response = await fetch("http://localhost:3001/api/products");
     const info = await response.json();
     setProducts(info);
   };
 
   useEffect(() => {
     fetchProducts();
-  }, [token]);
+  }, []);
 
   return (
     <>
-      <Navbar user={user} setToken={setToken} setUser={setUser} />
-
-      <Route exact path="/">
-        <Home />
-      </Route>
-
-      <Route exact path="/">
-        <Products
-          setProducts={setPosts}
-          fetchProducts={fetchPosts}
-          products={products}
-          token={token}
-        />
-      </Route>
-
-      <Route exact path="/newproduct">
-        <CreateNewProduct fetchProducts={fetchProducts} />
-      </Route>
-
-      <Route exact path="/register">
-        <Register setToken={setToken} />
-      </Route>
-
-      <Route exact path="/login">
-        <Login setToken={setToken} />
-      </Route>
+      <div>app.js</div>
+      <div id="container">
+        <Navbar />
+      </div>
+      <div id="main">
+        <Routes>
+          <Route element={<Home />} path="/" />
+        </Routes>
+      </div>
     </>
   );
 };
