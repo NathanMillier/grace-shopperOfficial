@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { APIURL } from "./App";
+// import { APIURL } from "./App";
 import React, { useState } from "react";
 
 const Products = ({ products, token, setProducts, fetchProducts }) => {
@@ -26,7 +26,7 @@ const Products = ({ products, token, setProducts, fetchProducts }) => {
   return (
     <>
       <div className="productsHeader">
-        <h1>Posts</h1>
+        <h1>Shoes</h1>
       </div>
       <div className="productsSubHead">
         <Link to="/newproduct">Add New Shoe?</Link>
