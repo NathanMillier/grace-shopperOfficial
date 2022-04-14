@@ -21,3 +21,5 @@ products_categoriesRouter.get("/", async (req, res) => {
 products_categoriesRouter.delete("/", async (req, res) => {
     const 
 })
+
+module.exports = products_categoriesRouter;
