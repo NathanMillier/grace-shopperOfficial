@@ -1,4 +1,5 @@
 * {
+
   font-family: arial, sans-serif;
   margin: 0;
 }
@@ -20,3 +21,164 @@
   justify-content: center;
   border-radius: 15px;
 }
+
+  
+  body,
+  body > div {
+    height: 100vh;
+    width: 100vw;
+    background-color: #c4dbf6;
+    background-image: linear-gradient(to bottom right, #3b8beb, #c4dbf6);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  #container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #container > div {
+    display: flex;
+  }
+  
+  #navbar {
+    color: black;
+    overflow: hidden;
+    background-color: #edeae5;
+    padding: 2em;
+    border-bottom: 1px solid black;
+  }
+  
+  #navbar div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .menu {
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid #8590aa;
+    border-radius: 15px;
+  }
+  
+  .menu Link {
+    text-decoration: none;
+  }
+
+  .productsHeader {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .productsSubHead {
+    font-size: 1.25rem;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+  }
+  
+  .productsCard {
+    background-color: #edeae5;
+    border: 2px solid #8590aa;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 45rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  
+  .productsCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .homeCard {
+    background-color: #edeae5;
+    border: 2px solid #8590aa;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
+    margin: auto;
+    margin-top: 50px;
+    width: 45rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  
+  .homeCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .newPostCard {
+    background-color: #edeae5;
+    border: 2px solid #8590aa;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
+    margin: auto;
+    margin-top: 50px;
+    width: 45rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  
+  .newProductCard h1 {
+    margin-bottom: 25px;
+  }
+  
+  .registerCard {
+    background-color: #edeae5;
+    border: 2px solid #8590aa;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 2px 16px;
+    margin: auto;
+    margin-top: 50px;
+    width: 45rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  
+  .registerCard h1 {
+    margin-bottom: 25px;
+  }
+

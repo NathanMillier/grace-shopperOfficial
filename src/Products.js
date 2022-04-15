@@ -21,3 +21,4 @@ const Products = ({ products, fetchProducts }) => {
 };
 
 export default Products;
+
