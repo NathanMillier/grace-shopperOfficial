@@ -6,7 +6,7 @@ const Home = () => {
           <h1>Welcome to Feet Heat!</h1>
           <h2>The Hottest Shoe Trends Online.</h2>
         </div>
-        <div class="grid-container">
+        <div class="newReleases-container">
           <h2>NEW RELEASES</h2>
           <div class="grid-item">1</div>
           <div class="grid-item">2</div>
@@ -18,7 +18,7 @@ const Home = () => {
           <div class="grid-item">8</div>
           <div class="grid-item">9</div>
         </div>
-        <div class="grid-container2">
+        <div class="categories-container">
           <h2>Categories</h2>
           <div class="grid-item">Basketball</div>
           <div class="grid-item">Running</div>
