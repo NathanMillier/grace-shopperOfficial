@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
+import Login from "./Login";
+import Register from "./Register";
+import Products from "./Products";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -19,13 +22,21 @@ const App = () => {
 
   return (
     <>
-      <div>app.js</div>
       <div id="container">
         <Navbar />
       </div>
       <div id="main">
         <Routes>
           <Route element={<Home />} path="/" />
+        </Routes>
+        <Routes>
+          <Route element={<Login />} path="/Login" />
+        </Routes>
+        <Routes>
+          <Route element={<Register />} path="/Register" />
+        </Routes>
+        <Routes>
+          <Route element={<Products />} path="/Products" />
         </Routes>
       </div>
     </>

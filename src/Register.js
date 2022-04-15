@@ -76,7 +76,7 @@ import React from "react";
 // export default Register;
 
 const Products = () => {
-  return <div>PRODUCTs</div>;
+  return <div>REGISTR</div>;
 };
 
 export default Products;
