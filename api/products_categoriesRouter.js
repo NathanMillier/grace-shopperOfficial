@@ -18,8 +18,12 @@ products_categoriesRouter.get("/", async (req, res) => {
   const categories = await getAllCategories;
 });
 
+<<<<<<< HEAD
 products_categoriesRouter.delete("/", async (req, res) => {
     const 
 })
 
 module.exports = products_categoriesRouter;
+=======
+products_categoriesRouter.delete("/", async (req, res) => {});
+>>>>>>> c0fff46606701ee6ebc848ed67ccdadb83d95599

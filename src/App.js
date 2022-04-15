@@ -1,5 +1,7 @@
+import { token } from "morgan";
 import { useState } from "react";
 import { useEffect } from "react";
+import Register from "./Register";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -12,9 +14,38 @@ const App = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [token]);
 
-  return <>Full-Stack App!!!!</>;
+  return (
+    <>
+      <Navbar user={user} setToken={setToken} setUser={setUser} />
+
+      <Route exact path="/">
+        <Home />
+      </Route>
+
+      <Route exact path="/">
+        <Products
+          setProducts={setPosts}
+          fetchProducts={fetchPosts}
+          products={products}
+          token={token}
+        />
+      </Route>
+
+      <Route exact path="/newproduct">
+        <CreateNewProduct fetchProducts={fetchProducts} />
+      </Route>
+
+      <Route exact path="/register">
+        <Register setToken={setToken} />
+      </Route>
+
+      <Route exact path="/login">
+        <Login setToken={setToken} />
+      </Route>
+    </>
+  );
 };
 
 export default App;
