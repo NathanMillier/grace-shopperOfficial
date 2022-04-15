@@ -11,13 +11,13 @@ const getAllOrders = async () => {
   }
 };
 
-const getAllOrdersById = async (orderId) => {
+const getAllOrdersById = async ({ orderId }) => {
   try {
     const res = await client.query(
       `
       SELECT * FROM orders WHERE id = $1
       `,
-      [id]
+      [orderId]
     );
     return res.rows;
   } catch (error) {

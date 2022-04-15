@@ -1,3 +1,5 @@
+import React from "react";
+
 const Login = ({
   token,
   email,
@@ -48,3 +50,5 @@ const Login = ({
     </div>
   );
 };
+
+export default Login;
