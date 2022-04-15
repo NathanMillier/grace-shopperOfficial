@@ -19,11 +19,21 @@ products_categoriesRouter.get("/", async (req, res) => {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 products_categoriesRouter.delete("/", async (req, res) => {
     const 
 })
+=======
+>>>>>>> 51ba120aabcf115b5c0c824109419611438543e2
 
+products_categoriesRouter.delete("/", async (req, res) => {});
 module.exports = products_categoriesRouter;
+<<<<<<< HEAD
 =======
 products_categoriesRouter.delete("/", async (req, res) => {});
 >>>>>>> c0fff46606701ee6ebc848ed67ccdadb83d95599
+=======
+
+
+
+>>>>>>> 51ba120aabcf115b5c0c824109419611438543e2
