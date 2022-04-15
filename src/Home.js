@@ -1,18 +1,9 @@
 import React from "react";
 
-const Home = ({ user, products }) => {
+const Home = ({ user }) => {
   return (
     <div>
       <p>TESSAasdT</p>
-      <div>
-        {products.map((product) => {
-          return (
-            <div key={product.id}>
-              <h2>{product.title}</h2>
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 };

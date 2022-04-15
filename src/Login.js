@@ -26,6 +26,10 @@ const Login = ({
       });
 
       const data = await response.json();
+      console.log(data);
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -33,19 +37,20 @@ const Login = ({
 
   return (
     <div className="login-container">
-      <form className="login-form">
+      <form onSubmit={handleLogin} className="login-form">
         <label>Email</label>
         <input
-          require
+          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <label>Password</label>
         <input
-          require
+          required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <button>Login</button>
       </form>
     </div>
   );
