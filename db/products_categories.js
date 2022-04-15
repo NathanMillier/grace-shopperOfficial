@@ -5,12 +5,12 @@ const getProductsByCategory = async () => {
     const {
       rows: [products_categories],
     } = await client.query(`
-    
+
     `);
   } catch (error) {
     throw error;
   }
-};
+}; //incomplete -Wells
 
 const addProductToCategory = async ({ categoryId, productId }) => {
   try {
