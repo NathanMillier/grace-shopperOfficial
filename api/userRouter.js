@@ -22,16 +22,20 @@ userRouter.post("/register", async (req, res, next) => {
   }
 });
 
-userRouter.post("/login", async (req, res) => {
-  const user = await getUser(req.body);
+userRouter.post("/login", async (req, res, next) => {
+  console.log(user, "prout");
   try {
+    const user = await getUser(req.body);
     if (!user) {
-      throw new Error("Incorrect login");
+      next({ error: "loginError", message: "Incorrect credentials" });
+      // console.log("no login");
+    } else {
+      const token = jwt.sign(user, process.env.JWT_SECRET);
+      res.send({ token });
     }
-    const token = jwt.sign(user, process.env.JWT_SECRET);
-    res.send({ token });
   } catch (error) {
-    throw error;
+    // res.status(400).send({ error });
+    next(error);
   }
 });
 

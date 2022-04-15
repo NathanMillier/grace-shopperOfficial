@@ -9,6 +9,11 @@ import Products from "./Products";
 
 const App = () => {
   const [products, setProducts] = useState([]);
+  const [token, setToken] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
 
   const fetchProducts = async () => {
     const response = await fetch("http://localhost:3001/api/products");
@@ -30,18 +35,32 @@ const App = () => {
           <Route element={<Home />} path="/" />
         </Routes>
         <Routes>
-          <Route element={<Login />} path="/Login" />
+          <Route
+            element={
+              <Login
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+              />
+            }
+            path="/Login"
+          />
         </Routes>
         <Routes>
           <Route element={<Register />} path="/Register" />
         </Routes>
         <Routes>
+
+          
+
           <Route
             element={
               <Products products={products} fetchProducts={fetchProducts} />
             }
             path="/Products"
           />
+
         </Routes>
       </div>
     </>

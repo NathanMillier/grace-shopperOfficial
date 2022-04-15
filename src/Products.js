@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useEffect } from "react";
 
 const Products = ({ products, fetchProducts }) => {
@@ -18,6 +19,7 @@ const Products = ({ products, fetchProducts }) => {
       })}
     </div>
   );
+
 };
 
 export default Products;
