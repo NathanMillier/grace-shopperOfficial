@@ -36,7 +36,12 @@ const App = () => {
           <Route element={<Register />} path="/Register" />
         </Routes>
         <Routes>
-          <Route element={<Products />} path="/Products" />
+          <Route
+            element={
+              <Products products={products} fetchProducts={fetchProducts} />
+            }
+            path="/Products"
+          />
         </Routes>
       </div>
     </>
