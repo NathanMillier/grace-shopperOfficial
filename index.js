@@ -40,6 +40,10 @@ app.get("*", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
 
+app.use((error, req, res, next) => {
+  res.status(400).send(error);
+});
+
 app.listen(PORT, () => {
   console.log("Server is up on port: " + PORT);
 });

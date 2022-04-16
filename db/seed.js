@@ -209,7 +209,7 @@ async function createInitialOrders() {
     ];
 
     const orders = await Promise.all(ordersToCreate.map(createOrder));
-    console.log("Finished create orders");
+    console.log("Finished to create orders");
   } catch (error) {
     console.error("Error creating orders");
     throw error;
