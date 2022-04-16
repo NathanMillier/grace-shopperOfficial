@@ -35,6 +35,9 @@ const App = () => {
           <Route element={<Home />} path="/" />
         </Routes>
         <Routes>
+<<<<<<< HEAD
+          <Route element={<Login />} path="/Login" />
+=======
           <Route
             element={
               <Login
@@ -46,21 +49,28 @@ const App = () => {
             }
             path="/Login"
           />
+>>>>>>> 7292303c49601094e2aa920fc432b40298976123
         </Routes>
         <Routes>
           <Route element={<Register />} path="/Register" />
         </Routes>
         <Routes>
+<<<<<<< HEAD
+=======
 
           
 
+>>>>>>> 7292303c49601094e2aa920fc432b40298976123
           <Route
             element={
               <Products products={products} fetchProducts={fetchProducts} />
             }
             path="/Products"
           />
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7292303c49601094e2aa920fc432b40298976123
         </Routes>
       </div>
     </>
