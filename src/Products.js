@@ -19,8 +19,6 @@ const Products = ({ products, fetchProducts }) => {
       })}
     </div>
   );
-
 };
 
 export default Products;
-
