@@ -1,8 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-const Login = ({ user }) => {
-  return <div>Login</div>;
-=======
 
 const Login = ({
   token,
@@ -58,7 +54,6 @@ const Login = ({
       </form>
     </div>
   );
->>>>>>> 7292303c49601094e2aa920fc432b40298976123
 };
 
 export default Login;

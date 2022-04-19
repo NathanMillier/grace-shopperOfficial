@@ -1,13 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import { useEffect } from "react";
-
-const Products = ({ products, fetchProducts }) => {
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-=======
 
 import { useEffect } from "react";
 
@@ -16,7 +7,6 @@ const Products = ({ products, fetchProducts }) => {
     fetchProducts();
   }, []);
 
->>>>>>> 7292303c49601094e2aa920fc432b40298976123
   return (
     <div>
       {products.map((p) => {
@@ -24,13 +14,12 @@ const Products = ({ products, fetchProducts }) => {
           <div key={p.id} id="card">
             <div>{p.title}</div>
             <div>{p.price}$</div>
+            <img src={p.imgurl} width="300" height="300"></img>
           </div>
         );
       })}
     </div>
   );
-
 };
 
 export default Products;
-

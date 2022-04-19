@@ -1,5 +1,4 @@
 * {
-
   font-family: arial, sans-serif;
   margin: 0;
 }
@@ -22,155 +21,144 @@
   border-radius: 15px;
 }
 
-  
-  body,
-  body > div {
-    height: 100vh;
-    width: 100vw;
-    background-color: white;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-  
-  .navbar {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: flex-end;
-    color: white;
-    overflow: hidden;
-    background-color: #333;
-    padding: 2em;
-    border-bottom: 1px solid black;
-  } 
-  
-  
-  #menu {
-    display: flex;
-    flex-direction: row;
-    
-    justify-content: space-around;
+body,
+body > div {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
-  }
-  .menu Link {
-    text-decoration: none;
-    
-  }
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-end;
+  color: white;
+  overflow: hidden;
+  background-color: #333;
+  padding: 2em;
+  border-bottom: 1px solid black;
+}
 
-  .menu a {
-    color: white;
-  }
+#menu {
+  display: flex;
+  flex-direction: row;
 
-  /* .productsHeader {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-  }
-  
-  .productsSubHead {
-    font-size: 1.25rem;
-    padding: 25px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    justify-content: space-between;
-  } */
-  
-  /* #card {
-    background-color: #edeae5;
-    border: 2px solid #8590aa;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    padding: 2px 16px;
-    margin: auto;
-    margin-bottom: 20px;
-    width: 45rem;
-    height: 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    border-radius: 15px;
-  }
-  
-  .productsCard:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-<<<<<<< HEAD
-  } */
- 
-=======
-  }
-  
-  .homeCard {
-    background-color: #edeae5;
-    border: 2px solid #8590aa;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    padding: 2px 16px;
-    margin: auto;
-    margin-top: 50px;
-    width: 45rem;
-    height: 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    border-radius: 15px;
-  }
-  
-  .homeCard:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
+  justify-content: space-around;
+}
+.menu Link {
+  text-decoration: none;
+}
 
-  .newPostCard {
-    background-color: #edeae5;
-    border: 2px solid #8590aa;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    padding: 2px 16px;
-    margin: auto;
-    margin-top: 50px;
-    width: 45rem;
-    height: 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    border-radius: 15px;
-  }
-  
-  .newProductCard h1 {
-    margin-bottom: 25px;
-  }
-  
-  .registerCard {
-    background-color: #edeae5;
-    border: 2px solid #8590aa;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    padding: 2px 16px;
-    margin: auto;
-    margin-top: 50px;
-    width: 45rem;
-    height: 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    border-radius: 15px;
-  }
-  
-  .registerCard h1 {
-    margin-bottom: 25px;
-  }
+.menu a {
+  color: white;
+}
 
->>>>>>> 7292303c49601094e2aa920fc432b40298976123
+.productsHeader {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.productsSubHead {
+  font-size: 1.25rem;
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+*/ #card {
+  background-color: #edeae5;
+  border: 2px solid #8590aa;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 2px 16px;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 45rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.productsCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.homeCard {
+  background-color: #edeae5;
+  border: 2px solid #8590aa;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 2px 16px;
+  margin: auto;
+  margin-top: 50px;
+  width: 45rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.homeCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.newPostCard {
+  background-color: #edeae5;
+  border: 2px solid #8590aa;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 2px 16px;
+  margin: auto;
+  margin-top: 50px;
+  width: 45rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.newProductCard h1 {
+  margin-bottom: 25px;
+}
+
+.registerCard {
+  background-color: #edeae5;
+  border: 2px solid #8590aa;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 2px 16px;
+  margin: auto;
+  margin-top: 50px;
+  width: 45rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.registerCard h1 {
+  margin-bottom: 25px;
+}

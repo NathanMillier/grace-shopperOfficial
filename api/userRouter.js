@@ -23,7 +23,6 @@ userRouter.post("/register", async (req, res, next) => {
 });
 
 userRouter.post("/login", async (req, res, next) => {
-  console.log(user, "prout");
   try {
     const user = await getUser(req.body);
     if (!user) {

@@ -23,17 +23,17 @@ const getProductById = async ({ productId }) => {
   }
 };
 
-const createProduct = async ({ title, description, stock, price }) => {
+const createProduct = async ({ title, description, imgurl, stock, price }) => {
   try {
     const {
       rows: [products],
     } = await client.query(
       `
-    INSERT INTO products(title, description, stock, price)
-    VALUES ($1, $2, $3, $4)
+    INSERT INTO products(title, description,imgurl, stock, price)
+    VALUES ($1, $2, $3, $4,$5)
     RETURNING *;
     `,
-      [title, description, stock, price]
+      [title, description, imgurl, stock, price]
     );
     return products;
   } catch (error) {
@@ -41,7 +41,14 @@ const createProduct = async ({ title, description, stock, price }) => {
   }
 };
 
-const updateProduct = async ({ id, title, description, stock, price }) => {
+const updateProduct = async ({
+  id,
+  title,
+  description,
+  imgurl,
+  stock,
+  price,
+}) => {
   try {
     if (id != undefined) {
       if (title) {
@@ -82,6 +89,14 @@ const updateProduct = async ({ id, title, description, stock, price }) => {
         WHERE id = $2
         `,
           [price, id]
+        );
+      }
+      if (imgurl) {
+        client.query(
+          `UPDATE prodcuts
+         SET imgurl = $1
+          WHERE id = $2`,
+          [imgurl, id]
         );
       }
     }
