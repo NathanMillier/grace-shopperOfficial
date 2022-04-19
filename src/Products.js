@@ -14,6 +14,7 @@ const Products = ({ products, fetchProducts }) => {
           <div key={p.id} id="card">
             <div>{p.title}</div>
             <div>{p.price}$</div>
+            <img src={p.imgurl} width="300" height="300"></img>
           </div>
         );
       })}
