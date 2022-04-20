@@ -15,26 +15,26 @@ userRouter.post("/register", async (req, res, next) => {
       throw new Error("Password is too short, must be at least 8 characters");
     }
     const user = await createUser(req.body);
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
     // console.log(user);
-    res.send({ user });
+    res.send({ user, token });
   } catch (error) {
     res.status(400).send({ error });
   }
 });
 
 userRouter.post("/login", async (req, res, next) => {
-  console.log(user, "prout");
+  const user = await getUser(req.body);
   try {
-    const user = await getUser(req.body);
-    if (!user) {
-      next({ error: "loginError", message: "Incorrect credentials" });
-      // console.log("no login");
+    if (user.error) {
+      res.send(user);
     } else {
       const token = jwt.sign(user, process.env.JWT_SECRET);
+
       res.send({ token });
     }
   } catch (error) {
-    // res.status(400).send({ error });
+    console.log("error");
     next(error);
   }
 });

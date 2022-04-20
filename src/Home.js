@@ -1,15 +1,20 @@
 import React from "react";
 
 const Home = ({ user }) => {
-<<<<<<< HEAD
-  return <div>Home</div>;
-=======
+  console.log(user, "prout");
+  if (!user) {
+    return (
+      <div>
+        <h2>Feet Heat</h2>
+      </div>
+    );
+  }
   return (
     <div>
-      <p>TESSAasdT</p>
+      <h2>Feet Heat</h2>
+      <p>Welcome {user.email}</p>
     </div>
   );
->>>>>>> 7292303c49601094e2aa920fc432b40298976123
 };
 
 export default Home;

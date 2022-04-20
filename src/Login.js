@@ -1,11 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
-const Login = ({ user }) => {
-  return <div>Login</div>;
-=======
-
+import { useNavigate } from "react-router-dom";
 const Login = ({
-  token,
   email,
   setEmail,
   password,
@@ -14,7 +9,11 @@ const Login = ({
   setConfirm,
   error,
   setError,
+  user,
+  setUser,
+  setToken,
 }) => {
+  const history = useNavigate();
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
@@ -30,9 +29,15 @@ const Login = ({
       });
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       if (data.token) {
         localStorage.setItem("token", data.token);
+        setToken(data.token);
+        console.log("Logged in");
+        history("/");
+      }
+      if (data.error) {
+        setError(data.message);
       }
     } catch (error) {
       console.error(error);
@@ -51,14 +56,15 @@ const Login = ({
         <label>Password</label>
         <input
           required
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button>Login</button>
       </form>
+      <p>{error}</p>
     </div>
   );
->>>>>>> 7292303c49601094e2aa920fc432b40298976123
 };
 
 export default Login;
