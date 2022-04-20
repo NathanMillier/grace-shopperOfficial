@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
@@ -52,8 +53,8 @@ const App = () => {
 
       <div id="main">
         <Routes>
-          <Route element={<Home user={user} />} path="/" />
 
+          <Route element={<Home user={user} />} path="/" />
           <Route
             element={
               <Login
@@ -70,6 +71,7 @@ const App = () => {
             }
             path="/Login"
           />
+
 
           <Route
             element={
@@ -96,6 +98,13 @@ const App = () => {
             }
             path="/Products"
           />
+
+
+          <Route
+            element={<productSingleView fetchProducts={fetchProducts} />}
+            path="/productSingleView"
+          />
+
         </Routes>
       </div>
     </div>

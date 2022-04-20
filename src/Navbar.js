@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Navbar = ({ user, setToken, setUser }) => {
   return (
+
     <div className="navbar">
       <div id="menu">
         <ul className="menu">
@@ -34,6 +35,7 @@ const Navbar = ({ user, setToken, setUser }) => {
             Products
           </Link>
         </ul>
+
       </div>
     </div>
   );

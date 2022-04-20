@@ -24,7 +24,9 @@ userRouter.post("/register", async (req, res, next) => {
 });
 
 userRouter.post("/login", async (req, res, next) => {
+
   const user = await getUser(req.body);
+
   try {
     if (user.error) {
       res.send(user);
