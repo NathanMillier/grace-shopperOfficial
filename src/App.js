@@ -62,7 +62,7 @@ const App = () => {
         <Routes>
           <Route
             element={<productSingleView fetchProducts={fetchProducts} />}
-            path="/productSingleView"
+            path="/Products/:id"
           />
         </Routes>
       </div>
