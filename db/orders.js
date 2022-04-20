@@ -109,6 +109,7 @@ const getCartByUserId = async (creatorId) => {
     `,
       [creatorId]
     );
+    console.log(cart);
     return cart.rows[0];
   } catch (error) {
     throw error;

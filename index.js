@@ -40,8 +40,8 @@ app.get("*", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
 
-app.use((error, req, res, next) => {
-  res.status(400).send(error);
+app.use(({ name, message }, req, res, next) => {
+  res.status(400).send({ name, message });
 });
 
 app.listen(PORT, () => {
