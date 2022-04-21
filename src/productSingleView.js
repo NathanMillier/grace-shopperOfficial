@@ -40,7 +40,7 @@ const productSingleview = ( {fetchProducts}) => {
                 <button onClick={orderQuantity.decreaseQuantity}>-</button>
                 <input
                 type ="number"
-                value = {orderQuantity}
+                value = {orderQuantity}/>
                     
 
             <button type ="submit" onClick={(e) => checkQuantity(e.target.value)}>Add To Cart</button>
