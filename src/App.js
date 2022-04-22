@@ -8,6 +8,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
 import Admin from "./Admin";
+import Cart from "./Cart";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -16,6 +17,7 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState("");
 
   const fetchProducts = async () => {
@@ -42,6 +44,25 @@ const App = () => {
     if (!data.error) {
       console.log("User set");
       setUser(data);
+    }
+  };
+  // console.log(products);
+  const addItemToCart = (currentProduct) => {
+    // const exist = products.find((product) => {
+    //   product.id == currentProduct.id;
+    // });
+
+    const exist = products.find((product) => product.id === currentProduct.id);
+    // console.log(exist);
+    // setCartItems([exist]);
+
+    if (cartItems.find((x) => x.id === exist.id)) {
+      const itemToAdd = cartItems.map((x) =>
+        x.id === currentProduct.id ? { ...exist, qty: x.qty + 1 } : x
+      );
+      setCartItems(itemToAdd);
+    } else {
+      setCartItems([...cartItems, { ...currentProduct, qty: 1 }]);
     }
   };
 
@@ -95,14 +116,18 @@ const App = () => {
 
           <Route
             element={
-              <Products products={products} fetchProducts={fetchProducts} />
+              <Products
+                products={products}
+                fetchProducts={fetchProducts}
+                addItemToCart={addItemToCart}
+              />
             }
             path="/Products"
           />
 
           <Route
             element={<productSingleView fetchProducts={fetchProducts} />}
-            path="/productSingleView"
+            path="/Products/:id"
           />
 
           <Route
@@ -111,6 +136,16 @@ const App = () => {
             }
             path="/admin"
           />
+          <Route
+            element={
+              <Cart
+                setCartItems={setCartItems}
+                cartItems={cartItems}
+                addItemToCart={addItemToCart}
+              />
+            }
+            path="/Cart"
+          ></Route>
         </Routes>
       </div>
     </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useParams } from "react";
 
 
-const productSingleview = ( {fetchProducts}) => {
-    
+const ProductSingleview = ( {fetchProducts}) => {
+    const params = useParams()
     const orderQuantity, setOrderQuantity = useState
 
     const increaseQuantity = () => {
@@ -22,7 +22,7 @@ const productSingleview = ( {fetchProducts}) => {
     }
 
     const fetchProduct = async () => {
-        const response = await 
+        const response = await fetch ``
 
     }
     return (
@@ -40,10 +40,10 @@ const productSingleview = ( {fetchProducts}) => {
                 <button onClick={orderQuantity.decreaseQuantity}>-</button>
                 <input
                 type ="number"
-                value = {orderQuantity}
+                value = {orderQuantity}/>
                     
 
-            <button type ="submit" onClick={(e) => checkQuantity(e.target.value)}>Add To Cart</button>
+            <button type ="submit" onClick={(e) => checkQuantity(orderQuantity)}>Add To Cart</button>
             </form>
 
         </div>

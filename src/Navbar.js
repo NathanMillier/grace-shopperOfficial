@@ -9,10 +9,12 @@ const Navbar = ({ user, setToken, setUser, token }) => {
           <Link to="/" className="link">
             Home
           </Link>
+
           <Link to="/Products" className="link">
             Products
           </Link>
-          {token ? (
+          <Link to="/Cart">Cart</Link>
+          {user ? (
             <Link
               to="/"
               onClick={() => {
