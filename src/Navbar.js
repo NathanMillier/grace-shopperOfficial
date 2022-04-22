@@ -12,6 +12,7 @@ const Navbar = ({ user, setToken, setUser }) => {
           <Link to="/Products" className="link">
             Products
           </Link>
+          <Link to="/Cart">Cart</Link>
           {user ? (
             <Link
               to="/"
