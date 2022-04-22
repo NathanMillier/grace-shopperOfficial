@@ -7,10 +7,11 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
+import Admin from "./Admin";
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +29,7 @@ const App = () => {
 
     if (lsToken) {
       setToken(lsToken);
+      console.log("token set");
     }
     const response = await fetch("http://localhost:3001/api/user/me", {
       headers: {
@@ -36,6 +38,7 @@ const App = () => {
     });
 
     const data = await response.json();
+
     if (!data.error) {
       console.log("User set");
       setUser(data);
@@ -49,11 +52,10 @@ const App = () => {
 
   return (
     <div id="container">
-      <Navbar user={user} setUser={setUser} setToken={setToken} />
+      <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
 
       <div id="main">
         <Routes>
-
           <Route element={<Home user={user} />} path="/" />
           <Route
             element={
@@ -71,7 +73,6 @@ const App = () => {
             }
             path="/Login"
           />
-
 
           <Route
             element={
@@ -99,12 +100,17 @@ const App = () => {
             path="/Products"
           />
 
-
           <Route
             element={<productSingleView fetchProducts={fetchProducts} />}
             path="/productSingleView"
           />
 
+          <Route
+            element={
+              <Admin fetchUser={fetchUser} products={products} user={user} />
+            }
+            path="/admin"
+          />
         </Routes>
       </div>
     </div>
