@@ -2,11 +2,7 @@ import React from "react";
 
 import { useEffect } from "react";
 
-<<<<<<< HEAD
-const Products = ({ products, fetchProducts }) => {
-=======
 const Products = ({ products, fetchProducts, addItemToCart }) => {
->>>>>>> 3381810bc4c84d08fc7fdc3e92fc4b9f527dd9f3
   useEffect(() => {
     fetchProducts();
   }, []);
