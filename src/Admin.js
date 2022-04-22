@@ -25,6 +25,7 @@ const Admin = ({ products }) => {
       }),
     });
     console.log("hit");
+    console.log('Testing things')
   };
 
   useEffect(() => {
