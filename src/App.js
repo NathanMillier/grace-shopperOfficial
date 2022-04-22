@@ -12,7 +12,7 @@ import Cart from "./Cart";
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -132,7 +132,12 @@ const App = () => {
 
           <Route
             element={
-              <Admin fetchUser={fetchUser} products={products} user={user} />
+              <Admin
+                fetchUser={fetchUser}
+                products={products}
+                user={user}
+                token={token}
+              />
             }
             path="/admin"
           />
