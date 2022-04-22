@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Navbar = ({ user, setToken, setUser }) => {
+const Navbar = ({ user, setToken, setUser, token }) => {
+  console.log(user);
   return (
     <div className="navbar">
       <div id="menu">
@@ -18,7 +19,7 @@ const Navbar = ({ user, setToken, setUser }) => {
               to="/"
               onClick={() => {
                 setToken("");
-                setUser(null);
+                setUser({});
                 localStorage.removeItem("token");
               }}
             >
@@ -34,6 +35,11 @@ const Navbar = ({ user, setToken, setUser }) => {
               </Link>
             </>
           )}
+          {user.isAdmin === true ? (
+            <Link to="/admin" className="link">
+              Admin
+            </Link>
+          ) : null}
         </ul>
       </div>
     </div>

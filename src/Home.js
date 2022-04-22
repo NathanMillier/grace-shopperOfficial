@@ -1,7 +1,6 @@
 import React from "react";
 
 const Home = ({ user }) => {
-
   if (!user) {
     return (
       <div>
