@@ -1,12 +1,18 @@
 const client = require("./index");
 
-const getProductsByCategory = async () => {
+const getProductsByCategory = async ({ categoryId }) => {
   try {
     const {
       rows: [products_categories],
-    } = await client.query(`
+    } = await client.query(
+      `
+    SELECT * FROM products 
+    JOIN products_categories ON products.id = products_categories."productId"
+    WHERE products_categories."categoryId" = $1;
 
-    `);
+    `,
+      [categoryId]
+    );
   } catch (error) {
     throw error;
   }
@@ -18,7 +24,7 @@ const addProductToCategory = async ({ categoryId, productId }) => {
       rows: [products_categories],
     } = await client.query(
       `
-    INSERT INTO product_categories ( "categoryId", "productId")
+    INSERT INTO products_categories ( "categoryId", "productId")
     VALUES ($1, $2)
     ON CONFLICT ("categoryId", "productId") DO NOTHING
     RETURNING *;
