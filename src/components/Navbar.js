@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ user, setToken, setUser, token }) => {
   return (
@@ -14,23 +15,46 @@ const Navbar = ({ user, setToken, setUser, token }) => {
         <div className="navcenter">Feet Heat</div>
         <div className="navright">
           <div className="menuCont">
-            <div className="menuItem" link to="/src/pages/Home.js">
+            <Link to="/" className="menuItem">
               HOME
-            </div>
-            <div className="menuItem" link to="/src/pages/AllProducts.js">
+            </Link>
+            <Link to="/AllProducts" className="menuItem">
               ALL SHOES
-            </div>
+            </Link>
+            {user ? (
+              <Link
+                to="/"
+                onClick={() => {
+                  setToken("");
+                  setUser(null);
+                  localStorage.removeItem("token");
+                }}
+                className="menuItem"
+              >
+                LOGOUT
+              </Link>
+            ) : (
+              <>
+                <Link to="/Login" className="menuItem">
+                  SIGN IN
+                </Link>
+                <Link to="/Register" className="menuItem">
+                  REGISTER
+                </Link>
+              </>
+            )}
+            {user ? (
+              user.isAdmin == true ? (
+                <Link to="/admin" className="link">
+                  Admin
+                </Link>
+              ) : null
+            ) : null}
 
-            <div className="menuItem" link to="/src/pages/Register.js">
-              REGISTER
-            </div>
-            <div className="menuItem" link to="/src/pages/Login.js">
-              SIGN IN
-            </div>
-            <div className="menuItem">
+            <Link to="/Cart" className="menuItem">
               CART
               {/* <ShoppingCartOutlined style={{ marginLeft: "5px" }} /> */}
-            </div>
+            </Link>
           </div>
         </div>
       </div>
