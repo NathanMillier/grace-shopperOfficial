@@ -4,11 +4,11 @@ const addItemToOrder = async ({ productId, orderID, price, quantity }) => {
   try {
     const order_items = await client.query(
       `
-    INSERT INTO order_items("productId", "orderID", price, quantity)
-    VALUES($1, $2, $3, $4)
+    INSERT INTO order_items("productId", price, quantity)
+    VALUES($1, $2, $3) WHERE "orderID" = $4
     RETURNING*;
     `,
-      [productId, orderID, price, quantity]
+      [productId, quantity, price, orderID]
     );
     return order_items.rows[0];
   } catch (error) {

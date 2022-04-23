@@ -2,7 +2,12 @@ const express = require("express");
 const userRouter = express.Router();
 const jwt = require("jsonwebtoken");
 
-const { createUser, getUser } = require("../db/users");
+const {
+  createUser,
+  getUser,
+  getUserByEmail,
+  getallUsers,
+} = require("../db/users");
 
 userRouter.use((req, res, next) => {
   console.log("A request is being made to /users...");
@@ -10,6 +15,7 @@ userRouter.use((req, res, next) => {
 });
 
 userRouter.post("/register", async (req, res, next) => {
+  console.log(req.body);
   try {
     if (req.body.password.length < 8) {
       throw new Error("Password is too short, must be at least 8 characters");
@@ -24,7 +30,6 @@ userRouter.post("/register", async (req, res, next) => {
 });
 
 userRouter.post("/login", async (req, res, next) => {
-
   const user = await getUser(req.body);
 
   try {
@@ -46,6 +51,16 @@ userRouter.get("/me", async (req, res, next) => {
     return res.status(401).send({ error: "no user" });
   }
   res.send(req.user);
+});
+
+userRouter.get("/all", async (req, res, next) => {
+  try {
+    const user = await getallUsers();
+
+    res.send(user);
+  } catch (error) {
+    throw error;
+  }
 });
 
 module.exports = userRouter;

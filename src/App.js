@@ -7,6 +7,8 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
+import Admin from "./Admin";
+import Cart from "./Cart";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -15,6 +17,7 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState("");
 
   const fetchProducts = async () => {
@@ -28,6 +31,7 @@ const App = () => {
 
     if (lsToken) {
       setToken(lsToken);
+      console.log("token set");
     }
     const response = await fetch("http://localhost:3001/api/user/me", {
       headers: {
@@ -36,9 +40,29 @@ const App = () => {
     });
 
     const data = await response.json();
+
     if (!data.error) {
       console.log("User set");
       setUser(data);
+    }
+  };
+  // console.log(products);
+  const addItemToCart = (currentProduct) => {
+    // const exist = products.find((product) => {
+    //   product.id == currentProduct.id;
+    // });
+
+    const exist = products.find((product) => product.id === currentProduct.id);
+    // console.log(exist);
+    // setCartItems([exist]);
+
+    if (cartItems.find((x) => x.id === exist.id)) {
+      const itemToAdd = cartItems.map((x) =>
+        x.id === currentProduct.id ? { ...exist, qty: x.qty + 1 } : x
+      );
+      setCartItems(itemToAdd);
+    } else {
+      setCartItems([...cartItems, { ...currentProduct, qty: 1 }]);
     }
   };
 
@@ -49,11 +73,10 @@ const App = () => {
 
   return (
     <div id="container">
-      <Navbar user={user} setUser={setUser} setToken={setToken} />
+      <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
 
       <div id="main">
         <Routes>
-
           <Route element={<Home user={user} />} path="/" />
           <Route
             element={
@@ -71,7 +94,6 @@ const App = () => {
             }
             path="/Login"
           />
-
 
           <Route
             element={
@@ -94,17 +116,41 @@ const App = () => {
 
           <Route
             element={
-              <Products products={products} fetchProducts={fetchProducts} />
+              <Products
+                products={products}
+                fetchProducts={fetchProducts}
+                addItemToCart={addItemToCart}
+              />
             }
             path="/Products"
           />
-
 
           <Route
             element={<productSingleView fetchProducts={fetchProducts} />}
             path="/Products/:id"
           />
 
+          <Route
+            element={
+              <Admin
+                fetchUser={fetchUser}
+                products={products}
+                user={user}
+                token={token}
+              />
+            }
+            path="/admin"
+          />
+          <Route
+            element={
+              <Cart
+                setCartItems={setCartItems}
+                cartItems={cartItems}
+                addItemToCart={addItemToCart}
+              />
+            }
+            path="/Cart"
+          ></Route>
         </Routes>
       </div>
     </div>
