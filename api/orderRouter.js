@@ -22,6 +22,14 @@ orderRouter.get("/:id", async (req, res, next) => {
   }
 });
 
+orderRouter.post("/cart", async (req, res, next) => {
+  try {
+    const cart = req.user.cart;
+  } catch (error) {
+    next(error);
+  }
+});
+
 // orderRouter.patch("/:id", async (req, res) => {
 //   const creatorId = req.body.creatorId;
 //   const id = req.params.id;

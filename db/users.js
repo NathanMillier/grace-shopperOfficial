@@ -30,7 +30,7 @@ const getUserById = async (userId) => {
       rows: [user],
     } = await client.query(
       `
-        SELECT id, email
+        SELECT id, email, "isAdmin"
         FROM users
         WHERE id = $1
       `,
@@ -80,9 +80,20 @@ const getUserByEmail = async (email) => {
   }
 };
 
+const getallUsers = async () => {
+  try {
+    const user = await client.query(`SELECT id,email FROM users;`);
+
+    return user.rows;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   createUser,
   getUser,
   getUserById,
   getUserByEmail,
+  getallUsers,
 };

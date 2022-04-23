@@ -2,7 +2,7 @@ import React from "react";
 
 import { useEffect } from "react";
 
-const Products = ({ products, fetchProducts }) => {
+const Products = ({ products, fetchProducts, addItemToCart }) => {
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -15,6 +15,14 @@ const Products = ({ products, fetchProducts }) => {
             <div>{p.title}</div>
             <div>{p.price}$</div>
             <img src={p.imgurl} width="300" height="300"></img>
+            <button
+              onClick={() => {
+                console.log("clickefd");
+                addItemToCart(p);
+              }}
+            >
+              Add to cart
+            </button>
           </div>
         );
       })}
