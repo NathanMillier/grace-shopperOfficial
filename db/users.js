@@ -4,6 +4,7 @@ const client = require("./index");
 const createUser = async ({ email, password, isAdmin = false }) => {
   try {
     const hashPassword = await bcrypt.hash(password, 10);
+    console.log(hashPassword);
     const response = await client.query(
       `
         INSERT INTO users (email, password, "isAdmin") VALUES ($1, $2, $3)
@@ -11,11 +12,15 @@ const createUser = async ({ email, password, isAdmin = false }) => {
         `,
       [email, hashPassword, isAdmin]
     );
+    console.log(response, "susus");
+    // if (response.error) {
+    //   return { error: "signupError", message: "User already exists" };
+    // }
     delete response.rows[0].password;
 
     return response.rows[0];
   } catch (err) {
-    throw err;
+    throw { name: "signupError", message: "User already exists" };
   }
 };
 
@@ -25,7 +30,7 @@ const getUserById = async (userId) => {
       rows: [user],
     } = await client.query(
       `
-        SELECT id, email
+        SELECT id, email, "isAdmin"
         FROM users
         WHERE id = $1
       `,
@@ -46,13 +51,17 @@ const getUser = async ({ email, password }) => {
     `,
       [email]
     );
-    const hashPassword = user.rows[0].password;
-    const passwordsMatch = await bcrypt.compare(password, hashPassword);
-    if (passwordsMatch) {
-      delete user.rows[0].password;
-      return user.rows[0];
+    if (!user.rows.length) {
+      return { name: "noUser", message: "User does not exists" };
     } else {
-      return null;
+      const hashPassword = user.rows[0].password;
+      const passwordsMatch = await bcrypt.compare(password, hashPassword);
+      if (passwordsMatch) {
+        delete user.rows[0].password;
+        return user.rows[0];
+      } else {
+        return { name: "loginError", message: "Incorrect credentials" };
+      }
     }
   } catch (error) {
     throw error;
@@ -71,9 +80,20 @@ const getUserByEmail = async (email) => {
   }
 };
 
+const getallUsers = async () => {
+  try {
+    const user = await client.query(`SELECT id,email FROM users;`);
+
+    return user.rows;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   createUser,
   getUser,
   getUserById,
   getUserByEmail,
+  getallUsers,
 };

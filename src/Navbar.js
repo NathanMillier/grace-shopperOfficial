@@ -1,21 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Navbar = () => {
+const Navbar = ({ user, setToken, setUser, token }) => {
   return (
-    <div>
-      <div>
-        <Link to="/" className="link">
-          Home
-        </Link>
-        <Link to="/Login" className="link">
-          Login
-        </Link>
-        <Link to="/Register" className="link">
-          Register
-        </Link>
-        <Link to="/Products" className="link">
-          Products
-        </Link>
+    <div className="navbar">
+      <div id="menu">
+        <ul className="menu">
+          <Link to="/" className="link">
+            Home
+          </Link>
+
+          <Link to="/Products" className="link">
+            Products
+          </Link>
+          <Link to="/Cart">Cart</Link>
+          {user ? (
+            <Link
+              to="/"
+              onClick={() => {
+                setToken("");
+                setUser(null);
+                localStorage.removeItem("token");
+              }}
+            >
+              Logout
+            </Link>
+          ) : (
+            <>
+              <Link to="/Login" className="link">
+                Login
+              </Link>
+              <Link to="/Register" className="link">
+                Register
+              </Link>
+            </>
+          )}
+          {user ? (
+            user.isAdmin == true ? (
+              <Link to="/admin" className="link">
+                Admin
+              </Link>
+            ) : null
+          ) : null}
+        </ul>
       </div>
     </div>
   );
