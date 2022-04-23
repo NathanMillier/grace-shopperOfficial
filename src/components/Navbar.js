@@ -35,7 +35,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
               </Link>
             ) : (
               <>
-                <Link to="/Login" className="menuItem">
+                <Link to="/src/pages/Login.js" className="menuItem">
                   SIGN IN
                 </Link>
                 <Link to="/Register" className="menuItem">

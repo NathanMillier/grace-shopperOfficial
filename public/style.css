@@ -218,9 +218,115 @@ cursor: pointer;
 
 /* Categories Component Styling */
 
+.categoriesCont {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  margin-top: 25px;
+  background-color: white;
+  
+
+}
+
+
+
+
 /* CategoryItem Component Styling */
 
+.catItemCont {
+  flex: 1;
+  margin: 3px;
+  height: 70vh;
+  position: relative;
+  border: 1px solid gray;
+  margin-bottom: 100px;
+}
+
+.catItemCont img {
+  width: 100%;
+height: 100%;
+object-fit: cover;
+background-color: lightgray;
+
+}
+
+.catInfo {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.catInfo h1 {
+  color:white;
+  margin-bottom: 20px;
+  
+}
+
+.catInfo button {
+  border:none;
+  padding: 10px;
+  background-color: white;
+  color:gray;
+  cursor: pointer;
+  font-weight: 600;
+  
+}
+
+
+
+
 /* Newsletter Component Styling */
+
+.newsLetterCont {
+  height: 60vh;
+  background-color: #DFE2DB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.newsLetterCont h1 {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+.newsLetterCont #newsDesc {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.newsLetterInput {
+  width: 50%;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+}
+
+.newsLetterInput input {
+  border: none;
+  flex: 8;
+  padding-left: 20px;
+}
+
+.newsLetterInput button {
+  flex: 1;
+  border: none;
+  background-color: red;
+  color: white;
+}
+
+
+
 
 /* Footer Component Styling */
 
@@ -307,6 +413,133 @@ cursor: pointer;
 }
 
 
+/*Login page styling */
+
+.loginCont {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/7524992/pexels-photo-7524992.jpeg?cs=srgb&dl=pexels-erik-mclean-7524992.jpg&fm=jpg")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginCard {
+  width: 25%;
+  padding: 20px;
+  background-color: white;
+}
+
+.loginCard h2 {
+  font-size: 24px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+}
+
+.loginCard form {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginCard input {
+  flex: 1;
+  min-width: 40%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.loginCard button {
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.loginCard button:hover {
+ animation: alternate;
+ transform: scale(1.1);
+
+}
+
+#link {
+  margin: 5px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+ /*Register page styling */
+
+ .registerCont {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/981619/pexels-photo-981619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registerCard {
+  width: 40%;
+  padding: 20px;
+  background-color: white;
+
+}
+
+
+
+.registerCard h2 {
+  font-size: 24px;
+  font-weight: 300;
+  
+}
+
+.registerCard form {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.registerCard input {
+  flex: 1;
+  min-width: 40%;
+  margin: 20px 10px 0px 0px;
+  padding: 10px;
+  
+}
+
+.registerAgreement {
+  font-size: 12px;
+  margin: 20px 0px;
+}
+
+.registerCard button {
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
 
 
 
@@ -367,7 +600,7 @@ body > div {
   align-content: center;
   justify-content: space-between;
 }
-*/ #card {
+/* #card {
   background-color: #edeae5;
   border: 2px solid #8590aa;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
@@ -383,7 +616,7 @@ body > div {
   align-content: center;
   justify-content: center;
   border-radius: 15px;
-}
+} */
 
 .productsCard:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -433,7 +666,7 @@ body > div {
   margin-bottom: 25px;
 }
 
-.registerCard {
+/* .registerCard {
   background-color: #edeae5;
   border: 2px solid #8590aa;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
@@ -453,4 +686,4 @@ body > div {
 
 .registerCard h1 {
   margin-bottom: 25px;
-}
+} */

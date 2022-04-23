@@ -2,10 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-// import Navbar from "./Navbar";
 import Navbar from "./components/Navbar";
-// import Home from "./Home";
-import Login from "./Login";
+// import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
 import Admin from "./Admin";
@@ -14,6 +12,9 @@ import Announcement from "./components/Announcement";
 import Slider from "./components/Slider";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import Newsletter from "./components/Newsletter";
+import Categories from "./components/Categories";
+import Login from "./pages/Login";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -81,6 +82,7 @@ const App = () => {
       <Announcement />
       <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
       <Slider />
+      <Categories />
 
       <div id="main">
         <Routes>
@@ -160,6 +162,7 @@ const App = () => {
           ></Route>
         </Routes>
       </div>
+      <Newsletter />
       <Footer />
     </div>
   );

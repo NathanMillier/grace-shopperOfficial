@@ -1,3 +1,5 @@
+// NO LONGER USING THIS PAGE
+
 // import React from "react";
 
 // const Home = ({ user }) => {
