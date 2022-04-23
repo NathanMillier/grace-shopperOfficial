@@ -132,7 +132,12 @@ const App = () => {
 
           <Route
             element={
-              <Admin fetchUser={fetchUser} products={products} user={user} />
+              <Admin
+                fetchUser={fetchUser}
+                products={products}
+                user={user}
+                token={token}
+              />
             }
             path="/admin"
           />
