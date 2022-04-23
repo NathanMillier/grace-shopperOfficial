@@ -1,6 +1,8 @@
 import React from "react";
 import Announcement from "../components/Announcement";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Slider from "../components/Slider";
 
 const Home = ({ user }) => {
   if (!user) {
@@ -11,6 +13,8 @@ const Home = ({ user }) => {
       <Announcement />
       <Navbar />
       <p>Welcome {user.email}</p>
+      <Slider />
+      <Footer />
     </div>
   );
 };

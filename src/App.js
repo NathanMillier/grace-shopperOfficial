@@ -4,13 +4,16 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 // import Navbar from "./Navbar";
 import Navbar from "./components/Navbar";
-import Home from "./Home";
+// import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
 import Admin from "./Admin";
 import Cart from "./Cart";
 import Announcement from "./components/Announcement";
+import Slider from "./components/Slider";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -77,10 +80,11 @@ const App = () => {
     <div id="container">
       <Announcement />
       <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
+      <Slider />
 
       <div id="main">
         <Routes>
-          <Route element={<Home user={user} />} path="/" />
+          {/* <Route element={<Home user={user} />} path="/" /> */}
           <Route
             element={
               <Login
@@ -156,6 +160,7 @@ const App = () => {
           ></Route>
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 };
