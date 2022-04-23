@@ -18,10 +18,14 @@ const Admin = ({ products }) => {
   const updateProduct = async (e) => {
     const resp = await fetch(`http://localhost:3001/api/products`, {
       method: "PATCH",
-
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         title: title,
         description: description,
+        
       }),
     });
     console.log("hit");
