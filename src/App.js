@@ -10,6 +10,7 @@ import Register from "./Register";
 import Products from "./Products";
 import Admin from "./Admin";
 import Cart from "./Cart";
+import Announcement from "./components/Announcement";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -74,6 +75,7 @@ const App = () => {
 
   return (
     <div id="container">
+      <Announcement />
       <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
 
       <div id="main">
