@@ -1,7 +1,101 @@
 * {
-  font-family: arial, sans-serif;
   margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
 }
+
+
+/* Announcement Component Styling */
+
+/* Navbar Component Styling */
+
+.navbar {
+  height: 60px;
+}
+
+.navcont {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navleft {
+  width: 33.333%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.searchcont {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  padding: 5px;
+}
+
+.navcenter {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 33.333%;
+  flex: 1;
+  align-items: center;
+  color: red;
+    }
+
+.navright {
+  width: 33.333%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.menuCont {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuItem {
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
+  
+
+}
+
+
+
+
+
+
+/* Slider Component Styling */
+
+/* Categories Component Styling */
+
+/* CategoryItem Component Styling */
+
+/* Newsletter Component Styling */
+
+/* Footer Component Styling */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #card {
   background-color: #edeae5;
@@ -31,31 +125,7 @@ body > div {
   background-attachment: fixed;
 }
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: flex-end;
-  color: white;
-  overflow: hidden;
-  background-color: #333;
-  padding: 2em;
-  border-bottom: 1px solid black;
-}
 
-#menu {
-  display: flex;
-  flex-direction: row;
-
-  justify-content: space-around;
-}
-.menu Link {
-  text-decoration: none;
-}
-
-.menu a {
-  color: white;
-}
 
 .productsHeader {
   padding: 15px;
