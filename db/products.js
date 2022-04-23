@@ -52,7 +52,7 @@ const updateProduct = async ({
   try {
     if (id != undefined) {
       if (title) {
-        client.query(
+        await client.query(
           `
           UPDATE products
           SET "title" = $1
@@ -62,7 +62,7 @@ const updateProduct = async ({
         );
       }
       if (description) {
-        client.query(
+        await client.query(
           `
           UPDATE products
           SET description = $1
@@ -72,7 +72,7 @@ const updateProduct = async ({
         );
       }
       if (stock) {
-        client.query(
+        await client.query(
           `
           UPDATE products
           SET stock = $1
@@ -82,7 +82,7 @@ const updateProduct = async ({
         );
       }
       if (price) {
-        client.query(
+        await client.query(
           `
         UPDATE products
         SET price = $1 
@@ -92,8 +92,8 @@ const updateProduct = async ({
         );
       }
       if (imgurl) {
-        client.query(
-          `UPDATE prodcuts
+        await client.query(
+          `UPDATE products
          SET imgurl = $1
           WHERE id = $2`,
           [imgurl, id]
@@ -109,7 +109,7 @@ const updateProduct = async ({
       [id]
     );
 
-    return response.rows;
+    return response;
   } catch (err) {
     throw err;
   }

@@ -137,6 +137,7 @@ const App = () => {
                 products={products}
                 user={user}
                 token={token}
+                fetchProducts={fetchProducts}
               />
             }
             path="/admin"
