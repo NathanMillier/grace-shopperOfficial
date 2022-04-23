@@ -12,7 +12,7 @@ import Cart from "./Cart";
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

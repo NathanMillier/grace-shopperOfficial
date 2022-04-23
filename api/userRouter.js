@@ -56,6 +56,7 @@ userRouter.get("/me", async (req, res, next) => {
 userRouter.get("/all", async (req, res, next) => {
   try {
     const user = await getallUsers();
+
     res.send(user);
   } catch (error) {
     throw error;
