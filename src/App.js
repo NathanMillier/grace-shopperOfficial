@@ -7,6 +7,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
+import ProductSingleView from "./ProductSingleView";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -61,7 +62,12 @@ const App = () => {
         </Routes>
         <Routes>
           <Route
-            element={<productSingleView fetchProducts={fetchProducts} />}
+            element={
+              <ProductSingleView
+                products={products}
+                fetchProducts={fetchProducts}
+              />
+            }
             path="/Products/:id"
           />
         </Routes>
