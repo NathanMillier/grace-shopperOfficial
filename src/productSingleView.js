@@ -1,10 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState, useEffect, useParams } from "react";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const ProductSingleview = ({ fetchProducts }) => {
-  const params = useParams();
-  const [orderQuantity, setOrderQuantity] = useState;
+const ProductSingleView = ({ products, fetchProducts }) => {
+  const [orderQuantity, setOrderQuantity] = useState(1);
+  const [product, setProduct] = useState({});
+  const { id } = useParams();
+  // const { products } =
+  console.log(product);
+  useEffect(() => {
+    setProduct(products.find((product) => product.id === +id));
+  }, [products]);
 
   const increaseQuantity = () => {
     orderQuantity.setState({ clicks: this.state.clicks + 1 });
@@ -14,19 +20,16 @@ const ProductSingleview = ({ fetchProducts }) => {
     orderQuantity.setState({ clicks: this.state.clicks - 1 });
   };
 
-  const checkQuantity = () => {
-    if (orderQuantity <= product.stock) {
-      addItemToCart();
-    } else return;
-  };
+  //   const checkQuantity = () => {
+  //     if (orderQuantity <= product.stock) {
+  //       addItemToCart();
+  //     } else return;
+  //   };
 
-  const fetchProduct = async () => {
-    const response = await fetch``;
-  };
-  return (
+  return product ? (
     <div id="container">
       <div id="productInfo">
-        <h1 id="productName">{product.name}</h1>
+        <h1 id="productName">{product.title}</h1>
         <h4 id="productDescription">{product.description}</h4>
         <h4 id="productPrice">{product.price}</h4>
         <img id="productIcon"></img>
@@ -38,12 +41,14 @@ const ProductSingleview = ({ fetchProducts }) => {
         <button onClick={orderQuantity.decreaseQuantity}>-</button>
         <input type="number" value={orderQuantity} />
 
-        <button type="submit" onClick={(e) => checkQuantity(orderQuantity)}>
+        {/* <button type="submit" onClick={(e) => checkQuantity(orderQuantity)}>
           Add To Cart
-        </button>
+        </button> */}
       </form>
     </div>
+  ) : (
+    <h1>Product Not found</h1>
   );
 };
 
-export default productSingleview;
+export default ProductSingleView;

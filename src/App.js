@@ -7,8 +7,10 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
+import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
 import Cart from "./Cart";
+
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -126,7 +128,12 @@ const App = () => {
           />
 
           <Route
-            element={<productSingleView fetchProducts={fetchProducts} />}
+            element={
+              <ProductSingleView
+                products={products}
+                fetchProducts={fetchProducts}
+              />
+            }
             path="/Products/:id"
           />
 
