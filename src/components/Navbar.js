@@ -1,0 +1,41 @@
+import React from "react";
+
+const Navbar = ({ user, setToken, setUser, token }) => {
+  return (
+    <div className="navbar">
+      <div className="navcont">
+        <div className="navleft">
+          EN
+          <div className="searchcont">
+            <input placeholder="Search" value={""}></input>
+            {/* <Search></Search> */}
+          </div>
+        </div>
+        <div className="navcenter">Feet Heat</div>
+        <div className="navright">
+          <div className="menuCont">
+            <div className="menuItem" link to="/src/pages/Home.js">
+              HOME
+            </div>
+            <div className="menuItem" link to="/src/pages/AllProducts.js">
+              ALL SHOES
+            </div>
+
+            <div className="menuItem" link to="/src/pages/Register.js">
+              REGISTER
+            </div>
+            <div className="menuItem" link to="/src/pages/Login.js">
+              SIGN IN
+            </div>
+            <div className="menuItem">
+              CART
+              {/* <ShoppingCartOutlined style={{ marginLeft: "5px" }} /> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
