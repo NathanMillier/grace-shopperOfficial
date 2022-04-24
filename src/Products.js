@@ -11,7 +11,6 @@ const Products = ({ products, fetchProducts, addItemToCart }) => {
   return (
     <div>
       {products.map((p) => {
-        console.log(p.id);
         return (
           <div key={p.id} id="card">
             <div>{p.title}</div>
@@ -20,7 +19,6 @@ const Products = ({ products, fetchProducts, addItemToCart }) => {
             <Link to={`/products/${p.id}`}>Details</Link>
             <button
               onClick={() => {
-                console.log("clickefd");
                 addItemToCart(p);
               }}
             >
