@@ -5,7 +5,7 @@ function CategoryItem({ item }) {
     <div className="catItemCont">
       <img src={item.img} />
       <div classname="catInfo">
-        <h1>{item.title}</h1>
+        <h2>{item.title}</h2>
         <button>SHOP NOW</button>
       </div>
     </div>

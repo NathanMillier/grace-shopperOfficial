@@ -5,9 +5,11 @@ import CategoryItem from "./CategoryItem";
 const Categories = () => {
   return (
     <div className="categoriesCont">
-      {/* {categories.map((item) => (
+      {/* BELOW WE NEED TO MAP THROUGH OUR DB FOR THE CATEGORIES TO DISPLAY THEM INSTEAD OF FROM THE DUMMYDATA PAGE */}
+
+      {categories.map((item) => (
         <CategoryItem item={item} key={item.id} />
-      ))} */}
+      ))}
     </div>
   );
 };
