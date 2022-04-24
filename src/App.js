@@ -15,10 +15,11 @@ import Footer from "./components/Footer";
 import Newsletter from "./components/Newsletter";
 
 import Login from "./pages/Login";
-import AllProducts from "./components/AllProducts";
+
 import Home from "./pages/Home";
 import Categories from "./components/Categories";
 import SingleProduct from "./components/SingleProduct";
+import AllProducts from "./components/AllProducts";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -82,7 +83,7 @@ const App = () => {
   }, [token]);
 
   return (
-    <SingleProduct />
+    <AllProducts />
     // <div id="container">
     //   <Announcement />
     //   <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />

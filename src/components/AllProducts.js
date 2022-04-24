@@ -1,5 +1,5 @@
 import React from "react";
-// import { getProducts } from "../../db/products";
+import { popularProducts } from "../data";
 import SingleProduct from "./SingleProduct";
 
 const AllProducts = () => {
@@ -7,12 +7,12 @@ const AllProducts = () => {
     <>
       <div className="popProductsHead">
         <h1>MOST POPULAR</h1>
-        {/* <button>SEE ALL</button> */}
+        <button>SEE ALL!</button>
       </div>
       <div className="popProductsCont">
-        {/* {getProducts.map((item) => (
+        {popularProducts.map((item) => (
           <SingleProduct item={item} key={item.id} />
-        ))} */}
+        ))}
       </div>
     </>
   );
