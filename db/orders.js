@@ -109,8 +109,32 @@ const getCartByUserId = async (creatorId) => {
     `,
       [creatorId]
     );
-    console.log(cart);
+    // console.log(cart);
     return cart.rows[0];
+  } catch (error) {
+    throw error;
+  }
+};
+
+const getAllProductsByOrderId = async (orderId) => {
+  try {
+    const products = await client.query(
+      `
+      SELECT 
+        products.id,
+        products.title,
+        order_items.price,
+        products.imgurl,
+        order_items.id as "order_items_id",
+        order_items.quantity
+      FROM order_items
+      JOIN products ON products.id = order_items."productId"
+      WHERE "orderId" = $1;
+      
+    `,
+      [orderId]
+    );
+    return products.rows;
   } catch (error) {
     throw error;
   }
@@ -124,4 +148,5 @@ module.exports = {
   createOrder,
   checkoutOrder,
   getCartByUserId,
+  getAllProductsByOrderId,
 };

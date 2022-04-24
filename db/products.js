@@ -7,6 +7,21 @@ const getProducts = async () => {
   return response.rows;
 };
 
+const getProductPrice = async ({ productId }) => {
+  try {
+    const response = await client.query(
+      `
+      SELECT price FROM products
+      WHERE id = $1;
+    `,
+      [productId]
+    );
+    return response.rows[0].price;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const getProductById = async ({ productId }) => {
   try {
     const response = await client.query(
@@ -148,4 +163,5 @@ module.exports = {
   getProductById,
   updateProduct,
   destroyProduct,
+  getProductPrice,
 };
