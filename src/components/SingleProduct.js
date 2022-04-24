@@ -1,6 +1,8 @@
 import React from "react";
 
-const SingleProduct = () => {
+// THIS IS A
+
+const SingleProduct = ({ item }) => {
   return (
     <div className="singleProductCont">
       <div className="circle"></div>
