@@ -72,22 +72,7 @@ const Cart = ({
             );
           })
         : null}
-      {/* {cartItems.map((item) => {
-        return (
-          <div className="cart-item" key={item.id}>
-            <h3>{item.title}</h3>
-            <h4>{item.price}</h4>
-            <h4>{item.qty}</h4>
-            <div>
-              <button onClick={() => addItemToCart(item)}>+</button>
-              <button onClick={() => decreaseQuantity(item)}>-</button>
-              <button onClick={() => removeItemFromCart(item)}>
-                Remove from cart
-              </button>
-            </div>
-          </div>
-        );
-      })} */}
+     
 
       <div className="checkout-container">
         <h3>total: </h3>
