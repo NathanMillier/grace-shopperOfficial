@@ -734,54 +734,6 @@ button #bottomButton :hover {
 
 
 
-#card {
-  background-color: #edeae5;
-  border: 2px solid #8590aa;
-  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  padding: 2px 16px;
-  margin: auto;
-  margin-bottom: 20px;
-  width: 45rem;
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  border-radius: 15px;
-}
-
-/* body,
-body > div {
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-} */
-
-
-
-.productsHeader {
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-}
-
-.productsSubHead {
-  font-size: 1.25rem;
-  padding: 25px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-  justify-content: space-between;
-}
 /* #card {
   background-color: #edeae5;
   border: 2px solid #8590aa;
@@ -800,9 +752,57 @@ body > div {
   border-radius: 15px;
 } */
 
-.productsCard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+/* body,
+body > div {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+} */
+
+
+
+/* .productsHeader {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
+
+.productsSubHead {
+  font-size: 1.25rem;
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+} */
+/* #card {
+  background-color: #edeae5;
+  border: 2px solid #8590aa;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 2px 16px;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 45rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 15px;
+} */
+
+/* .productsCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+} */
 /* 
 .homeCard {
   background-color: #edeae5;

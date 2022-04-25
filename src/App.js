@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 // import Login from "./Login";
-import Register from "./Register";
+// import Register from "./Register";
 import Products from "./Products";
 // import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
@@ -20,6 +20,8 @@ import Home from "./pages/Home";
 import AllPopProducts from "./components/AllPopProducts";
 import AllPopProductsPage from "./pages/AllPopProducts";
 import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -112,7 +114,7 @@ const App = () => {
   }, [token]);
 
   return (
-    <Cart />
+    <Register />
     // <div id="container">
     //   <Announcement />
     //   <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
