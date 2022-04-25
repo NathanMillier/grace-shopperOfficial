@@ -22,6 +22,7 @@ import AllPopProductsPage from "./pages/AllPopProducts";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import SingleProductPage from "./pages/SingleProductPage";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -114,7 +115,7 @@ const App = () => {
   }, [token]);
 
   return (
-    <Register />
+    <Home />
     // <div id="container">
     //   <Announcement />
     //   <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />

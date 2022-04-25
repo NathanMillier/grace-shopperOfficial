@@ -8,14 +8,24 @@ import Newsletter from "../components/Newsletter";
 import Slider from "../components/Slider";
 
 const Home = ({ user }) => {
-  //   if (!user) {
-  //     return <div></div>;
-  //   }
+  if (!user) {
+    return (
+      <div>
+        <Navbar />
+        <Announcement />
+        <Slider />
+        <Categories />
+        <AllPopProducts />
+        <Newsletter />
+        <Footer />
+      </div>
+    );
+  }
   return (
     <div>
       <Navbar />
       <Announcement />
-      <p>Welcome {user}</p>
+      <p>Welcome back, USERNAMEHERE!</p>
       <Slider />
       <Categories />
       <AllPopProducts />
