@@ -11,7 +11,6 @@ import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
 import Cart from "./Cart";
 
-
 const App = () => {
   const [products, setProducts] = useState([]);
   const [user, setUser] = useState(null);
@@ -132,6 +131,7 @@ const App = () => {
               <ProductSingleView
                 products={products}
                 fetchProducts={fetchProducts}
+                addItemToCart={addItemToCart}
               />
             }
             path="/Products/:id"

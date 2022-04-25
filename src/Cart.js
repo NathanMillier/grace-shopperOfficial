@@ -31,7 +31,7 @@ const Cart = ({ cartItems, setCartItems, addItemToCart }) => {
             <h4>{item.qty}</h4>
             <div>
               <button onClick={() => addItemToCart(item)}>+</button>
-              <button onClick={() => removeItemFromCart(item)}>-</button>
+              {/* <button onClick={() => removeItemFromCart(item)}>-</button> */}
             </div>
           </div>
         );
