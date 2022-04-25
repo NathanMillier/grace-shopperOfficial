@@ -72,7 +72,6 @@ const Cart = ({
             );
           })
         : null}
-     
 
       <div className="checkout-container">
         <h3>total: </h3>

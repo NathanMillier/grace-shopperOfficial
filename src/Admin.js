@@ -100,14 +100,14 @@ const Admin = ({ products, token, fetchProducts }) => {
         <button type="submit">Submit Changes</button>
       </form>
       <div>
-        {/* {userss.map((u) => {
+        {userss.map((u) => {
           return (
             <div key={u.id}>
               <div>{u.id}</div>
               <div>{u.email}$</div>
             </div>
           );
-        })} */}
+        })}
       </div>
     </div>
   );
