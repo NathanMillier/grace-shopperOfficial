@@ -1,4 +1,13 @@
 import React from "react";
+import {
+  Facebook,
+  Instagram,
+  MailOutline,
+  Payment,
+  Phone,
+  Room,
+  Twitter,
+} from "@material-ui/icons";
 
 function Footer() {
   return (
@@ -10,12 +19,18 @@ function Footer() {
             Serving the latest and hottest shoe brands on the market Copyright ©
             2022 Feat Heat LTD. All Rights Reserved.
           </p>
-          <p>Designed by APx</p>
+          <p>Designed by Team Feet Heat</p>
         </div>
         <div className="socialCont">
-          <div className="socialIcon">{/* <Facebook /> */}</div>
-          <div className="socialIcon">{/* <Twitter /> */}</div>
-          <div className="socialIcon">{/* <Instagram /> */}</div>
+          <div className="socialIcon">
+            <Facebook />
+          </div>
+          <div className="socialIcon">
+            <Twitter />
+          </div>
+          <div className="socialIcon">
+            <Instagram />
+          </div>
         </div>
       </div>
       <div className="footerCenter">
@@ -31,19 +46,19 @@ function Footer() {
       <div className="footerRight">
         <div id="title">Connect With Us</div>
         <div className="contactItem">
-          {/* <Room style={{ marginRight: "10px" }} /> */}
+          <Room style={{ marginRight: "10px" }} />
           Address
         </div>
         <div className="contactItem">
-          {/* <Phone style={{ marginRight: "10px" }} /> */}
+          <Phone style={{ marginRight: "10px" }} />
           904-123-456
         </div>
         <div className="contactItem">
-          {/* <MailOutline style={{ marginRight: "10px" }} /> */}
+          <MailOutline style={{ marginRight: "10px" }} />
           ContactUs@FeetHeat.com
         </div>
         <div className="contactItem">
-          {/* <Payment style={{ marginRight: "10px" }} /> */}
+          <Payment style={{ marginRight: "10px" }} />
           <img src="https://i.ibb.co/Qfvn4z6/payment.png" />
         </div>
       </div>

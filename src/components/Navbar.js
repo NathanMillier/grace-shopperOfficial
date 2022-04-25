@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 
 const Navbar = ({ user, setToken, setUser, token }) => {
   return (
@@ -9,7 +10,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
           EN
           <div className="searchcont">
             <input placeholder="Search" value={""}></input>
-            {/* <Search></Search> */}
+            <Search />
           </div>
         </div>
         <div className="navcenter" link to="/src/pages/Home.js">
@@ -54,8 +55,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
             ) : null}
 
             <Link to="/Cart" className="menuItem">
-              CART
-              {/* <ShoppingCartOutlined style={{ marginLeft: "5px" }} /> */}
+              <ShoppingCartOutlined style={{ marginLeft: "5px" }} />
             </Link>
           </div>
         </div>
