@@ -5,7 +5,7 @@ const JWT = require("jsonwebtoken");
 const morgan = require("morgan");
 let PORT = process.env.PORT || 3001;
 const { getUserById } = require("./db/users");
-const { getCartByUserId } = require("./db/orders");
+const { getCartByUserId, getAllProductsByOrderId } = require("./db/orders");
 
 const cors = require("cors");
 
@@ -28,8 +28,8 @@ app.use(async (req, res, next) => {
   req.user = user;
   console.log(_user, "THIS IS A STR");
   req.user.cart = await getCartByUserId(user.id);
-  // req.user;
-  console.log(user);
+
+  req.user.cart.products = await getAllProductsByOrderId(req.user.cart.id);
   next();
 });
 

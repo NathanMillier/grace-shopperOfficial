@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 // import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
+// import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
 // import Cart from "./Cart";
 import Announcement from "./components/Announcement";
@@ -57,23 +58,52 @@ const App = () => {
     }
   };
   // console.log(products);
-  const addItemToCart = (currentProduct) => {
-    // const exist = products.find((product) => {
-    //   product.id == currentProduct.id;
-    // });
-
-    const exist = products.find((product) => product.id === currentProduct.id);
-    // console.log(exist);
-    // setCartItems([exist]);
-
-    if (cartItems.find((x) => x.id === exist.id)) {
-      const itemToAdd = cartItems.map((x) =>
-        x.id === currentProduct.id ? { ...exist, qty: x.qty + 1 } : x
-      );
-      setCartItems(itemToAdd);
-    } else {
-      setCartItems([...cartItems, { ...currentProduct, qty: 1 }]);
+  const addItemToCart = async (currentProduct) => {
+    // FETCH ALL PRODUCTS IN THE ORDER
+    console.log(user.cart.products);
+    for (let i = 0; i < user.cart.products.length; i++) {
+      if (user.cart.products.length) {
+        if (currentProduct.id === user.cart.products[i].id) {
+          const response = await fetch(
+            "http://localhost:3001/api/order/updateCartItem",
+            {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                orderId: user.cart.id,
+                productId: currentProduct.id,
+              }),
+            }
+          );
+          const data = await response.json();
+          console.log(data);
+          await fetchUser();
+          return;
+        }
+      }
     }
+
+    const response = await fetch("http://localhost:3001/api/order/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        orderId: user.cart.id,
+        productId: currentProduct.id,
+        price: currentProduct.price,
+        quantity: 1,
+      }),
+    });
+    const data = await response.json();
+    await fetchUser();
+    // CHECK IF CURRENT PRODUCT IS IN ORDER
+    // IF IT IS, UPDATE REQUEST WITH UPDATE QUERY
+    // ELSE POST REQUEST WITH INSERT QUERY
   };
 
   useEffect(() => {
@@ -154,6 +184,98 @@ const App = () => {
     //   <Newsletter />
     //   <Footer />
     // </div>
+
+    //   <div id="container">
+    //     <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
+
+    //     <div id="main">
+    //       <Routes>
+    //         <Route element={<Home user={user} />} path="/" />
+    //         <Route
+    //           element={
+    //             <Login
+    //               email={email}
+    //               setEmail={setEmail}
+    //               password={password}
+    //               setPassword={setPassword}
+    //               user={user}
+    //               setUser={setUser}
+    //               setToken={setToken}
+    //               error={error}
+    //               setError={setError}
+    //             />
+    //           }
+    //           path="/Login"
+    //         />
+
+    //         <Route
+    //           element={
+    //             <Register
+    //               email={email}
+    //               setEmail={setEmail}
+    //               password={password}
+    //               setPassword={setPassword}
+    //               confirm={confirm}
+    //               setConfirm={setConfirm}
+    //               user={user}
+    //               setUser={setUser}
+    //               setToken={setToken}
+    //               error={error}
+    //               setError={setError}
+    //             />
+    //           }
+    //           path="/Register"
+    //         />
+
+    //         <Route
+    //           element={
+    //             <Products
+    //               products={products}
+    //               fetchProducts={fetchProducts}
+    //               addItemToCart={addItemToCart}
+    //             />
+    //           }
+    //           path="/Products"
+    //         />
+
+    //         <Route
+    //           element={
+    //             <ProductSingleView
+    //               products={products}
+    //               fetchProducts={fetchProducts}
+    //             />
+    //           }
+    //           path="/Products/:id"
+    //         />
+
+    //         <Route
+    //           element={
+    //             <Admin
+    //               fetchUser={fetchUser}
+    //               products={products}
+    //               user={user}
+    //               token={token}
+    //             />
+    //           }
+    //           path="/admin"
+    //         />
+    //         <Route
+    //           element={
+    //             <Cart
+    //               setCartItems={setCartItems}
+    //               cartItems={cartItems}
+    //               addItemToCart={addItemToCart}
+    //               products={products}
+    //               user={user}
+    //               token={token}
+    //               fetchUser={fetchUser}
+    //             />
+    //           }
+    //           path="/Cart"
+    //         ></Route>
+    //       </Routes>
+    //     </div>
+    //   </div>
   );
 };
 
