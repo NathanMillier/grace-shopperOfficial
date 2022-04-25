@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Products = ({ products, fetchProducts, addItemToCart }) => {
   useEffect(() => {
@@ -15,9 +16,9 @@ const Products = ({ products, fetchProducts, addItemToCart }) => {
             <div>{p.title}</div>
             <div>{p.price}$</div>
             <img src={p.imgurl} width="300" height="300"></img>
+            <Link to={`/products/${p.id}`}>Details</Link>
             <button
               onClick={() => {
-                console.log("clickefd");
                 addItemToCart(p);
               }}
             >

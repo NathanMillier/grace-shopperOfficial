@@ -4,7 +4,7 @@ const client = require("./index");
 const createUser = async ({ email, password, isAdmin = false }) => {
   try {
     const hashPassword = await bcrypt.hash(password, 10);
-    console.log(hashPassword);
+
     const response = await client.query(
       `
         INSERT INTO users (email, password, "isAdmin") VALUES ($1, $2, $3)
@@ -12,10 +12,7 @@ const createUser = async ({ email, password, isAdmin = false }) => {
         `,
       [email, hashPassword, isAdmin]
     );
-    console.log(response, "susus");
-    // if (response.error) {
-    //   return { error: "signupError", message: "User already exists" };
-    // }
+
     delete response.rows[0].password;
 
     return response.rows[0];
