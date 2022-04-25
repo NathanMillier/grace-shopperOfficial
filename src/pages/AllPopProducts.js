@@ -1,6 +1,11 @@
 import React from "react";
+import Announcement from "../components/Announcement";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Newsletter from "../components/Newsletter";
+import AllPopProducts from "../components/AllPopProducts";
 
-const AllProducts = () => {
+const AllPopProductsPage = () => {
   return (
     <div className="allProductsCont">
       <Navbar />
@@ -41,11 +46,11 @@ const AllProducts = () => {
           </select>
         </div>
       </div>
-      <PopularProducts />
+      <AllPopProducts />
       <Newsletter />
       <Footer />
     </div>
   );
 };
 
-export default AllProducts;
+export default AllPopProductsPage;

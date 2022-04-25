@@ -2,7 +2,7 @@ import React from "react";
 import { popularProducts } from "../data";
 import SingleProduct from "./SingleProduct";
 
-const AllProducts = () => {
+const AllPopProducts = () => {
   return (
     <>
       <div className="popProductsHead">
@@ -14,10 +14,10 @@ const AllProducts = () => {
         ))}
       </div>
       <div className="popProductsFoot">
-        <button>SEE ALL POPULAR PRODUCTS!</button>
+        <button>SEE MORE</button>
       </div>
     </>
   );
 };
 
-export default AllProducts;
+export default AllPopProducts;

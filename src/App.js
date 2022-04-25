@@ -7,15 +7,18 @@ import Navbar from "./components/Navbar";
 import Register from "./Register";
 import Products from "./Products";
 import Admin from "./Admin";
-import Cart from "./Cart";
+// import Cart from "./Cart";
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer";
 import Newsletter from "./components/Newsletter";
 import Categories from "./components/Categories";
 import SingleProduct from "./components/SingleProduct";
-import AllProducts from "./components/AllProducts";
+// import AllProducts from "./components/AllProducts";
 import Slider from "./components/Slider";
 import Home from "./pages/Home";
+import AllPopProducts from "./components/AllPopProducts";
+import AllPopProductsPage from "./pages/AllPopProducts";
+import Cart from "./pages/Cart";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -79,7 +82,7 @@ const App = () => {
   }, [token]);
 
   return (
-    <Home />
+    <Cart />
     // <div id="container">
     //   <Announcement />
     //   <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />

@@ -1,5 +1,5 @@
 import React from "react";
-import AllProducts from "../components/AllProducts";
+import AllPopProducts from "../components/AllPopProducts";
 import Announcement from "../components/Announcement";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
@@ -13,12 +13,12 @@ const Home = ({ user }) => {
   //   }
   return (
     <div>
-      <Announcement />
       <Navbar />
+      <Announcement />
       <p>Welcome {user}</p>
       <Slider />
       <Categories />
-      <AllProducts />
+      <AllPopProducts />
       <Newsletter />
       <Footer />
     </div>
