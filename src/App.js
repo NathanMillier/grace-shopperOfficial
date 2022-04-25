@@ -9,17 +9,17 @@ import Products from "./Products";
 import Admin from "./Admin";
 import Cart from "./Cart";
 import Announcement from "./components/Announcement";
-import Slider from "./components/Slider";
 
 import Footer from "./components/Footer";
 import Newsletter from "./components/Newsletter";
 
 import Login from "./pages/Login";
 
-import Home from "./pages/Home";
 import Categories from "./components/Categories";
 import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
+import Slider from "./components/Slider";
+import Home from "./pages/Home";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -83,7 +83,7 @@ const App = () => {
   }, [token]);
 
   return (
-    <AllProducts />
+    <Home />
     // <div id="container">
     //   <Announcement />
     //   <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />

@@ -72,3 +72,28 @@ export const popularProducts = [
     img: "",
   },
 ];
+
+export const slideItems = [
+  {
+    id: 1,
+    img:
+      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpnghunter.com%2Fpng%2Fwomen-shopping-28%2F&psig=AOvVaw005lWlMWcZYNNM3Ku25xgM&ust=1650847038762000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOjPu866q_cCFQAAAAAdAAAAABAD",
+    title: "SUMMER SALE",
+    desc: "ALL THE LATEST TRENDS! GET 30% OFF NEW ARRIVALS",
+    bg: "f5fafd",
+  },
+  {
+    id: 2,
+    img: "https://i.ibb.co/DG69bQ4/2.png",
+    title: "AUTUMN COLLECTION",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "fcf1ed",
+  },
+  {
+    id: 3,
+    img: "https://i.ibb.co/cXFnLLV/3.png",
+    title: "LOUNGEWEAR LOVE",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "fbf0f4",
+  },
+];

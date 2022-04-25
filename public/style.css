@@ -58,7 +58,9 @@
   flex: 1;
   align-items: center;
   color: red;
+  cursor: pointer;
     }
+
 
 .navright {
   width: 33.333%;
@@ -79,8 +81,11 @@
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
-  
+}
 
+.menuItem:hover {
+  animation: alternate;
+  transform: scale(1.1);
 }
 
 
@@ -158,100 +163,58 @@ z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  
-   
+  justify-content: center; 
 }
 
-.popProductsHead button {
-
+.popProductsFoot {
+padding: 10px 20px;
+margin-bottom: 15px;
+display: flex;
+flex-direction: row ;
+align-items: center;
+justify-content: center;
 }
 
 .popProductsCont {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+padding: 20px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
 }
 
 /* Slider Component Styling */
 
 .sliderCont {
-  width: 100vw;
-  height: 100vh;
-display: flex;
-background-color: whitesmoke;
-align-items: center;
-overflow: hidden;
-
-}
-
-
-.arrowCont {
-  height: 60px;
-  width: 100vw;
-  padding: 10px 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  position: relative;
-  
-  
-}
-
-.arrowLeft {
-    width: 50px;
-    height: 50px;
-    border-color: #fff7f7;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    cursor: pointer;
-    opacity: 0.5;
-    z-index: 2;
-}
-
-/* .sliderWrapper {
-  height: 100%;
-  width: 100vw;
-  display: flex;
-  transition: all 1.5s ease;
-
-} */
-
-
-.slideShow {
-height: 100vh;
-display: flex;
-transition: all 1.5s ease;
-transform: translateX(0vw);
-}
-
-.slide {
 width: 100vw;
 height: 100vh;
 display: flex;
+background-color: whitesmoke;
 align-items: center;
-background-color: white;
+
 
 }
 
-.slideImg {
-flex: 1;
+.slideShow {
 height: 100%;
-border: 1px solid black;
+display: flex;
+transition: all 1.5s ease;
+/* transform: translateX(0vw); */
 }
 
-.slideImg img {
-height: 80%;
-border: 1px solid black;
+.slide {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/8633771/pexels-photo-8633771.jpeg?cs=srgb&dl=pexels-%C3%A7a%C4%9F%C4%B1n-kargi-8633771.jpg&fm=jpg")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .slideInfo {
@@ -266,67 +229,54 @@ font-size: 60px;
 .slideInfo p {
 margin: 50px 0px;
 font-size: 20px;
-font-weight: 500;
+font-weight: 500 bold;
 letter-spacing: 3px;
 }
-
 
 
 .slideInfo button {
 padding: 10px;
 font-size: 20px;
-background-color: transparent;
+color: white;
+background-color: red;
 cursor: pointer;
 }
 
-
-.arrowRight {
-  width: 50px;
-  height: 50px;
-  border-color: #fff7f7;
-  background-color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  cursor: pointer;
-  opacity: 0.5;
-  z-index: 2;
+.slideInfo button:hover {
+  animation: alternate;
+  transform: scale(1.1);
 }
 
 
-
-
-
-
-
-
 /* Categories Component Styling */
+
+.categoriesContHead {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  margin-top: 15px;
+}
 
 .categoriesCont {
   display: flex;
   padding: 20px;
   justify-content: space-between;
-  margin-top: 25px;
+  margin-top: 5px;
   background-color: white;
-  
-
 }
-
-
 
 
 /* CategoryItem Component Styling */
 
 .catItemCont {
-  flex: 1;
-  margin: 3px;
-  height: 70vh;
-  position: relative;
-  border: 1px solid gray;
-  margin-bottom: 100px;
-  
+flex: 1;
+margin: 3px;
+height: 70vh;
+position: relative;
+border: 1px solid gray;
+margin-bottom: 100px;
 }
 
 .catItemCont img {
@@ -350,8 +300,8 @@ justify-content: center;
 }
 
 .catInfo h2 {
-  color:white;
-  margin-bottom: 20px;  
+color:white;
+margin-bottom: 20px;
 }
 
 .catInfo button {

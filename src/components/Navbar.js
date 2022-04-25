@@ -12,7 +12,9 @@ const Navbar = ({ user, setToken, setUser, token }) => {
             {/* <Search></Search> */}
           </div>
         </div>
-        <div className="navcenter">Feet Heat</div>
+        <div className="navcenter" link to="/src/pages/Home.js">
+          Feet Heat
+        </div>
         <div className="navright">
           <div className="menuCont">
             <Link to="/" className="menuItem">

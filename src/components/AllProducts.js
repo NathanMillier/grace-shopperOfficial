@@ -7,12 +7,14 @@ const AllProducts = () => {
     <>
       <div className="popProductsHead">
         <h1>MOST POPULAR</h1>
-        <button>SEE ALL!</button>
       </div>
       <div className="popProductsCont">
         {popularProducts.map((item) => (
           <SingleProduct item={item} key={item.id} />
         ))}
+      </div>
+      <div className="popProductsFoot">
+        <button>SEE ALL POPULAR PRODUCTS!</button>
       </div>
     </>
   );
