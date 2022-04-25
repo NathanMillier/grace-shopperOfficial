@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 
 const Navbar = ({ user, setToken, setUser, token }) => {
   return (
@@ -9,55 +10,53 @@ const Navbar = ({ user, setToken, setUser, token }) => {
           EN
           <div className="searchcont">
             <input placeholder="Search" value={""}></input>
-            {/* <Search></Search> */}
+            {/* <Search /> */}
           </div>
         </div>
-        <div className="navcenter">Feet Heat</div>
+        <div className="navcenter" link to="/src/pages/Home.js">
+          Feet Heat
+        </div>
         <div className="navright">
           <div className="menuCont">
-            <div className="menuItem">
-              <Link to="/">HOME</Link>
-            </div>
-            <div className="menuItem">
-              <Link to="/Products">ALL SHOES</Link>
-            </div>
+            <Link to="/" className="menuItem">
+              HOME
+            </Link>
+            <Link to="/AllProducts" className="menuItem">
+              ALL SHOES
+            </Link>
             {user ? (
-              <div className="menuItem">
-                <Link
-                  to="/"
-                  onClick={() => {
-                    setToken("");
-                    setUser(null);
-                    localStorage.removeItem("token");
-                  }}
-                >
-                  LOGOUT
-                </Link>
-              </div>
+              <Link
+                to="/"
+                onClick={() => {
+                  setToken("");
+                  setUser(null);
+                  localStorage.removeItem("token");
+                }}
+                className="menuItem"
+              >
+                LOGOUT
+              </Link>
             ) : (
-              <div className="menuItem">
-                <Link to="/Login">LOGIN</Link>
-              </div>
+              <>
+                <Link to="/Login" className="menuItem">
+                  SIGN IN
+                </Link>
+                <Link to="/Register" className="menuItem">
+                  REGISTER
+                </Link>
+              </>
             )}
-            {user ? null : (
-              <div className="menuItem">
-                <Link to="/Register">REGISTER</Link>
-              </div>
-            )}
-
-            <div className="menuItem">
-              <Link to="/Cart">CART</Link>
-              {/* <ShoppingCartOutlined style={{ marginLeft: "5px" }} /> */}
-            </div>
             {user ? (
-              user.isAdmin === true ? (
-                <div className="menuItem">
-                  <Link to="/admin" className="link">
-                    ADMIN
-                  </Link>
-                </div>
+              user.isAdmin == true ? (
+                <Link to="/admin" className="link">
+                  Admin
+                </Link>
               ) : null
             ) : null}
+
+            <Link to="/Cart" className="menuItem">
+              {/* <ShoppingCartOutlined style={{ marginLeft: "5px" }} /> */}
+            </Link>
           </div>
         </div>
       </div>
@@ -66,37 +65,3 @@ const Navbar = ({ user, setToken, setUser, token }) => {
 };
 
 export default Navbar;
-
-/* <Link to="/Cart">Cart</Link>;
-{
-  user ? (
-    <Link
-      to="/"
-      onClick={() => {
-        setToken("");
-        setUser(null);
-        localStorage.removeItem("token");
-      }}
-    >
-      Logout
-    </Link>
-  ) : (
-    <>
-      <Link to="/Login" className="link">
-        Login
-      </Link>
-      <Link to="/Register" className="link">
-        Register
-      </Link>
-    </>
-  );
-}
-{
-  user ? (
-    user.isAdmin == true ? (
-      <Link to="/admin" className="link">
-        Admin
-      </Link>
-    ) : null
-  ) : null;
-} */
