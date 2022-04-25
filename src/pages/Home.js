@@ -15,7 +15,7 @@ const Home = ({ user }) => {
     <div>
       <Announcement />
       <Navbar />
-      <p>Welcome {}</p>
+      <p>Welcome {user}</p>
       <Slider />
       <Categories />
       <AllProducts />

@@ -5,8 +5,9 @@ import React from "react";
 const SingleProduct = ({ item }) => {
   return (
     <div className="singleProductCont">
-      <div className="circle"></div>
-      <img src="" alt="" />
+      <div className="circle" />
+      <img src={item.img} />
+
       <div className="infoCont">
         <div className="prodIcon">{/* <ShoppingCartOutlined /> */}</div>
         <div className="prodIcon">{/* <SearchOutlined /> */}</div>

@@ -116,7 +116,7 @@ background-color: white;
 position: absolute;
 }
 
-.singleProductCon img {
+.singleProductCont img {
   height: 75%;
 z-index: 2;
 }

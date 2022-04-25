@@ -9,12 +9,8 @@ import Products from "./Products";
 import Admin from "./Admin";
 import Cart from "./Cart";
 import Announcement from "./components/Announcement";
-
 import Footer from "./components/Footer";
 import Newsletter from "./components/Newsletter";
-
-import Login from "./pages/Login";
-
 import Categories from "./components/Categories";
 import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
