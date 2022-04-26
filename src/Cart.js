@@ -54,6 +54,24 @@ const Cart = ({
 
   return (
     <div className="cart-container">
+// <<<<<<< wellsBranch
+//       {
+//         //map through cartItems to display each item in a container
+//       }
+//       {cartItems.map((item) => {
+//         return (
+//           <div className="cart-item" key={item.id}>
+//             <h3>{item.title}</h3>
+//             <h4>{item.price}</h4>
+//             <h4>{item.qty}</h4>
+//             <div>
+//               <button onClick={() => addItemToCart(item)}>+</button>
+//               {/* <button onClick={() => removeItemFromCart(item)}>-</button> */}
+//             </div>
+//           </div>
+//         );
+//       })}
+// =======
       {user
         ? user.cart.products.map((product) => {
             return (
@@ -72,7 +90,7 @@ const Cart = ({
             );
           })
         : null}
-     
+
 
       <div className="checkout-container">
         <h3>total: </h3>

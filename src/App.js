@@ -9,6 +9,7 @@ import Products from "./Products";
 import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
 import Cart from "./Cart";
+
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer";
 import Newsletter from "./components/Newsletter";
@@ -17,6 +18,7 @@ import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
 import Slider from "./components/Slider";
 import Home from "./pages/Home";
+
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -241,6 +243,7 @@ const App = () => {
               <ProductSingleView
                 products={products}
                 fetchProducts={fetchProducts}
+                addItemToCart={addItemToCart}
               />
             }
             path="/Products/:id"
