@@ -134,7 +134,20 @@ const App = () => {
             path="/Login"
           />
 
-          <Route element={<Register />} path="/Register" />
+          <Route
+            element={
+              <Register
+                setEmail={setEmail}
+                email={email}
+                password={password}
+                setPassword={setPassword}
+                setConfirm={setConfirm}
+                confirm={confirm}
+                setToken={setToken}
+              />
+            }
+            path="/Register"
+          />
 
           <Route
             element={
