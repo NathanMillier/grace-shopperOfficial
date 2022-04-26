@@ -32,7 +32,7 @@ app.use(async (req, res, next) => {
   //   console.log(user);
   // =======
   console.log(_user, "THIS IS A STR");
-  req.user.cart = await getCartByUserId(user.id);
+  // req.user.cart = await getCartByUserId(user.id);
 
   // req.user.cart.products = await getAllProductsByOrderId(req.user.cart.id);
   next();
