@@ -8,7 +8,10 @@ import Navbar from "./components/Navbar";
 import Products from "./Products";
 // import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
-// import Cart from "./Cart";
+
+import Cart from "./Cart";
+
+
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer";
 import Newsletter from "./components/Newsletter";
@@ -23,6 +26,7 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SingleProductPage from "./pages/SingleProductPage";
+
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -241,6 +245,7 @@ const App = () => {
     //           path="/Products"
     //         />
 
+
     //         <Route
     //           element={
     //             <ProductSingleView
@@ -250,6 +255,47 @@ const App = () => {
     //           }
     //           path="/Products/:id"
     //         />
+
+          <Route
+            element={
+              <ProductSingleView
+                products={products}
+                fetchProducts={fetchProducts}
+                addItemToCart={addItemToCart}
+              />
+            }
+            path="/Products/:id"
+          />
+
+          <Route
+            element={
+              <Admin
+                fetchUser={fetchUser}
+                products={products}
+                user={user}
+                token={token}
+              />
+            }
+            path="/admin"
+          />
+          <Route
+            element={
+              <Cart
+                setCartItems={setCartItems}
+                cartItems={cartItems}
+                addItemToCart={addItemToCart}
+                products={products}
+                user={user}
+                token={token}
+                fetchUser={fetchUser}
+              />
+            }
+            path="/Cart"
+          ></Route>
+        </Routes>
+      </div>
+    </div>
+
 
     //         <Route
     //           element={
