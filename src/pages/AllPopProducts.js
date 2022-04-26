@@ -1,15 +1,9 @@
 import React from "react";
-import Announcement from "../components/Announcement";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Newsletter from "../components/Newsletter";
-import AllPopProducts from "../components/AllPopProducts";
+// import AllProducts from "../components/AllProducts";
 
 const AllPopProductsPage = () => {
   return (
     <div className="allProductsCont">
-      <Navbar />
-      <Announcement />
       <div className="title">
         <h1>Shoes</h1>
       </div>
@@ -46,9 +40,7 @@ const AllPopProductsPage = () => {
           </select>
         </div>
       </div>
-      <AllPopProducts />
-      <Newsletter />
-      <Footer />
+      {/* <PopularProducts /> */}
     </div>
   );
 };
