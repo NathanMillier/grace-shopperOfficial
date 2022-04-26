@@ -1,5 +1,9 @@
 import React from "react";
-
+import {
+  FavoriteBorder,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@material-ui/icons";
 // THIS IS A
 
 const SingleProduct = ({ item }) => {
@@ -9,9 +13,15 @@ const SingleProduct = ({ item }) => {
       <img src={item.img} />
 
       <div className="infoCont">
-        <div className="prodIcon">{/* <ShoppingCartOutlined /> */}</div>
-        <div className="prodIcon">{/* <SearchOutlined /> */}</div>
-        <div className="prodIcon">{/* <FavoriteBorder /> */}</div>
+        <div className="prodIcon">
+          <ShoppingCartOutlined />
+        </div>
+        <div className="prodIcon">
+          <SearchOutlined />
+        </div>
+        <div className="prodIcon">
+          <FavoriteBorder />
+        </div>
       </div>
     </div>
   );
