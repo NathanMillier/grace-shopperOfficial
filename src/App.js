@@ -119,7 +119,19 @@ const App = () => {
   }, [token]);
 
   return (
-    <Home />
+    <Register
+      email={email}
+      setEmail={setEmail}
+      password={password}
+      setPassword={setPassword}
+      confirm={confirm}
+      setConfirm={setConfirm}
+      user={user}
+      setUser={setUser}
+      setToken={setToken}
+      error={error}
+      setError={setError}
+    />
     // <div id="container">
     //   <Announcement />
     //   <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
