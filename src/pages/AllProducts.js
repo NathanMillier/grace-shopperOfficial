@@ -1,10 +1,9 @@
 import React from "react";
+// import AllProducts from "../components/AllProducts";
 
 const AllProducts = () => {
   return (
     <div className="allProductsCont">
-      <Navbar />
-      <Announcement />
       <div className="title">
         <h1>Shoes</h1>
       </div>
@@ -41,9 +40,7 @@ const AllProducts = () => {
           </select>
         </div>
       </div>
-      <PopularProducts />
-      <Newsletter />
-      <Footer />
+      {/* <PopularProducts /> */}
     </div>
   );
 };

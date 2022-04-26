@@ -110,7 +110,7 @@ async function createInitialProducts() {
         description:
           "The Air Jordan IV was MJ's first signature model to take flight. Complete with never before seen “Wings” acting as lace locks and an unforgettable color scheme, the silhouette now returns in its truest form. Nodding to its 1989 debut, the new Air Jordan IV features iconic Nike Air branding on both the heel and outsole.",
         imgurl:
-          "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
+          "https://image.goat.com/750/attachments/product_template_pictures/images/011/119/994/original/218099_00.png.png",
         stock: 25,
         price: 250,
       },
@@ -119,7 +119,7 @@ async function createInitialProducts() {
         description:
           "The Suede hit the scene in 1968 and has been changing the game ever since. It's been worn by the icons of every generation and it's",
         imgurl:
-          "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
+          "https://image.goat.com/750/attachments/product_template_pictures/images/008/870/353/original/235806_00.png.png",
         stock: 100,
         price: 75,
       },
@@ -128,7 +128,7 @@ async function createInitialProducts() {
         description:
           "The Sk8-Hi was introduced in 1978 as Style 38, and showcased the now-iconic Vans Sidestripe on a new, innovative high top silhouette. As only the second model featuring the recognizable marker formerly known as the “jazz stripe,” the Sk8-Hi brought a whole new look to the Vans family.  Honoring that first legendary high top, the Sk8-Hi is made with sturdy suede and canvas uppers in a variety of classic and unexpected colorways. This lace-up shoe also includes re-enforced toe caps, supportive padded collars, and signature rubber waffle outsoles.",
         imgurl:
-          "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
+          "https://image.goat.com/750/attachments/product_template_pictures/images/010/223/048/original/13607_00.png.png",
         stock: 150,
         price: 80,
       },
@@ -137,7 +137,7 @@ async function createInitialProducts() {
         description:
           "Inspired by our original waterproof boot, this all-season style gives you tireless waterproof performance and instantly recognizable work-boot styling. Other essential features include 400 grams of warm, down-free PrimaLoft® insulation, a padded collar for a comfortable fit around the ankle, a rubber lug outsole for traction, and materials sourced with respect for the planet.",
         imgurl:
-          "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
+          "https://image.goat.com/750/attachments/product_template_pictures/images/021/545/481/original/509480_00.png.png",
         stock: 55,
         price: 200,
       },
@@ -146,7 +146,7 @@ async function createInitialProducts() {
         description:
           "You need a style to rely on. The Chuck Taylor All-Star is a staple: the high-top and low-top silhouettes stay simply classic, while the white laces and star ankle patch give a nod to the legacy of the Chuck. This is the go-with-everything go-to that you won’t get sick of going to. Stock up.",
         imgurl:
-          "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
+          "https://image.goat.com/750/attachments/product_template_pictures/images/020/806/485/original/461782_00.png.png",
         stock: 150,
         price: 75,
       },
@@ -155,7 +155,7 @@ async function createInitialProducts() {
         description:
           "Step into the water sporting the aquatic Speedo® Surf Knit Pro slip-on water shoes.Surf Knit upper engineered for ultimate support and breathability.Pull tabs in front and back allows easy on and off.Hydrophobic rubber EVA insole. STRAC outsole is designed to disperse water and provide improved performance and traction.",
         imgurl:
-          "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
+          "https://image.goat.com/750/attachments/product_template_pictures/images/021/042/384/original/500924_00.png.png",
         stock: 25,
         price: 75,
       },
@@ -164,7 +164,7 @@ async function createInitialProducts() {
         description:
           "From pistol squats to burpees, there's no shortage of moves to take your workout to the next level. Reach for these men's Reebok shoes to stay confident in or out of the gym. They have a Flexweave® woven upper that's breathable and durable, with integrated support for stable movement in every direction. The rubber outsole with a strategic lug pattern gives you secure traction.",
         imgurl:
-          "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
+          "https://image.goat.com/750/attachments/product_template_pictures/images/021/474/777/original/TR_JSP_5_ICE.png.png",
         stock: 47,
         price: 135,
       },

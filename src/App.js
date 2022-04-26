@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Login from "./Login";
-import Register from "./Register";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Products from "./Products";
 import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
@@ -12,13 +12,12 @@ import Cart from "./Cart";
 
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer";
-import Newsletter from "./components/Newsletter";
-import Categories from "./components/Categories";
-import SingleProduct from "./components/SingleProduct";
+// import Newsletter from "./components/Newsletter";
+// import Categories from "./components/Categories";
+// import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
-import Slider from "./components/Slider";
+// import Slider from "./components/Slider";
 import Home from "./pages/Home";
-
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -111,80 +110,8 @@ const App = () => {
   }, [token]);
 
   return (
-    // <Home />
-    // <div id="container">
-    //   <Announcement />
-    //   <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
-    //   <Slider />
-    //   <Categorie />
-    //   <AllProducts />
-
-    //   <div id="main">
-    //     <Routes>
-    //       {/* <Route element={<Home user={user} />} path="/" /> */}
-    //       <Route
-    //         element={
-    //           <Login
-    //             email={email}
-    //             setEmail={setEmail}
-    //             password={password}
-    //             setPassword={setPassword}
-    //             user={user}
-    //             setUser={setUser}
-    //             setToken={setToken}
-    //             error={error}
-    //             setError={setError}
-    //           />
-    //         }
-    //         path="/Login"
-    //       />
-
-    //       <Route element={<Register />} path="/Register" />
-
-    //       <Route
-    //         element={
-    //           <Products
-    //             products={products}
-    //             fetchProducts={fetchProducts}
-    //             addItemToCart={addItemToCart}
-    //           />
-    //         }
-    //         path="/Products"
-    //       />
-
-    //       <Route
-    //         element={<productSingleView fetchProducts={fetchProducts} />}
-    //         path="/Products/:id"
-    //       />
-
-    //       <Route
-    //         element={
-    //           <Admin
-    //             fetchUser={fetchUser}
-    //             products={products}
-    //             user={user}
-    //             token={token}
-    //           />
-    //         }
-    //         path="/admin"
-    //       />
-    //       <Route
-    //         element={
-    //           <Cart
-    //             setCartItems={setCartItems}
-    //             cartItems={cartItems}
-    //             addItemToCart={addItemToCart}
-    //           />
-    //         }
-    //         path="/Cart"
-    //       ></Route>
-    //     </Routes>
-    //   </div>
-    //   <Newsletter />
-    //   <Footer />
-    // </div>
-
     <div id="container">
+      <Announcement />
       <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
 
       <div id="main">
@@ -207,28 +134,11 @@ const App = () => {
             path="/Login"
           />
 
-          <Route
-            element={
-              <Register
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                confirm={confirm}
-                setConfirm={setConfirm}
-                user={user}
-                setUser={setUser}
-                setToken={setToken}
-                error={error}
-                setError={setError}
-              />
-            }
-            path="/Register"
-          />
+          <Route element={<Register />} path="/Register" />
 
           <Route
             element={
-              <Products
+              <AllProducts
                 products={products}
                 fetchProducts={fetchProducts}
                 addItemToCart={addItemToCart}
@@ -240,9 +150,8 @@ const App = () => {
           <Route
             element={
               <ProductSingleView
-                products={products}
                 fetchProducts={fetchProducts}
-                addItemToCart={addItemToCart}
+                products={products}
               />
             }
             path="/Products/:id"
@@ -255,7 +164,6 @@ const App = () => {
                 products={products}
                 user={user}
                 token={token}
-                fetchProducts={fetchProducts}
               />
             }
             path="/admin"
@@ -266,18 +174,109 @@ const App = () => {
                 setCartItems={setCartItems}
                 cartItems={cartItems}
                 addItemToCart={addItemToCart}
-                products={products}
-                user={user}
-                token={token}
-                fetchUser={fetchUser}
               />
             }
             path="/Cart"
           ></Route>
         </Routes>
       </div>
+      <Footer />
     </div>
   );
+
+  // <div id="container">
+  //   <Navbar user={user} setUser={setUser} setToken={setToken} token={token} />
+
+  //   <div id="main">
+  //     <Routes>
+  //       <Route element={<Home user={user} />} path="/" />
+  //       <Route
+  //         element={
+  //           <Login
+  //             email={email}
+  //             setEmail={setEmail}
+  //             password={password}
+  //             setPassword={setPassword}
+  //             user={user}
+  //             setUser={setUser}
+  //             setToken={setToken}
+  //             error={error}
+  //             setError={setError}
+  //           />
+  //         }
+  //         path="/Login"
+  //       />
+
+  //       <Route
+  //         element={
+  //           <Register
+  //             email={email}
+  //             setEmail={setEmail}
+  //             password={password}
+  //             setPassword={setPassword}
+  //             confirm={confirm}
+  //             setConfirm={setConfirm}
+  //             user={user}
+  //             setUser={setUser}
+  //             setToken={setToken}
+  //             error={error}
+  //             setError={setError}
+  //           />
+  //         }
+  //         path="/Register"
+  //       />
+
+  //       <Route
+  //         element={
+  //           <Products
+  //             products={products}
+  //             fetchProducts={fetchProducts}
+  //             addItemToCart={addItemToCart}
+  //           />
+  //         }
+  //         path="/Products"
+  //       />
+
+  //       <Route
+  //         element={
+  //           <ProductSingleView
+  //             products={products}
+  //             fetchProducts={fetchProducts}
+  //             addItemToCart={addItemToCart}
+  //           />
+  //         }
+  //         path="/Products/:id"
+  //       />
+
+  //       <Route
+  //         element={
+  //           <Admin
+  //             fetchUser={fetchUser}
+  //             products={products}
+  //             user={user}
+  //             token={token}
+  //             fetchProducts={fetchProducts}
+  //           />
+  //         }
+  //         path="/admin"
+  //       />
+  //       <Route
+  //         element={
+  //           <Cart
+  //             setCartItems={setCartItems}
+  //             cartItems={cartItems}
+  //             addItemToCart={addItemToCart}
+  //             products={products}
+  //             user={user}
+  //             token={token}
+  //             fetchUser={fetchUser}
+  //           />
+  //         }
+  //         path="/Cart"
+  //       ></Route>
+  //     </Routes>
+  //   </div>
+  // </div>
 };
 
 export default App;

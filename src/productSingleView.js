@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
-  // console.log(product);
+
+  console.log(product);
   useEffect(() => {
     setProduct(products.find((product) => product.id === +id));
   }, [products]);
@@ -18,7 +19,7 @@ const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
         <h4 id="productPrice">{product.price}</h4>
         <img id="productIcon"></img>
         <h5 id="inStock">{product.stock} in Stock</h5>
-        <button onclick={addItemToCart(product)}>Add to Cart</button>
+        {/* <button onclick={addItemToCart(product)}>Add to Cart</button> */}
       </div>
     </div>
   ) : (
