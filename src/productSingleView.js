@@ -17,9 +17,9 @@ const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
         <h1 id="productName">{product.title}</h1>
         <h4 id="productDescription">{product.description}</h4>
         <h4 id="productPrice">{product.price}</h4>
-        <img id="productIcon"></img>
+        <img src={product.imgurl} id="productIcon"></img>
         <h5 id="inStock">{product.stock} in Stock</h5>
-        {/* <button onclick={addItemToCart(product)}>Add to Cart</button> */}
+        <button onClick={() => addItemToCart(product)}>Add to Cart</button>
       </div>
     </div>
   ) : (
