@@ -1,7 +1,593 @@
 * {
-  font-family: arial, sans-serif;
   margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
 }
+
+
+/* Announcement Component Styling */
+
+.announcementCont {
+  height: 30px;
+  width: 100vw;
+  background-color: #212a2f;
+  color: white;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+
+
+/* Navbar Component Styling */
+
+.navbar {
+  height: 60px;
+}
+
+.navcont {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navleft {
+  width: 33.333%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.searchcont {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  padding: 5px;
+}
+
+.navcenter {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 33.333%;
+  flex: 1;
+  align-items: center;
+  color: red;
+  cursor: pointer;
+    }
+
+
+.navright {
+  width: 33.333%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.menuCont {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuItem {
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+.menuItem:hover {
+  animation: alternate;
+  transform: scale(1.1);
+}
+
+
+/* SINGLE PRODUCT COMPONENT STYLING */
+
+.singleProductCont {
+  flex: 1;
+  margin: 5px;
+  min-width: 280px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  position: relative;
+  opacity: 1;
+}
+
+.singleProductCont :hover {
+  opacity: 1;
+}
+
+.circle {
+  width: 200px;
+height: 200px;
+border-radius: 50%;
+background-color: white;
+position: absolute;
+}
+
+.singleProductCont img {
+  height: 75%;
+z-index: 2;
+}
+
+.infoCont {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.prodIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: all 0.5s ease;
+  
+     
+}
+
+.prodIcon :hover {
+  background-color: #e9f5f5;
+  transform: scale(1.1);
+}
+
+/* All Products Component Styling */
+
+.popProductsHead {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
+
+.popProductsFoot {
+padding: 10px 20px;
+margin-bottom: 15px;
+display: flex;
+flex-direction: row ;
+align-items: center;
+justify-content: center;
+}
+
+.popProductsCont {
+padding: 20px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+/* Slider Component Styling */
+
+.sliderCont {
+width: 100vw;
+height: 100vh;
+display: flex;
+background-color: whitesmoke;
+align-items: center;
+
+
+}
+
+.slideShow {
+height: 100%;
+display: flex;
+transition: all 1.5s ease;
+/* transform: translateX(0vw); */
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/8633771/pexels-photo-8633771.jpeg?cs=srgb&dl=pexels-%C3%A7a%C4%9F%C4%B1n-kargi-8633771.jpg&fm=jpg")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.slideInfo {
+flex: 1;
+padding: 50px;
+}
+
+.slideInfo h1 {
+font-size: 60px;  
+}
+
+.slideInfo p {
+margin: 50px 0px;
+font-size: 20px;
+font-weight: 500 bold;
+letter-spacing: 3px;
+}
+
+
+.slideInfo button {
+padding: 10px;
+font-size: 20px;
+color: white;
+background-color: red;
+cursor: pointer;
+}
+
+.slideInfo button:hover {
+  animation: alternate;
+  transform: scale(1.1);
+}
+
+
+/* Categories Component Styling */
+
+.categoriesContHead {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  margin-top: 15px;
+}
+
+.categoriesCont {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  margin-top: 5px;
+  background-color: white;
+}
+
+
+/* CategoryItem Component Styling */
+
+.catItemCont {
+flex: 1;
+margin: 3px;
+height: 70vh;
+position: relative;
+border: 1px solid gray;
+margin-bottom: 100px;
+}
+
+.catItemCont img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+background-color: lightgray;
+
+}
+
+.catInfo {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.catInfo h2 {
+color:white;
+margin-bottom: 20px;
+}
+
+.catInfo button {
+  border:none;
+  padding: 10px;
+  background-color: white;
+  color:gray;
+  cursor: pointer;
+  font-weight: 600;
+  
+}
+
+
+
+
+/* Newsletter Component Styling */
+
+.newsLetterCont {
+  height: 60vh;
+  background-color: #DFE2DB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.newsLetterCont h1 {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+.newsLetterCont #newsDesc {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.newsLetterInput {
+  width: 50%;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+}
+
+.newsLetterInput input {
+  border: none;
+  flex: 8;
+  padding-left: 20px;
+}
+
+.newsLetterInput button {
+  flex: 1;
+  border: none;
+  background-color: red;
+  color: white;
+}
+
+
+
+
+/* Footer Component Styling */
+
+.footerCont {
+  display: flex;
+  background-color: #212a2f;
+  color: white;
+
+}
+
+.footerLeft {
+  flex: 1;
+display: flex;
+flex-direction: column;
+padding: 20px;
+}
+
+.footerLeft h1 {
+color: red;
+}
+
+
+.footerDesc{
+  margin: 20px 0px;
+}
+
+.socialCont {
+  display: flex;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  cursor: pointer;  
+}
+
+.socialIcon :hover {
+  animation: alternate;
+  transform: scale(1.1);
+}
+
+
+.footerCenter {
+  flex: 1;
+padding: 20px;
+}
+
+#title {
+  margin-bottom: 30px;
+}
+
+.footerCenter ul {
+  margin: 0;
+padding: 0;
+list-style: none;
+display: flex;
+flex-wrap: wrap;
+}
+
+.footerCenter ul>li {
+width: 50%;
+margin-bottom: 10px;
+cursor: pointer;
+
+}
+
+.footerRight {
+  flex: 1;
+padding: 20px;
+}
+
+.contactItem {
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+
+
+/*Login page styling */
+
+.loginCont {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/7524992/pexels-photo-7524992.jpeg?cs=srgb&dl=pexels-erik-mclean-7524992.jpg&fm=jpg")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginCard {
+  width: 25%;
+  padding: 20px;
+  background-color: white;
+}
+
+.loginCard h2 {
+  font-size: 24px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+}
+
+.loginCard form {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginCard input {
+  flex: 1;
+  min-width: 40%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.loginCard button {
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.loginCard button:hover {
+ animation: alternate;
+ transform: scale(1.1);
+
+}
+
+#link {
+  margin: 5px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+ /*Register page styling */
+
+ .registerCont {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/981619/pexels-photo-981619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registerCard {
+  width: 40%;
+  padding: 20px;
+  background-color: white;
+
+}
+
+
+
+.registerCard h2 {
+  font-size: 24px;
+  font-weight: 300;
+  
+}
+
+.registerCard form {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.registerCard input {
+  flex: 1;
+  min-width: 40%;
+  margin: 20px 10px 0px 0px;
+  padding: 10px;
+  
+}
+
+.registerAgreement {
+  font-size: 12px;
+  margin: 20px 0px;
+}
+
+.registerCard button {
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 #card {
   background-color: #edeae5;
@@ -21,7 +607,7 @@
   border-radius: 15px;
 }
 
-body,
+/* body,
 body > div {
   height: 100vh;
   width: 100vw;
@@ -29,33 +615,9 @@ body > div {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-}
+} */
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: flex-end;
-  color: white;
-  overflow: hidden;
-  background-color: #333;
-  padding: 2em;
-  border-bottom: 1px solid black;
-}
 
-#menu {
-  display: flex;
-  flex-direction: row;
-
-  justify-content: space-around;
-}
-.menu Link {
-  text-decoration: none;
-}
-
-.menu a {
-  color: white;
-}
 
 .productsHeader {
   padding: 15px;
@@ -75,7 +637,7 @@ body > div {
   align-content: center;
   justify-content: space-between;
 }
-*/ #card {
+/* #card {
   background-color: #edeae5;
   border: 2px solid #8590aa;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
@@ -91,12 +653,12 @@ body > div {
   align-content: center;
   justify-content: center;
   border-radius: 15px;
-}
+} */
 
 .productsCard:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
+/* 
 .homeCard {
   background-color: #edeae5;
   border: 2px solid #8590aa;
@@ -117,7 +679,7 @@ body > div {
 
 .homeCard:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
+} */
 
 .newPostCard {
   background-color: #edeae5;
@@ -141,7 +703,7 @@ body > div {
   margin-bottom: 25px;
 }
 
-.registerCard {
+/* .registerCard {
   background-color: #edeae5;
   border: 2px solid #8590aa;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
@@ -161,4 +723,4 @@ body > div {
 
 .registerCard h1 {
   margin-bottom: 25px;
-}
+} */

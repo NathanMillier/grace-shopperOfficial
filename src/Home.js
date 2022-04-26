@@ -1,19 +1,21 @@
-import React from "react";
+// NO LONGER USING THIS PAGE
 
-const Home = ({ user }) => {
-  if (!user) {
-    return (
-      <div>
-        <h2>Feet Heat</h2>
-      </div>
-    );
-  }
-  return (
-    <div>
-      <h2>Feet Heat</h2>
-      <p>Welcome {user.email}</p>
-    </div>
-  );
-};
+// import React from "react";
 
-export default Home;
+// const Home = ({ user }) => {
+//   if (!user) {
+//     return (
+//       <div>
+//         <h2>Feet Heat</h2>
+//       </div>
+//     );
+//   }
+//   return (
+//     <div>
+//       <h2>Feet Heat</h2>
+//       <p>Welcome {user.email}</p>
+//     </div>
+//   );
+// };
+
+// export default Home;

@@ -74,6 +74,7 @@ const createTables = async () => {
       id SERIAL PRIMARY KEY,
       "orderId" INTEGER REFERENCES orders(id),
       "productId" INTEGER REFERENCES products(id),
+      UNIQUE ("productId", "orderId"),
       price INTEGER NOT NULL,
       quantity INTEGER NOT NULL
     );
