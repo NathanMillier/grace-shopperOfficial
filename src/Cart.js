@@ -1,14 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
-const Cart = ({
-  cartItems,
-  setCartItems,
-  addItemToCart,
-  products,
-  user,
-  token,
-  fetchUser,
-}) => {
+const Cart = ({ addItemToCart, user, token, fetchUser }) => {
+  const [total, setTotal] = useState(0);
   const handleCheckOut = (event) => {
     event.preventDefault();
   };
@@ -30,27 +25,51 @@ const Cart = ({
     console.log(data);
   };
 
-  const decreaseQuantity = (currentProduct) => {
-    const exist = products.find((product) => product.id === currentProduct.id);
-    // console.log(exist);
-    // setCartItems([exist]);
-
-    const newItems = [];
-    cartItems.forEach((x) => {
-      if (x.id === currentProduct.id) {
-        if (x.qty > 1) {
-          newItems.push({ ...exist, qty: x.qty - 1 });
+  const decreaseQuantity = async (currentProduct) => {
+    if (currentProduct.quantity > 1) {
+      const response = await fetch(
+        "http://localhost:3001/api/order/decreaseCartItem",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            orderId: user.cart.id,
+            productId: currentProduct.id,
+          }),
         }
-      } else {
-        newItems.push(x);
-      }
-    });
-
-    setCartItems(newItems);
+      );
+      const data = await response.json();
+      await fetchUser();
+      console.log(data);
+    } else {
+      deleteCartItem(currentProduct);
+    }
   };
 
-  //fetch the user.cart.products
-  //map over products to render
+  const getOrderPrice = async (orderId) => {
+    const response = await fetch("http://localhost:3001/api/order/orderPrice", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        orderId,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    let totalToAdd = 0;
+    for (let i = 0; i < data.length; i++) {
+      totalToAdd += data[i].price;
+    }
+    setTotal(totalToAdd);
+  };
+
+  useEffect(() => {}, [user.cart]);
 
   return (
     <div className="cart-container">
@@ -63,7 +82,7 @@ const Cart = ({
                 <h4>{product.quantity}</h4>
                 <img src={product.imgurl} width="300"></img>
                 <button onClick={() => addItemToCart(product)}>+</button>
-                <button>-</button>
+                <button onClick={() => decreaseQuantity(product)}>-</button>
                 <button onClick={() => deleteCartItem(product)}>
                   Remove from cart
                 </button>
@@ -91,8 +110,8 @@ const Cart = ({
 
       <div className="checkout-container">
         <h3>total: </h3>
-        <p>$100</p>
-        <button>Purchase</button>
+        <p>{total}</p>
+        <button onClick={() => getOrderPrice(user.cart.id)}>Purchase</button>
       </div>
     </div>
   );

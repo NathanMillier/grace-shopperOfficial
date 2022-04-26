@@ -50,7 +50,7 @@ const App = () => {
   // console.log(products);
   const addItemToCart = async (currentProduct) => {
     // FETCH ALL PRODUCTS IN THE ORDER
-    console.log(user.cart.products);
+
     for (let i = 0; i < user.cart.products.length; i++) {
       if (user.cart.products.length) {
         if (currentProduct.id === user.cart.products[i].id) {
@@ -69,7 +69,6 @@ const App = () => {
             }
           );
           const data = await response.json();
-          console.log(data);
           await fetchUser();
           return;
         }
