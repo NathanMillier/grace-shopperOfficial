@@ -1,14 +1,14 @@
 const client = require("./index");
 
-const addItemToOrder = async ({ productId, orderID, price, quantity }) => {
+const addItemToOrder = async ({ orderId, productId, price, quantity }) => {
   try {
     const order_items = await client.query(
       `
-    INSERT INTO order_items("productId", price, quantity)
-    VALUES($1, $2, $3) WHERE "orderID" = $4
+    INSERT INTO order_items("orderId", "productId", price, quantity)
+    VALUES($1, $2, $3, $4)
     RETURNING*;
     `,
-      [productId, quantity, price, orderID]
+      [orderId, productId, price, quantity]
     );
     return order_items.rows[0];
   } catch (error) {
@@ -16,13 +16,13 @@ const addItemToOrder = async ({ productId, orderID, price, quantity }) => {
   }
 };
 
-const removeSingleItem = async ({ productId, orderId }) => {
+const removeSingleItem = async ({ orderId, productId }) => {
   try {
     const response = await client.query(
       `
     DELETE FROM order_items
     WHERE "orderId" = $1 AND
-    "productid" = $2
+    "productId" = $2
     RETURNING *;`,
       [orderId, productId]
     );
@@ -32,15 +32,30 @@ const removeSingleItem = async ({ productId, orderId }) => {
   }
 };
 
-const updateItemQuantity = async ({ productId, orderId }) => {
+const updateItemQuantity = async ({ productPrice, orderId, productId }) => {
   try {
     const response = await client.query(
       `
-    UPDATE order_items SET quantity = $1
-    WHERE "orderId" = $1 AND
-    "productid" = $2
+    UPDATE order_items SET quantity = quantity + 1, price = price + $1
+    WHERE "orderId" = $2 AND
+    "productId" = $3
     RETURNING *;`,
-      [orderId, productId]
+      [productPrice, orderId, productId]
+    );
+    return response.rows[0];
+  } catch (error) {
+    throw error;
+  }
+};
+
+const getOrderByProductId = async (productId) => {
+  try {
+    const response = await client.query(
+      `
+      SELECT * FROM order_items
+      WHERE "productId" = $1
+    `,
+      [productId]
     );
     return response.rows[0];
   } catch (error) {
@@ -52,4 +67,5 @@ module.exports = {
   updateItemQuantity,
   removeSingleItem,
   addItemToOrder,
+  getOrderByProductId,
 };
