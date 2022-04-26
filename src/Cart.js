@@ -68,8 +68,10 @@ const Cart = ({ addItemToCart, user, token, fetchUser }) => {
     }
     setTotal(totalToAdd);
   };
-
-  useEffect(() => {}, [user.cart]);
+  console.log(user);
+  // useEffect(() => {
+  //   getOrderPrice(user.cart.id);
+  // }, [user.cart.products]);
 
   return (
     <div className="cart-container">

@@ -90,9 +90,6 @@ const App = () => {
     });
     const data = await response.json();
     await fetchUser();
-    // CHECK IF CURRENT PRODUCT IS IN ORDER
-    // IF IT IS, UPDATE REQUEST WITH UPDATE QUERY
-    // ELSE POST REQUEST WITH INSERT QUERY
   };
 
   useEffect(() => {
@@ -159,6 +156,7 @@ const App = () => {
               <ProductSingleView
                 products={products}
                 fetchProducts={fetchProducts}
+                addItemToCart={addItemToCart}
               />
             }
             path="/Products/:id"

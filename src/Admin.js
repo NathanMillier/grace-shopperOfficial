@@ -55,16 +55,6 @@ const Admin = ({ products }) => {
         />
         <button type="submit">Submit Changes</button>
       </form>
-      {/* <div>
-        {userss.map((u) => {
-          return (
-            <div key={u.id} id="card">
-              <div>{u.id}</div>
-              <div>{u.email}$</div>
-            </div>
-          );
-        })}
-      </div> */}
     </div>
   );
 };
