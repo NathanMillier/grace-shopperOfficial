@@ -15,7 +15,7 @@ const AllProducts = ({ products }) => {
           <div className="singleProductCont">
             <div className="circle" />
             <img src={item.imgurl} />
-            <Link to={`./:${item.id}`}>
+            <Link to={`./${item.id}`}>
               <div className="infoCont">
                 <div className="prodIcon">{/* <ShoppingCartOutlined /> */}</div>
                 <div className="prodIcon">{/* <SearchOutlined /> */}</div>

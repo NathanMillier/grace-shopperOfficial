@@ -1,7 +1,7 @@
 import React from "react";
 // import AllProducts from "../components/AllProducts";
 
-const AllProducts = () => {
+const AllPopProductsPage = () => {
   return (
     <div className="allProductsCont">
       <div className="title">
@@ -45,4 +45,4 @@ const AllProducts = () => {
   );
 };
 
-export default AllProducts;
+export default AllPopProductsPage;

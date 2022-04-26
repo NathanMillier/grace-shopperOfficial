@@ -55,7 +55,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
             ) : null}
 
             <Link to="/Cart" className="menuItem">
-              {/* <ShoppingCartOutlined style={{ marginLeft: "5px" }} /> */}
+              CART
             </Link>
           </div>
         </div>

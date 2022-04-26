@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import {
+  FavoriteBorder,
+  SearchOutlined,
+  ShoppingCartOutlined,
+} from "@material-ui/icons";
 // THIS IS A
 
 const SingleProduct = ({ item, key }) => {

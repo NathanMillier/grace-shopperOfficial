@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 
-const SingleProduct = () => {
+const SingleProductPage = () => {
   return (
     <div className="singleProdCont">
       <Navbar />
@@ -77,4 +77,4 @@ const SingleProduct = () => {
   );
 };
 
-export default SingleProduct;
+export default SingleProductPage;
