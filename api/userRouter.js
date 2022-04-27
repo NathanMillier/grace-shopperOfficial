@@ -9,20 +9,22 @@ const {
   getallUsers,
 } = require("../db/users");
 
+const { createOrder } = require("../db/orders");
+
 userRouter.use((req, res, next) => {
   console.log("A request is being made to /users...");
   next();
 });
 
 userRouter.post("/register", async (req, res, next) => {
-  console.log(req.body);
   try {
     if (req.body.password.length < 8) {
       throw new Error("Password is too short, must be at least 8 characters");
     }
     const user = await createUser(req.body);
+    const userOrder = await createOrder({ creatorId: user.id });
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
-    // console.log(user);
+
     res.send({ user, token });
   } catch (error) {
     res.status(400).send({ error });

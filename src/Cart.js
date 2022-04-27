@@ -122,11 +122,8 @@ const Cart = ({
     }
     setTotal(newTotal);
   }, [cartItems]);
-  console.log(user);
   if (user) {
-    console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
     if (!user.cart.products.length) {
-      console.log(user.cart);
       return <h1>YOUR CART IS EMPTY</h1>;
     } else {
       return (
@@ -197,5 +194,54 @@ const Cart = ({
       );
     }
   }
+
+  // return (
+  //   <div className="cart-container">
+  //     {//IF A USER IS LOGGED IN
+  //     user
+  //       ? user.cart.products.map((product) => {
+  //           return (
+  //             <div className="single-product-container" key={product.id}>
+  //               <h3>{product.title}</h3>
+  //               <h4>{product.price}</h4>
+  //               <h4>{product.quantity}</h4>
+  //               <img src={product.imgurl} width="300"></img>
+  //               <button onClick={() => addItemToCart(product)}>+</button>
+  //               <button onClick={() => decreaseQuantity(product)}>-</button>
+  //               <button onClick={() => deleteCartItem(product)}>
+  //                 Remove from cart
+  //               </button>
+  //               <br></br>
+  //             </div>
+  //           );
+  //         })
+  //       : //IF NO USER LOGGED IN
+
+  //         cartItems.map((item) => {
+  //           return (
+  //             <div className="single-product-container" key={item.id}>
+  //               <h3>{item.title}</h3>
+  //               <h4>{item.price}</h4>
+  //               <h4>{item.qty}</h4>
+  //               <div>
+  //                 <button onClick={() => addItemToCart(item)}>+</button>
+  //                 <button onClick={() => decreaseCartItemQuantity(item)}>
+  //                   -
+  //                 </button>
+  //                 <button onClick={() => removeCartItem(item)}>
+  //                   Remove from cart
+  //                 </button>
+  //               </div>
+  //             </div>
+  //           );
+  //         })}
+
+  //     <div className="checkout-container">
+  //       <h3>total: </h3>
+  //       <p>{total}</p>
+  //       <button onClick={() => getOrderPrice(user.cart.id)}>Purchase</button>
+  //     </div>
+  //   </div>
+  // );
 };
 export default Cart;
