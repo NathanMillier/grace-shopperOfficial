@@ -8,7 +8,7 @@ const AllProducts = ({ products }) => {
   return (
     <>
       <div className="popProductsHead">
-        <h1>SHOES</h1>
+        <h1>ALL SHOES</h1>
       </div>
       <div className="popProductsCont">
         {products.map((item) => (
