@@ -55,53 +55,69 @@ const App = () => {
       setUser(data);
     }
   };
-  // console.log(products);
+
   const addItemToCart = async (currentProduct) => {
-    // FETCH ALL PRODUCTS IN THE ORDER
-    console.log(user.cart.products);
-    for (let i = 0; i < user.cart.products.length; i++) {
-      if (user.cart.products.length) {
-        if (currentProduct.id === user.cart.products[i].id) {
-          const response = await fetch(
-            "http://localhost:3001/api/order/updateCartItem",
-            {
-              method: "PATCH",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-              body: JSON.stringify({
-                orderId: user.cart.id,
-                productId: currentProduct.id,
-              }),
-            }
-          );
-          const data = await response.json();
-          console.log(data);
-          await fetchUser();
-          return;
+    //IF A USER IS LOGGED IN
+    if (user) {
+      for (let i = 0; i < user.cart.products.length; i++) {
+        if (user.cart.products.length) {
+          if (currentProduct.id === user.cart.products[i].id) {
+            const response = await fetch(
+              "http://localhost:3001/api/order/updateCartItem",
+              {
+                method: "PATCH",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                  orderId: user.cart.id,
+                  productId: currentProduct.id,
+                }),
+              }
+            );
+            const data = await response.json();
+            await fetchUser();
+            return;
+          }
         }
       }
-    }
 
-    const response = await fetch("http://localhost:3001/api/order/cart", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        orderId: user.cart.id,
-        productId: currentProduct.id,
-        price: currentProduct.price,
-        quantity: 1,
-      }),
-    });
-    const data = await response.json();
-    await fetchUser();
-    // CHECK IF CURRENT PRODUCT IS IN ORDER
-    // IF IT IS, UPDATE REQUEST WITH UPDATE QUERY
-    // ELSE POST REQUEST WITH INSERT QUERY
+      const response = await fetch("http://localhost:3001/api/order/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          orderId: user.cart.id,
+          productId: currentProduct.id,
+          price: currentProduct.price,
+          quantity: 1,
+        }),
+      });
+      const data = await response.json();
+      await fetchUser();
+    } else {
+      //NO USER LOGGED
+      const exist = products.find(
+        (product) => product.id === currentProduct.id
+      );
+
+      if (cartItems.find((cartItem) => cartItem.id === exist.id)) {
+        const itemToAdd = cartItems.map((cartItem) => {
+          const tempItem = { ...exist, qty: cartItem.qty + 1 };
+          tempItem.displayPrice = tempItem.price * tempItem.qty;
+          return cartItem.id === currentProduct.id ? tempItem : cartItem;
+        });
+        setCartItems(itemToAdd);
+      } else {
+        setCartItems([
+          ...cartItems,
+          { ...currentProduct, qty: 1, displayPrice: currentProduct.price },
+        ]);
+      }
+    }
   };
 
   useEffect(() => {
@@ -164,7 +180,11 @@ const App = () => {
             element={
               <ProductSingleView
                 fetchProducts={fetchProducts}
+
+                addItemToCart={addItemToCart}
+
                 products={products}
+
               />
             }
             path="/Products/:id"

@@ -48,6 +48,38 @@ const updateItemQuantity = async ({ productPrice, orderId, productId }) => {
   }
 };
 
+const decreaseItemQuantity = async ({ productPrice, orderId, productId }) => {
+  try {
+    const response = await client.query(
+      `
+      UPDATE order_items SET quantity = quantity - 1, price = price - $1
+      WHERE "orderId" = $2
+      AND "productId" = $3
+      RETURNING*;
+    `,
+      [productPrice, orderId, productId]
+    );
+    return response.rows[0];
+  } catch (error) {
+    throw error;
+  }
+};
+
+const getOrderPrice = async ({ orderId }) => {
+  try {
+    const response = await client.query(
+      `
+      SELECT price FROM order_items
+      WHERE "orderId" = $1;
+    `,
+      [orderId]
+    );
+    return response.rows;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const getOrderByProductId = async (productId) => {
   try {
     const response = await client.query(
@@ -68,4 +100,6 @@ module.exports = {
   removeSingleItem,
   addItemToOrder,
   getOrderByProductId,
+  decreaseItemQuantity,
+  getOrderPrice,
 };

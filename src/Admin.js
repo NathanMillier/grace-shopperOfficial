@@ -99,6 +99,7 @@ const Admin = ({ products, token, fetchProducts }) => {
         />
         <button type="submit">Submit Changes</button>
       </form>
+
       <div>
         {userss.map((u) => {
           return (
@@ -109,6 +110,7 @@ const Admin = ({ products, token, fetchProducts }) => {
           );
         })}
       </div>
+
     </div>
   );
 };
