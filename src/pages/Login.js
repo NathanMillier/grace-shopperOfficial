@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = ({
   email,
@@ -65,9 +65,8 @@ const Login = ({
             placeholder="password"
           />
           <button type="submit">LOGIN</button>
-          <div id="link">FORGOT YOUR PASSWORD?</div>
-          <div id="link" link to="/src/pages/Register.js">
-            CREATE A NEW ACCOUNT
+          <div id="link">
+            <Link to="/Register">REGISTER NEW ACCOUNT</Link>
           </div>
         </form>
       </div>

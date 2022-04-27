@@ -155,6 +155,7 @@ const App = () => {
                 setConfirm={setConfirm}
                 confirm={confirm}
                 setToken={setToken}
+                setError={setError}
               />
             }
             path="/Register"
