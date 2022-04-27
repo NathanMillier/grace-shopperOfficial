@@ -41,9 +41,6 @@ const Navbar = ({ user, setToken, setUser, token }) => {
                 <Link to="/Login" className="menuItem">
                   SIGN IN
                 </Link>
-                <Link to="/Register" className="menuItem">
-                  REGISTER
-                </Link>
               </>
             )}
             {user ? (

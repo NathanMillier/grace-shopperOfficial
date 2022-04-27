@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
@@ -22,7 +22,9 @@ const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
           <div id="price">$ {product.price}</div>
           <div id="inStock">{product.stock} in Stock</div>
           <div className="addCont">
-            <button onClick={() => addItemToCart(product)}>ADD TO CART</button>
+            <button onClick={() => addItemToCart(product)}>
+              <Link to="/Cart">ADD TO CART</Link>
+            </button>
           </div>
         </div>
       </div>
