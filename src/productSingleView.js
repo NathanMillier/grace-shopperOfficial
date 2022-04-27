@@ -13,6 +13,7 @@ const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
 
   return product ? (
     <div className="singleProdCont">
+      <hr></hr>
       <div className="singProdWrapper">
         <div className="singProdImgCont">
           <img src={product.imgurl} />
