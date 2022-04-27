@@ -7,6 +7,7 @@ const AllProducts = ({ products }) => {
   console.log(products);
   return (
     <>
+      <hr></hr>
       <div className="popProductsHead">
         <h1>ALL SHOES</h1>
       </div>
