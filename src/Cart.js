@@ -122,9 +122,11 @@ const Cart = ({
     }
     setTotal(newTotal);
   }, [cartItems]);
-
+  console.log(user);
   if (user) {
+    console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
     if (!user.cart.products.length) {
+      console.log(user.cart);
       return <h1>YOUR CART IS EMPTY</h1>;
     } else {
       return (
@@ -183,7 +185,6 @@ const Cart = ({
                 </div>
               </>
             );
-
           })}
           <div className="checkout-container">
             <h3>total: </h3>
@@ -196,6 +197,5 @@ const Cart = ({
       );
     }
   }
-
 };
 export default Cart;

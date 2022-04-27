@@ -109,7 +109,7 @@ const getCartByUserId = async (creatorId) => {
     `,
       [creatorId]
     );
-    // console.log(cart);
+    console.log(cart.rows, "HERERERERERERERER");
     return cart.rows[0];
   } catch (error) {
     throw error;

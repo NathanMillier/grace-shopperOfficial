@@ -5,19 +5,14 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Products from "./Products";
-import ProductSingleView from "./ProductSingleView";
+
 import Admin from "./Admin";
 import Cart from "./Cart";
-
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer";
-// import Newsletter from "./components/Newsletter";
-// import Categories from "./components/Categories";
-// import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
-// import Slider from "./components/Slider";
 import Home from "./pages/Home";
+import ProductSingleView from "./ProductSingleView";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -58,6 +53,7 @@ const App = () => {
 
   const addItemToCart = async (currentProduct) => {
     //IF A USER IS LOGGED IN
+    console.log(user, "HERE");
     if (user) {
       for (let i = 0; i < user.cart.products.length; i++) {
         if (user.cart.products.length) {
@@ -180,11 +176,8 @@ const App = () => {
             element={
               <ProductSingleView
                 fetchProducts={fetchProducts}
-
                 addItemToCart={addItemToCart}
-
                 products={products}
-
               />
             }
             path="/Products/:id"
@@ -207,6 +200,10 @@ const App = () => {
                 setCartItems={setCartItems}
                 cartItems={cartItems}
                 addItemToCart={addItemToCart}
+                user={user}
+                token={token}
+                products={products}
+                fetchUser={fetchUser}
               />
             }
             path="/Cart"
@@ -219,3 +216,4 @@ const App = () => {
 };
 
 export default App;
+
