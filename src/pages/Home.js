@@ -17,7 +17,7 @@ const Home = ({ user }) => {
   }
   return (
     <div>
-      <p>Welcome back, USERNAMEHERE!</p>
+      <p>Welcome back, {user.email}!</p>
       <Slider />
     </div>
   );

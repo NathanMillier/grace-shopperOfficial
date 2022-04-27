@@ -5,18 +5,12 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Products from "./Products";
 import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
 import Cart from "./Cart";
-
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer";
-// import Newsletter from "./components/Newsletter";
-// import Categories from "./components/Categories";
-// import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
-// import Slider from "./components/Slider";
 import Home from "./pages/Home";
 
 const App = () => {
@@ -58,7 +52,7 @@ const App = () => {
   // console.log(products);
   const addItemToCart = async (currentProduct) => {
     // FETCH ALL PRODUCTS IN THE ORDER
-    console.log(user.cart.products);
+    // console.log(user.cart.products);
     for (let i = 0; i < user.cart.products.length; i++) {
       if (user.cart.products.length) {
         if (currentProduct.id === user.cart.products[i].id) {
@@ -165,6 +159,7 @@ const App = () => {
               <ProductSingleView
                 fetchProducts={fetchProducts}
                 products={products}
+                addItemToCart={addItemToCart}
               />
             }
             path="/Products/:id"
