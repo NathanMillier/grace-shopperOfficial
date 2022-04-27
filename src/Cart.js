@@ -12,8 +12,24 @@ const Cart = ({
 }) => {
   const [userTotal, setUserTotal] = useState(0);
   const [total, setTotal] = useState(0);
-  const handleCheckOut = (event) => {
-    event.preventDefault();
+
+  const handleCheckOut = async (orderId, creatorId) => {
+    const response = await fetch(
+      "http://localhost:3001/api/order/checkoutOrder",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          orderId,
+          creatorId,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
   };
 
   // FUNCTIONS WHEN A USER IS LOGGED IN
@@ -122,11 +138,10 @@ const Cart = ({
     }
     setTotal(newTotal);
   }, [cartItems]);
-  console.log(user);
+
+  //WHEN USER IS LOGGED IN
   if (user) {
-    console.log("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
     if (!user.cart.products.length) {
-      console.log(user.cart);
       return <h1>YOUR CART IS EMPTY</h1>;
     } else {
       return (
@@ -153,12 +168,16 @@ const Cart = ({
           <div className="checkout-container">
             <h3>total: </h3>
             <p>{userTotal}</p>
-            <button>Purchase</button>
+            <button onClick={() => handleCheckOut(user.cart.id, user.id)}>
+              Purchase
+            </button>
           </div>
         </>
       );
     }
-  } else {
+  }
+  //WHEN NO USER LOGGED IN
+  else {
     if (!cartItems.length) {
       return <h1>YOUR CART IS EMPTY</h1>;
     } else {
@@ -197,5 +216,54 @@ const Cart = ({
       );
     }
   }
+
+  // return (
+  //   <div className="cart-container">
+  //     {//IF A USER IS LOGGED IN
+  //     user
+  //       ? user.cart.products.map((product) => {
+  //           return (
+  //             <div className="single-product-container" key={product.id}>
+  //               <h3>{product.title}</h3>
+  //               <h4>{product.price}</h4>
+  //               <h4>{product.quantity}</h4>
+  //               <img src={product.imgurl} width="300"></img>
+  //               <button onClick={() => addItemToCart(product)}>+</button>
+  //               <button onClick={() => decreaseQuantity(product)}>-</button>
+  //               <button onClick={() => deleteCartItem(product)}>
+  //                 Remove from cart
+  //               </button>
+  //               <br></br>
+  //             </div>
+  //           );
+  //         })
+  //       : //IF NO USER LOGGED IN
+
+  //         cartItems.map((item) => {
+  //           return (
+  //             <div className="single-product-container" key={item.id}>
+  //               <h3>{item.title}</h3>
+  //               <h4>{item.price}</h4>
+  //               <h4>{item.qty}</h4>
+  //               <div>
+  //                 <button onClick={() => addItemToCart(item)}>+</button>
+  //                 <button onClick={() => decreaseCartItemQuantity(item)}>
+  //                   -
+  //                 </button>
+  //                 <button onClick={() => removeCartItem(item)}>
+  //                   Remove from cart
+  //                 </button>
+  //               </div>
+  //             </div>
+  //           );
+  //         })}
+
+  //     <div className="checkout-container">
+  //       <h3>total: </h3>
+  //       <p>{total}</p>
+  //       <button onClick={() => getOrderPrice(user.cart.id)}>Purchase</button>
+  //     </div>
+  //   </div>
+  // );
 };
 export default Cart;
