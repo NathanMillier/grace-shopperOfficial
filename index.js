@@ -16,26 +16,25 @@ app.use(express.json());
 app.use(cors());
 
 app.use(async (req, res, next) => {
-  if (!req.headers.authorization) {
-    return next();
-  }
-  const auth = req.headers.authorization.split(" ")[1];
-  const _user = await JWT.decode(auth, process.env.JWT_SECRET);
-  if (!_user) {
-    return next();
-  }
-  const user = await getUserById(_user.id);
-  req.user = user;
-  // <<<<<<< wellsBranch
-  //   // req.user.cart = await getCartByUserId(user.id);
-  //   // req.user;
-  //   console.log(user);
-  // =======
-  console.log(_user, "THIS IS A STR");
-  // req.user.cart = await getCartByUserId(user.id);
+  try {
+    if (!req.headers.authorization) {
+      return next();
+    }
+    const auth = req.headers.authorization.split(" ")[1];
+    const _user = await JWT.decode(auth, process.env.JWT_SECRET);
+    if (!_user) {
+      return next();
+    }
+    const user = await getUserById(_user.id);
+    req.user = user;
+    req.user.cart = await getCartByUserId(user.id);
 
-  // req.user.cart.products = await getAllProductsByOrderId(req.user.cart.id);
-  next();
+    req.user.cart.products = await getAllProductsByOrderId(req.user.cart.id);
+    next();
+  } catch (error) {
+    next(error);
+  }
+
 });
 
 app.use("/api", apiRouter);

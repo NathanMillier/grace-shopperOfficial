@@ -6,6 +6,8 @@ const {
   addItemToOrder,
   removeSingleItem,
   updateItemQuantity,
+  decreaseItemQuantity,
+  getOrderPrice,
 } = require("../db/order_items");
 
 const orderRouter = express.Router();
@@ -64,6 +66,31 @@ orderRouter.patch("/updateCartItem", async (req, res, next) => {
       productPrice,
     });
     res.send(itemToUpdate);
+  } catch (error) {
+    next(error);
+  }
+});
+
+orderRouter.patch("/decreaseCartItem", async (req, res, next) => {
+  try {
+    const { orderId, productId } = req.body;
+    const productPrice = await getProductPrice({ productId });
+    const itemToUpdate = await decreaseItemQuantity({
+      orderId,
+      productId,
+      productPrice,
+    });
+    res.send(itemToUpdate);
+  } catch (error) {
+    next(error);
+  }
+});
+
+orderRouter.post("/orderPrice", async (req, res, next) => {
+  try {
+    const { orderId } = req.body;
+    const orderPrice = await getOrderPrice({ orderId });
+    res.send(orderPrice);
   } catch (error) {
     next(error);
   }

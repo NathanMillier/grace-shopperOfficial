@@ -4,14 +4,18 @@ import { useState, useEffect } from "react";
 
 const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
   const [product, setProduct] = useState({});
-  const { id } = useParams();
+  const { id } = useParams();<<<<<<< nathan-branch
+  // console.log(product);
+=======
 
   console.log(product);
+
   useEffect(() => {
     setProduct(products.find((product) => product.id === +id));
   }, [products]);
 
   return product ? (
+
     <div className="singleProdCont">
       <div className="singProdWrapper">
         <div className="singProdImgCont">
@@ -26,6 +30,7 @@ const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
             <button onClick={() => addItemToCart(product)}>ADD TO CART</button>
           </div>
         </div>
+
       </div>
     </div>
   ) : (
