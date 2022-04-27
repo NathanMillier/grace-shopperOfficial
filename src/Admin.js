@@ -15,11 +15,11 @@ const Admin = ({ products, token, fetchProducts }) => {
   //   return <div></div>;
   // }
 
-  // const fetchAllUsers = async () => {
-  //   const response = await fetch("http://localhost:3001/api/user/all");
-  //   const data = await response.json();
-  //   setUserss(data);
-  // };
+  const fetchAllUsers = async () => {
+    const response = await fetch("http://localhost:3001/api/user/all");
+    const data = await response.json();
+    setUserss(data);
+  };
 
   const updateProduct = async (e) => {
     e.preventDefault();
@@ -49,6 +49,7 @@ const Admin = ({ products, token, fetchProducts }) => {
   };
 
   useEffect(() => {
+    fetchAllUsers();
     if (!products[0]) {
       return;
     }
@@ -101,6 +102,7 @@ const Admin = ({ products, token, fetchProducts }) => {
       </form>
 
       <div>
+        ALL USERS
         {userss.map((u) => {
           return (
             <div key={u.id}>
@@ -110,7 +112,6 @@ const Admin = ({ products, token, fetchProducts }) => {
           );
         })}
       </div>
-
     </div>
   );
 };
