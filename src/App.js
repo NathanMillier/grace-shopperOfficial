@@ -7,10 +7,9 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Products from "./Products";
-
+import ProductSingleView from "./ProductSingleView";
 import Admin from "./Admin";
 import Cart from "./Cart";
-import ProductSingleView from "./ProductSingleView";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -48,8 +47,9 @@ const App = () => {
       setUser(data);
     }
   };
-  // console.log(products);
+
   const addItemToCart = async (currentProduct) => {
+    //IF A USER IS LOGGED IN
     if (user) {
       for (let i = 0; i < user.cart.products.length; i++) {
         if (user.cart.products.length) {
@@ -92,20 +92,22 @@ const App = () => {
       await fetchUser();
     } else {
       //NO USER LOGGED
-      console.log("hi");
       const exist = products.find(
         (product) => product.id === currentProduct.id
       );
-      // console.log(exist);
-      // setCartItems([exist]);
 
-      if (cartItems.find((x) => x.id === exist.id)) {
-        const itemToAdd = cartItems.map((x) =>
-          x.id === currentProduct.id ? { ...exist, qty: x.qty + 1 } : x
-        );
+      if (cartItems.find((cartItem) => cartItem.id === exist.id)) {
+        const itemToAdd = cartItems.map((cartItem) => {
+          const tempItem = { ...exist, qty: cartItem.qty + 1 };
+          tempItem.displayPrice = tempItem.price * tempItem.qty;
+          return cartItem.id === currentProduct.id ? tempItem : cartItem;
+        });
         setCartItems(itemToAdd);
       } else {
-        setCartItems([...cartItems, { ...currentProduct, qty: 1 }]);
+        setCartItems([
+          ...cartItems,
+          { ...currentProduct, qty: 1, displayPrice: currentProduct.price },
+        ]);
       }
     }
   };
