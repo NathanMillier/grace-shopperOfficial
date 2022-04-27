@@ -6,7 +6,6 @@ const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
-  console.log(product);
   useEffect(() => {
     setProduct(products.find((product) => product.id === +id));
   }, [products]);

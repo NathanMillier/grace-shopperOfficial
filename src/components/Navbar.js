@@ -47,7 +47,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
               </>
             )}
             {user ? (
-              user.isAdmin == true ? (
+              user.isAdmin === true ? (
                 <Link to="/admin" className="menuItem">
                   ADMIN
                 </Link>
