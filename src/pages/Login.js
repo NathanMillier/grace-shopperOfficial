@@ -64,9 +64,11 @@ const Login = ({
             onChange={(e) => setPassword(e.target.value)}
             placeholder="password"
           />
-          <button>LOGIN</button>
+          <button type="submit">LOGIN</button>
           <div id="link">FORGOT YOUR PASSWORD?</div>
-          <div id="link">CREATE A NEW ACCOUNT</div>
+          <div id="link" link to="/src/pages/Register.js">
+            CREATE A NEW ACCOUNT
+          </div>
         </form>
       </div>
     </div>
