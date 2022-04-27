@@ -27,40 +27,7 @@ const SingleProductPage = () => {
           </div>
 
           <div id="price">$450</div>
-          <div className="singProdfilterCont">
-            <div className="singProdfilter">
-              <h3>Size</h3>
-              <select>
-                <option disabled>Size</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-              </select>
-              <h3>Quantity</h3>
-              <select>
-                <option disabled>Quantity</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-              </select>
-            </div>
-          </div>
+
           <div className="addCont">
             <div className="amountCont">
               {/* <Remove />
