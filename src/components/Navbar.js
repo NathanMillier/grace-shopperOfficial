@@ -14,7 +14,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
           </div>
         </div>
         <div className="navcenter" link to="/src/pages/Home.js">
-          Feet Heat
+          FEAT HEAT
         </div>
         <div className="navright">
           <div className="menuCont">
@@ -47,7 +47,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
               </>
             )}
             {user ? (
-              user.isAdmin == true ? (
+              user.isAdmin === true ? (
                 <Link to="/admin" className="menuItem">
                   ADMIN
                 </Link>

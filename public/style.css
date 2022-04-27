@@ -63,6 +63,7 @@ cursor: pointer;
 }
 
 
+
 .navright {
 width: 33.333%;
 flex: 1;
@@ -728,7 +729,7 @@ background-color: #f8f4f4;
 }
 
 .singProdWrapper {
-padding: 50px;
+padding: 10px 50px;
 display: flex;
 }
 
