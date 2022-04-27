@@ -27,8 +27,8 @@ app.use(async (req, res, next) => {
   const user = await getUserById(_user.id);
   req.user = user;
   console.log(_user, "THIS IS A STR");
-  req.user.cart = await getCartByUserId(user.id);
-  req.user.cart.products = await getAllProductsByOrderId(req.user.cart.id);
+  // req.user.cart = await getCartByUserId(user.id);
+  // req.user.cart.products = await getAllProductsByOrderId(req.user.cart.id);
   next();
 });
 
