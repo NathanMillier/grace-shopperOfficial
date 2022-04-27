@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
 import Admin from "./Admin";
 import Cart from "./Cart";
 import Announcement from "./components/Announcement";
@@ -216,4 +215,3 @@ const App = () => {
 };
 
 export default App;
-
