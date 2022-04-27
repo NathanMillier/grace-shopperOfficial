@@ -30,6 +30,7 @@ const Cart = ({
     );
     const data = await response.json();
     console.log(data);
+    fetchUser();
   };
 
   // FUNCTIONS WHEN A USER IS LOGGED IN

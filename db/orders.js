@@ -90,11 +90,12 @@ const checkoutOrder = async (orderId) => {
       `
       UPDATE orders
       SET "isPurchased" = true
-      WHERE id = $1;
+      WHERE id = $1
+      RETURNING *;
     `,
       [orderId]
     );
-    console.log(response.rows);
+    return response.rows[0];
   } catch (error) {
     throw error;
   }
