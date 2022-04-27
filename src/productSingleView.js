@@ -4,21 +4,33 @@ import { useState, useEffect } from "react";
 
 const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
   const [product, setProduct] = useState({});
-  const { id } = useParams();
+  const { id } = useParams();<<<<<<< nathan-branch
   // console.log(product);
+=======
+
+  console.log(product);
+
   useEffect(() => {
     setProduct(products.find((product) => product.id === +id));
   }, [products]);
 
   return product ? (
-    <div id="container">
-      <div id="productInfo">
-        <h1 id="productName">{product.title}</h1>
-        <h4 id="productDescription">{product.description}</h4>
-        <h4 id="productPrice">{product.price}</h4>
-        <img id="productIcon"></img>
-        <h5 id="inStock">{product.stock} in Stock</h5>
-        <button onClick={() => addItemToCart(product)}>Add to Cart</button>
+
+    <div className="singleProdCont">
+      <div className="singProdWrapper">
+        <div className="singProdImgCont">
+          <img src={product.imgurl} />
+        </div>
+        <div className="singProdInfoCont">
+          <h1>{product.title}</h1>
+          <div className="singProdDesc">{product.description}</div>
+          <div id="price">$ {product.price}</div>
+          <div id="inStock">{product.stock} in Stock</div>
+          <div className="addCont">
+            <button onClick={() => addItemToCart(product)}>ADD TO CART</button>
+          </div>
+        </div>
+
       </div>
     </div>
   ) : (

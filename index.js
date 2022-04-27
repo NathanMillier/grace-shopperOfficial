@@ -34,6 +34,7 @@ app.use(async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+
 });
 
 app.use("/api", apiRouter);

@@ -15,7 +15,6 @@ productRouter.get("/", async (req, res) => {
 });
 
 productRouter.post("/", async (req, res) => {
-  console.log(req.body);
   try {
     const response = await createProduct(req.body);
     res.send(response);
@@ -25,9 +24,10 @@ productRouter.post("/", async (req, res) => {
 });
 
 productRouter.patch("/", async (req, res) => {
+  console.log(req.body, "WWWWWWWWWWWWWWWW");
   try {
     const response = await updateProduct(req.body);
-
+    console.log(response);
     res.send(response);
   } catch (error) {
     throw error;
