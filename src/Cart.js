@@ -12,8 +12,24 @@ const Cart = ({
 }) => {
   const [userTotal, setUserTotal] = useState(0);
   const [total, setTotal] = useState(0);
-  const handleCheckOut = (event) => {
-    event.preventDefault();
+
+  const handleCheckOut = async (orderId, creatorId) => {
+    const response = await fetch(
+      "http://localhost:3001/api/order/checkoutOrder",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          orderId,
+          creatorId,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
   };
 
   // FUNCTIONS WHEN A USER IS LOGGED IN
@@ -122,6 +138,8 @@ const Cart = ({
     }
     setTotal(newTotal);
   }, [cartItems]);
+
+  //WHEN USER IS LOGGED IN
   if (user) {
     if (!user.cart.products.length) {
       return <h1>YOUR CART IS EMPTY</h1>;
@@ -150,12 +168,16 @@ const Cart = ({
           <div className="checkout-container">
             <h3>total: </h3>
             <p>{userTotal}</p>
-            <button>Purchase</button>
+            <button onClick={() => handleCheckOut(user.cart.id, user.id)}>
+              Purchase
+            </button>
           </div>
         </>
       );
     }
-  } else {
+  }
+  //WHEN NO USER LOGGED IN
+  else {
     if (!cartItems.length) {
       return <h1>YOUR CART IS EMPTY</h1>;
     } else {

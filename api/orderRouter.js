@@ -1,6 +1,11 @@
 const express = require("express");
 const { UNSAFE_NavigationContext } = require("react-router-dom");
-const { getAllOrders, getAllOrdersById, updateOrder } = require("../db/orders");
+const {
+  getAllOrders,
+  getAllOrdersById,
+  checkoutOrder,
+  createOrder,
+} = require("../db/orders");
 const { getProductPrice } = require("../db/products");
 const {
   addItemToOrder,
@@ -91,6 +96,19 @@ orderRouter.post("/orderPrice", async (req, res, next) => {
     const { orderId } = req.body;
     const orderPrice = await getOrderPrice({ orderId });
     res.send(orderPrice);
+  } catch (error) {
+    next(error);
+  }
+});
+
+orderRouter.patch("/checkoutOrder", async (req, res, next) => {
+  try {
+    const { orderId, creatorId } = req.body;
+    const orderToCheckout = await checkoutOrder(orderId);
+    const newOrder = await createOrder({ creatorId });
+    console.log(orderToCheckout, "orderToCheckoutLog");
+    console.log(newOrder, "newOrderLog");
+    res.send(orderToCheckout);
   } catch (error) {
     next(error);
   }
