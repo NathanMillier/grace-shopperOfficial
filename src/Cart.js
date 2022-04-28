@@ -247,13 +247,9 @@ const Cart = ({
           <div className="checkout-container">
             <h3>total: {total}$ </h3>
 
-            {user ? (
-              <button onClick={() => getOrderPrice(user.cart.id)}>
-                Purchase
-              </button>
-            ) : (
-              <h3> LOGIN TO PURCHASE</h3>
-            )}
+            <button className="button2" onClick={() => visitorCheckout()}>
+              Purchase
+            </button>
           </div>
         </>
       );
