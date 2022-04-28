@@ -15,15 +15,15 @@ const Admin = ({ products, token, fetchProducts }) => {
   //   return <div></div>;
   // }
 
-  // const fetchAllUsers = async () => {
-  //   const response = await fetch("http://localhost:3001/api/user/all");
-  //   const data = await response.json();
-  //   setUserss(data);
-  // };
+  const fetchAllUsers = async () => {
+    const response = await fetch("http://localhost:3001/api/user/all");
+    const data = await response.json();
+    setUserss(data);
+  };
 
   const updateProduct = async (e) => {
     e.preventDefault();
-    const resp = await fetch(`http://localhost:3001/api/products`, {
+    await fetch(`http://localhost:3001/api/products`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const Admin = ({ products, token, fetchProducts }) => {
         price: price,
       }),
     });
-    const info = await resp.json();
+
     fetchProducts();
   };
 
@@ -49,6 +49,7 @@ const Admin = ({ products, token, fetchProducts }) => {
   };
 
   useEffect(() => {
+    fetchAllUsers();
     if (!products[0]) {
       return;
     }
@@ -107,7 +108,6 @@ const Admin = ({ products, token, fetchProducts }) => {
           {userss.map((u) => {
             return (
               <div key={u.id}>
-                <div>{u.id}</div>
                 <div>{u.email}$</div>
               </div>
             );

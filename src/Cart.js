@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Cart = ({
   addItemToCart,
@@ -12,6 +13,11 @@ const Cart = ({
 }) => {
   const [userTotal, setUserTotal] = useState(0);
   const [total, setTotal] = useState(0);
+  const history = useNavigate();
+
+  const visitorCheckout = () => {
+    history("/PurchaseSuccessful");
+  };
 
   const handleCheckOut = async (orderId, creatorId) => {
     const response = await fetch(
@@ -31,6 +37,7 @@ const Cart = ({
     const data = await response.json();
     console.log(data);
     fetchUser();
+    history("/PurchaseSuccessful");
   };
 
   // FUNCTIONS WHEN A USER IS LOGGED IN
@@ -210,9 +217,13 @@ const Cart = ({
           <div className="checkout-container">
             <h3>total: </h3>
             <p>{total}</p>
-            <button onClick={() => getOrderPrice(user.cart.id)}>
-              Purchase
-            </button>
+            {user ? (
+              <button onClick={() => getOrderPrice(user.cart.id)}>
+                Purchase
+              </button>
+            ) : (
+              <h1>LOGIN TO PURCHASE</h1>
+            )}
           </div>
         </>
       );
