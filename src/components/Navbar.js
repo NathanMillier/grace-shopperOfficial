@@ -1,6 +1,6 @@
+import { SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 
 const Navbar = ({ user, setToken, setUser, token }) => {
   return (
@@ -10,7 +10,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
           EN
           <div className="searchcont">
             <input placeholder="Search"></input>
-            {/* <Search /> */}
+            <SearchOutlined />
           </div>
         </div>
         <div className="navcenter" link to="/src/pages/Home.js">
@@ -55,7 +55,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
             ) : null}
 
             <Link to="/Cart" className="menuItem">
-              CART
+              <ShoppingCartOutlined />
             </Link>
           </div>
         </div>
