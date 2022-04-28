@@ -1,6 +1,7 @@
 import { SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "./logo.png";
 
 const Navbar = ({ user, setToken, setUser, token }) => {
   return (
@@ -14,7 +15,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
           </div>
         </div>
         <Link to="/" className="navcenter">
-          FEET HEAT
+          <img src={logo} alt="FeetHeat"></img>
         </Link>
         <div className="navright">
           <div className="menuCont">
