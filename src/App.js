@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Admin from "./Admin";
 import Cart from "./Cart";
-import PurchaseSuccessful from "./components/PurchaseSuccessful";
+import PurchaseSuccessful from "./pages/PurchaseSuccessful";
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer";
 import AllProducts from "./components/AllProducts";
@@ -183,10 +183,7 @@ const App = () => {
             }
             path="/Products/:id"
           />
-          <Route
-            element={<PurchaseSuccessful />}
-            path="/PurchaseSuccessful.js"
-          />
+          <Route element={<PurchaseSuccessful />} path="/PurchaseSuccessful" />
 
           <Route
             element={
