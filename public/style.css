@@ -938,3 +938,43 @@ body > div {
 .registerCard h1 {
   margin-bottom: 25px;
 } */
+
+.purchasedCont {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+  rgba(255, 255, 255, 0.5),
+  rgba(255, 255, 255, 0.5)
+  ),
+  url("https://images.pexels.com/photos/7524992/pexels-photo-7524992.jpeg?cs=srgb&dl=pexels-erik-mclean-7524992.jpg&fm=jpg")
+  center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .purchasedCard {
+  width: 25%;
+  padding: 20px;
+  background-color: white;
+  }
+  
+  .purchasedCard h2 {
+  font-size: 24px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  }
+
+  #purchaseHomeButton {
+    border-radius: 5%;
+    
+  }
+
+  #purchaseHomeButton:hover {
+    box-shadow: 5px 5px 5px black;
+    zoom: 1.3;
+  }
+
+  
