@@ -86,14 +86,16 @@ const createOrder = async ({ creatorId }) => {
 
 const checkoutOrder = async (orderId) => {
   try {
-    client.query(
+    const response = await client.query(
       `
       UPDATE orders
       SET "isPurchased" = true
-      WHERE id = $1;
+      WHERE id = $1
+      RETURNING *;
     `,
-      [orderId, id]
+      [orderId]
     );
+    return response.rows[0];
   } catch (error) {
     throw error;
   }

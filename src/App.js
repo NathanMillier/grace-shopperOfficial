@@ -5,9 +5,9 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
 import Admin from "./Admin";
 import Cart from "./Cart";
+import PurchaseSuccessful from "./components/PurchaseSuccessful";
 import Announcement from "./components/Announcement";
 import Footer from "./components/Footer";
 import AllProducts from "./components/AllProducts";
@@ -156,6 +156,7 @@ const App = () => {
                 setConfirm={setConfirm}
                 confirm={confirm}
                 setToken={setToken}
+                setError={setError}
               />
             }
             path="/Register"
@@ -182,6 +183,10 @@ const App = () => {
             }
             path="/Products/:id"
           />
+          <Route
+            element={<PurchaseSuccessful />}
+            path="/PurchaseSuccessful.js"
+          />
 
           <Route
             element={
@@ -190,6 +195,7 @@ const App = () => {
                 products={products}
                 user={user}
                 token={token}
+                fetchProducts={fetchProducts}
               />
             }
             path="/admin"
