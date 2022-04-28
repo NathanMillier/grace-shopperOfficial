@@ -7,11 +7,7 @@ const Navbar = ({ user, setToken, setUser, token }) => {
     <div className="navbar">
       <div className="navcont">
         <div className="navleft">
-          EN
-          <div className="searchcont">
-            <input placeholder="Search"></input>
-            {/* <Search /> */}
-          </div>
+          <div className="searchcont">{/* <Search /> */}</div>
         </div>
         <div className="navcenter" link to="/src/pages/Home.js">
           FEAT HEAT
@@ -23,6 +19,18 @@ const Navbar = ({ user, setToken, setUser, token }) => {
             </Link>
             <Link to="/Products" className="menuItem">
               ALL SHOES
+            </Link>
+
+            {user ? (
+              user.isAdmin === true ? (
+                <Link to="/admin" className="menuItem">
+                  ADMIN
+                </Link>
+              ) : null
+            ) : null}
+
+            <Link to="/Cart" className="menuItem">
+              CART
             </Link>
             {user ? (
               <Link
@@ -43,17 +51,6 @@ const Navbar = ({ user, setToken, setUser, token }) => {
                 </Link>
               </>
             )}
-            {user ? (
-              user.isAdmin === true ? (
-                <Link to="/admin" className="menuItem">
-                  ADMIN
-                </Link>
-              ) : null
-            ) : null}
-
-            <Link to="/Cart" className="menuItem">
-              CART
-            </Link>
           </div>
         </div>
       </div>
