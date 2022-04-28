@@ -34,6 +34,7 @@ padding: 10px 20px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+border-bottom: 1px solid #212a2f;
 }
 
 .navleft {
@@ -60,6 +61,7 @@ flex: 1;
 align-items: center;
 color: red;
 cursor: pointer;
+text-decoration: none;
 }
 
 
@@ -83,6 +85,7 @@ justify-content: space-between;
 font-size: 14px;
 cursor: pointer;
 margin-left: 15px;
+text-decoration: none;
 }
 
 .menuItem:hover {
@@ -483,6 +486,8 @@ font-weight: 300;
 display: flex;
 justify-content: center;
 color: white;
+text-decoration: underline;
+margin-bottom: 15px;
 }
 
 .loginCard form {
@@ -531,7 +536,7 @@ background: linear-gradient(
 rgba(255, 255, 255, 0.5),
 rgba(255, 255, 255, 0.5)
 ),
-url("https://images.pexels.com/photos/981619/pexels-photo-981619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+url("https://images.pexels.com/photos/8047038/pexels-photo-8047038.jpeg?cs=srgb&dl=pexels-marcela-oliveira-8047038.jpg&fm=jpg")
 center;
 background-size: cover;
 display: flex;
@@ -542,7 +547,7 @@ justify-content: center;
 .registerCard {
 width: 40%;
 padding: 20px;
-background-color: white;
+background-color: #212a2f;
 }
 
 
@@ -550,11 +555,15 @@ background-color: white;
 .registerCard h2 {
 font-size: 24px;
 font-weight: 300;
+color: white;
+text-decoration: underline;
+margin-bottom: 15px;
 }
 
 .registerCard form {
 display: flex;
 flex-wrap: wrap;
+color: white;
 }
 
 .registerCard input {
@@ -576,7 +585,17 @@ padding: 15px 20px;
 background-color: red;
 color: white;
 cursor: pointer;
+margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
+
+ 
+  .registerCard button:hover {
+  animation: alternate;
+  transform: scale(1.1);
+  }
+
 
 /* CART PAGE STYLING */
 
@@ -592,6 +611,14 @@ cursor: pointer;
 
 .cartCont {
 
+}
+
+.cartCard {
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px;
 }
 
 .cartWrapper {

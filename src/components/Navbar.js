@@ -13,9 +13,9 @@ const Navbar = ({ user, setToken, setUser, token }) => {
             <SearchOutlined />
           </div>
         </div>
-        <div className="navcenter" link to="/src/pages/Home.js">
-          FEAT HEAT
-        </div>
+        <Link to="/" className="navcenter">
+          FEET HEAT
+        </Link>
         <div className="navright">
           <div className="menuCont">
             <Link to="/" className="menuItem">

@@ -24,6 +24,9 @@ const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
           <div id="inStock">{product.stock} in Stock</div>
           <div className="addCont">
             <button onClick={() => addItemToCart(product)}>ADD TO CART</button>
+            <a href="/Products">
+              <button>CONTINUE SHOPING</button>
+            </a>
           </div>
         </div>
       </div>

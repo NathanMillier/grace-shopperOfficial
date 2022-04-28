@@ -8,7 +8,9 @@ const Slider = () => {
           <div className="slideInfo">
             <h1>SUMMER'S SALE</h1>
             <p>ALL THE LATEST TRENDS! GET 30% OFF NEW ARRIVALS.</p>
-            <button>SHOP NOW!</button>
+            <a href="/Products">
+              <button>SHOP NOW</button>
+            </a>
           </div>
         </div>
       </div>
