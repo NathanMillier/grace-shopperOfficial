@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Slider = () => {
   return (
@@ -9,9 +8,9 @@ const Slider = () => {
           <div className="slideInfo">
             <h1>SUMMER'S SALE</h1>
             <p>ALL THE LATEST TRENDS! GET 30% OFF NEW ARRIVALS.</p>
-            <button>
-              <Link to="/Products">SHOP NOW</Link>
-            </button>
+            <a href="/Products">
+              <button>SHOP NOW</button>
+            </a>
           </div>
         </div>
       </div>

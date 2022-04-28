@@ -141,6 +141,7 @@ const Cart = ({
   }, [cartItems]);
 
   //WHEN USER IS LOGGED IN
+
   if (user) {
     if (!user.cart.products.length) {
       return <h1>YOUR CART IS EMPTY</h1>;
@@ -218,8 +219,10 @@ const Cart = ({
     }
   }
 
-  // return (
-  //   <div className="cart-container">
+  {
+    /* // return (
+  //   <div className="cart-container"> */
+  }
   //     {//IF A USER IS LOGGED IN
   //     user
   //       ? user.cart.products.map((product) => {

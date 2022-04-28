@@ -34,6 +34,7 @@ padding: 10px 20px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+border-bottom: 1px solid #212a2f;
 }
 
 .navleft {
@@ -60,6 +61,7 @@ flex: 1;
 align-items: center;
 color: red;
 cursor: pointer;
+text-decoration: none;
 }
 
 
@@ -83,6 +85,7 @@ justify-content: space-between;
 font-size: 14px;
 cursor: pointer;
 margin-left: 15px;
+text-decoration: none;
 }
 
 .menuItem:hover {
@@ -463,7 +466,7 @@ background: linear-gradient(
 rgba(255, 255, 255, 0.5),
 rgba(255, 255, 255, 0.5)
 ),
-url("https://images.pexels.com/photos/7524992/pexels-photo-7524992.jpeg?cs=srgb&dl=pexels-erik-mclean-7524992.jpg&fm=jpg")
+url("https://images.pexels.com/photos/7500610/pexels-photo-7500610.jpeg?cs=srgb&dl=pexels-erik-mclean-7500610.jpg&fm=jpg")
 center;
 background-size: cover;
 display: flex;
@@ -474,7 +477,7 @@ justify-content: center;
 .loginCard {
 width: 25%;
 padding: 20px;
-background-color: white;
+background-color: #212a2f;
 }
 
 .loginCard h2 {
@@ -482,11 +485,15 @@ font-size: 24px;
 font-weight: 300;
 display: flex;
 justify-content: center;
+color: white;
+text-decoration: underline;
+margin-bottom: 15px;
 }
 
 .loginCard form {
 display: flex;
 flex-direction: column;
+color: white;
 }
 
 .loginCard input {
@@ -529,7 +536,7 @@ background: linear-gradient(
 rgba(255, 255, 255, 0.5),
 rgba(255, 255, 255, 0.5)
 ),
-url("https://images.pexels.com/photos/981619/pexels-photo-981619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+url("https://images.pexels.com/photos/8047038/pexels-photo-8047038.jpeg?cs=srgb&dl=pexels-marcela-oliveira-8047038.jpg&fm=jpg")
 center;
 background-size: cover;
 display: flex;
@@ -540,7 +547,7 @@ justify-content: center;
 .registerCard {
 width: 40%;
 padding: 20px;
-background-color: white;
+background-color: #212a2f;
 }
 
 
@@ -548,11 +555,15 @@ background-color: white;
 .registerCard h2 {
 font-size: 24px;
 font-weight: 300;
+color: white;
+text-decoration: underline;
+margin-bottom: 15px;
 }
 
 .registerCard form {
 display: flex;
 flex-wrap: wrap;
+color: white;
 }
 
 .registerCard input {
@@ -574,12 +585,40 @@ padding: 15px 20px;
 background-color: red;
 color: white;
 cursor: pointer;
+margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
+
+ 
+  .registerCard button:hover {
+  animation: alternate;
+  transform: scale(1.1);
+  }
+
 
 /* CART PAGE STYLING */
 
+
+.emptyCartCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #212a2f;
+
+}
+
 .cartCont {
 
+}
+
+.cartCard {
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px;
 }
 
 .cartWrapper {
@@ -798,6 +837,82 @@ margin-top: 15px;
   color: white;
   
 }
+
+/* ADMIN PAGE STYLING */
+
+.adminCont{
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+  rgba(255, 255, 255, 0.5),
+  rgba(255, 255, 255, 0.5)
+  ),
+  url("https://images.pexels.com/photos/1456721/pexels-photo-1456721.jpeg?cs=srgb&dl=pexels-ray-piedra-1456721.jpg&fm=jpg")
+  center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adminCard {
+  width: 25%;
+  padding: 20px;
+  background-color: #212a2f;
+  }
+  
+  .adminCard h2 {
+  font-size: 24px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-bottom: 25px;
+  text-decoration: underline;
+  }
+
+  .adminCard p {
+    font-size: 15px;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-bottom: 25px;
+    text-align: center;
+    }
+  
+  .adminCard form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  }
+  
+  .adminCard input {
+  flex: 1;
+  min-width: 40%;
+  margin: 10px 0;
+  padding: 10px;
+  }
+  
+  .adminCard button {
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  }
+  
+  .adminCard button:hover {
+  animation: alternate;
+  transform: scale(1.1);
+  }
+
+
+
 
 /* BELOW IS LEGACY STYLING THAT WILL BE REMOVED ONCE ALL FUNCTIONALITY IS BUILT INTO UPDATED STYLING */
 

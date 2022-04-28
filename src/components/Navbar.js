@@ -1,17 +1,21 @@
+import { SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 
 const Navbar = ({ user, setToken, setUser, token }) => {
   return (
     <div className="navbar">
       <div className="navcont">
         <div className="navleft">
-          <div className="searchcont">{/* <Search /> */}</div>
+          EN
+          <div className="searchcont">
+            <input placeholder="Search"></input>
+            <SearchOutlined />
+          </div>
         </div>
-        <div className="navcenter" link to="/src/pages/Home.js">
-          FEAT HEAT
-        </div>
+        <Link to="/" className="navcenter">
+          FEET HEAT
+        </Link>
         <div className="navright">
           <div className="menuCont">
             <Link to="/" className="menuItem">
@@ -19,18 +23,6 @@ const Navbar = ({ user, setToken, setUser, token }) => {
             </Link>
             <Link to="/Products" className="menuItem">
               ALL SHOES
-            </Link>
-
-            {user ? (
-              user.isAdmin === true ? (
-                <Link to="/admin" className="menuItem">
-                  ADMIN
-                </Link>
-              ) : null
-            ) : null}
-
-            <Link to="/Cart" className="menuItem">
-              CART
             </Link>
             {user ? (
               <Link
@@ -49,8 +41,22 @@ const Navbar = ({ user, setToken, setUser, token }) => {
                 <Link to="/Login" className="menuItem">
                   SIGN IN
                 </Link>
+                <Link to="/Register" className="menuItem">
+                  REGISTER
+                </Link>
               </>
             )}
+            {user ? (
+              user.isAdmin === true ? (
+                <Link to="/admin" className="menuItem">
+                  ADMIN
+                </Link>
+              ) : null
+            ) : null}
+
+            <Link to="/Cart" className="menuItem">
+              <ShoppingCartOutlined />
+            </Link>
           </div>
         </div>
       </div>

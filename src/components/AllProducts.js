@@ -1,3 +1,4 @@
+import { SearchOutlined } from "@material-ui/icons";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -18,7 +19,9 @@ const AllProducts = ({ products }) => {
             <img src={item.imgurl} />
             <Link to={`./${item.id}`}>
               <div className="infoCont">
-                <div className="prodIcon">{/* <SearchOutlined /> */}</div>
+                <div className="prodIcon">
+                  <SearchOutlined />
+                </div>
               </div>
             </Link>
           </div>
