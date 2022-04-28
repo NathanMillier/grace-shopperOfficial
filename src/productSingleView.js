@@ -27,6 +27,9 @@ const ProductSingleView = ({ products, fetchProducts, addItemToCart }) => {
             <a href="/Products">
               <button>CONTINUE SHOPING</button>
             </a>
+            <a href="/Cart">
+              <button>CHECKOUT</button>
+            </a>
           </div>
         </div>
       </div>

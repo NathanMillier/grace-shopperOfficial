@@ -22,15 +22,17 @@
 /* Navbar Component Styling */
 
 .navbar {
-  height: 60px;
+height: 60px;
+margin-bottom: 10px;
 }
 
 .navcont {
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #212a2f;
+padding: 10px 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border: 1px solid #212a2f;
+
 }
 
 .navleft {
@@ -771,14 +773,38 @@ button #bottomButton :hover {
 }
 
 #price {
+
+font-weight: 100;
+font-size: 40px;
+color: red;
+margin: 5px 5px;
+
+=======
   font-weight: 100;
   font-size: 40px;
   color: red;
   margin: 5px 5px;
+
 }
 
 #inStock {
   font-weight: 50;
+
+font-size: 20px;
+color: black;
+margin: 5px 5px;
+text-decoration: underline;
+display: flex;
+
+}
+
+.addCont {
+  width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-top: 15px;
+
   font-size: 20px;
   color: black;
   margin: 5px 5px;
@@ -791,6 +817,7 @@ button #bottomButton :hover {
   align-items: center;
   justify-content: space-between;
   margin-top: 15px;
+
 }
 
 .addCont button {
