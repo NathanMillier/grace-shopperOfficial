@@ -81,11 +81,13 @@ align-items: center;
 justify-content: space-between;
 }
 
+
 .menuItem {
 font-size: 14px;
 cursor: pointer;
 margin-left: 15px;
 text-decoration: none;
+color: #212a2f;
 }
 
 .menuItem:hover {
@@ -390,8 +392,12 @@ padding: 20px;
 
 .footerLeft h1 {
 color: red;
+
 }
 
+.footerLeft a {
+  text-decoration: none;
+}
 
 .footerDesc{
 margin: 20px 0px;
@@ -441,6 +447,13 @@ flex-wrap: wrap;
 width: 50%;
 margin-bottom: 10px;
 cursor: pointer;
+
+
+}
+.footerCenter a {
+  color: white;
+text-decoration: none;
+background-color: none;
 
 }
 

@@ -13,7 +13,10 @@ function Footer() {
   return (
     <div className="footerCont">
       <div className="footerLeft">
-        <h1>Feet Heat</h1>
+        <a href="/">
+          <h1>Feet Heat</h1>
+        </a>
+
         <div className="footerDesc">
           <p>
             Serving the latest and hottest shoe brands on the market Copyright ©
@@ -36,11 +39,21 @@ function Footer() {
       <div className="footerCenter">
         <div id="title">Useful Links</div>
         <ul>
-          <li>Home</li>
-          <li>Cart</li>
-          <li>Categories</li>
-          <li>My Account</li>
-          <li>Terms</li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/Cart">Cart</a>
+          </li>
+          <li>
+            <a href="/">Categories</a>
+          </li>
+          <li>
+            <a href="/Login">My Account</a>
+          </li>
+          <li>
+            <a href="/">Terms</a>
+          </li>
         </ul>
       </div>
       <div className="footerRight">
