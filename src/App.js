@@ -35,7 +35,6 @@ const App = () => {
 
     if (lsToken) {
       setToken(lsToken);
-      console.log("token set");
     }
     const response = await fetch("http://localhost:3001/api/user/me", {
       headers: {
@@ -46,7 +45,6 @@ const App = () => {
     const data = await response.json();
 
     if (!data.error) {
-      console.log("User set");
       setUser(data);
     }
   };
@@ -72,7 +70,7 @@ const App = () => {
                 }),
               }
             );
-            const data = await response.json();
+
             await fetchUser();
             return;
           }
@@ -183,10 +181,7 @@ const App = () => {
             }
             path="/Products/:id"
           />
-          <Route
-            element={<PurchaseSuccessful />}
-            path="/PurchaseSuccessful.js"
-          />
+          <Route element={<PurchaseSuccessful />} path="/PurchaseSuccessful" />
 
           <Route
             element={

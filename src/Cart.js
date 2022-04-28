@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Cart = ({
   addItemToCart,
@@ -12,6 +13,11 @@ const Cart = ({
 }) => {
   const [userTotal, setUserTotal] = useState(0);
   const [total, setTotal] = useState(0);
+  const history = useNavigate();
+
+  const visitorCheckout = () => {
+    history("/PurchaseSuccessful");
+  };
 
   const handleCheckOut = async (orderId, creatorId) => {
     const response = await fetch(
@@ -31,6 +37,7 @@ const Cart = ({
     const data = await response.json();
     console.log(data);
     fetchUser();
+    history("/PurchaseSuccessful");
   };
 
   // FUNCTIONS WHEN A USER IS LOGGED IN
@@ -152,15 +159,31 @@ const Cart = ({
             {user.cart.products.map((product) => {
               return (
                 <div className="single-product-container" key={product.id}>
-                  <h3>{product.title}</h3>
-                  <h4>{product.price}</h4>
-                  <h4>{product.quantity}</h4>
-                  <img src={product.imgurl} width="300"></img>
-                  <button onClick={() => addItemToCart(product)}>+</button>
-                  <button onClick={() => decreaseQuantity(product)}>-</button>
-                  <button onClick={() => deleteCartItem(product)}>
-                    Remove from cart
-                  </button>
+                  <h1>{product.title}</h1>
+                  <h4>
+                    {product.price} for {product.quantity}
+                  </h4>
+                  <div className="img-buttons">
+                    <img src={product.imgurl} width="200"></img>
+                    <button
+                      className="button2"
+                      onClick={() => addItemToCart(product)}
+                    >
+                      +
+                    </button>
+                    <button
+                      className="button2"
+                      onClick={() => decreaseQuantity(product)}
+                    >
+                      -
+                    </button>
+                    <button
+                      className="button2"
+                      onClick={() => deleteCartItem(product)}
+                    >
+                      Remove from cart
+                    </button>
+                  </div>
                   <br></br>
                 </div>
               );
@@ -168,9 +191,11 @@ const Cart = ({
           </div>
 
           <div className="checkout-container">
-            <h3>total: </h3>
-            <p>{userTotal}</p>
-            <button onClick={() => handleCheckOut(user.cart.id, user.id)}>
+            <h3>Total: {userTotal}$ </h3>
+            <button
+              className="button2"
+              onClick={() => handleCheckOut(user.cart.id, user.id)}
+            >
               Purchase
             </button>
           </div>
@@ -190,16 +215,28 @@ const Cart = ({
             return (
               <>
                 <div className="single-product-container" key={item.id}>
-                  <h3>{item.title}</h3>
-                  <h4>{item.displayPrice}</h4>
-                  <h4>{item.qty}</h4>
-                  <img src={item.imgurl} width="300"></img>
-                  <div>
-                    <button onClick={() => addItemToCart(item)}>+</button>
-                    <button onClick={() => decreaseCartItemQuantity(item)}>
+                  <h1>{item.title}</h1>
+                  <h4>{item.displayPrice}$</h4>
+                  <h4>x {item.qty}</h4>
+
+                  <div className="img-buttons">
+                    <img src={item.imgurl} width="200"></img>
+                    <button
+                      className="button2"
+                      onClick={() => addItemToCart(item)}
+                    >
+                      +
+                    </button>
+                    <button
+                      className="button2"
+                      onClick={() => decreaseCartItemQuantity(item)}
+                    >
                       -
                     </button>
-                    <button onClick={() => removeCartItem(item)}>
+                    <button
+                      className="button2"
+                      onClick={() => removeCartItem(item)}
+                    >
                       Remove from cart
                     </button>
                   </div>
@@ -208,11 +245,15 @@ const Cart = ({
             );
           })}
           <div className="checkout-container">
-            <h3>total: </h3>
-            <p>{total}</p>
-            <button onClick={() => getOrderPrice(user.cart.id)}>
-              Purchase
-            </button>
+            <h3>total: {total}$ </h3>
+
+            {user ? (
+              <button onClick={() => getOrderPrice(user.cart.id)}>
+                Purchase
+              </button>
+            ) : (
+              <h3> LOGIN TO PURCHASE</h3>
+            )}
           </div>
         </>
       );
