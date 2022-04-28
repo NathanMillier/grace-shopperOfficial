@@ -8,7 +8,7 @@ const PurchaseSuccessful = () => {
         <h2>Thank You For Your Purchase!</h2>
         <h3>Your Order is Being Processed!</h3>
         <div id="purchaseHomeButton">
-          <Link to="/Home">Home</Link>
+          <Link to="/">Home</Link>
         </div>
       </div>
     </div>
