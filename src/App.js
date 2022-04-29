@@ -51,7 +51,7 @@ const App = () => {
 
   const addItemToCart = async (currentProduct) => {
     //IF A USER IS LOGGED IN
-    console.log(user, "HERE");
+    alert("ITEM ADDED!");
     if (user) {
       for (let i = 0; i < user.cart.products.length; i++) {
         if (user.cart.products.length) {

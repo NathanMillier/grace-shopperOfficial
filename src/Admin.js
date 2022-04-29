@@ -109,7 +109,7 @@ const Admin = ({ products, token, fetchProducts }) => {
             return (
               <>
                 <div className="adminUsersCard" key={u.id}>
-                  <h5>CURRENT USER</h5>
+                  <h5>USER</h5>
                   <div className="adminUsersId">
                     <div>{u.email}$</div>
                   </div>
