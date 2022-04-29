@@ -7,7 +7,6 @@ const Home = ({ user }) => {
     return (
       <div>
         <Slider />
-        <Newsletter />
       </div>
     );
   }
@@ -15,7 +14,6 @@ const Home = ({ user }) => {
     <div>
       <p>Welcome back, {user.email}!</p>
       <Slider />
-      <Newsletter />
     </div>
   );
 };
