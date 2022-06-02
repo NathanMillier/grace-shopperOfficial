@@ -25,7 +25,7 @@ const App = () => {
   const [error, setError] = useState("");
 
   const fetchProducts = async () => {
-    const response = await fetch("http://localhost:3001/api/products");
+    const response = await fetch("/api/products");
     const info = await response.json();
     setProducts(info);
   };
@@ -36,7 +36,7 @@ const App = () => {
     if (lsToken) {
       setToken(lsToken);
     }
-    const response = await fetch("http://localhost:3001/api/user/me", {
+    const response = await fetch("/api/user/me", {
       headers: {
         Authorization: `Bearer ${lsToken}`,
       },
@@ -56,20 +56,17 @@ const App = () => {
       for (let i = 0; i < user.cart.products.length; i++) {
         if (user.cart.products.length) {
           if (currentProduct.id === user.cart.products[i].id) {
-            const response = await fetch(
-              "http://localhost:3001/api/order/updateCartItem",
-              {
-                method: "PATCH",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify({
-                  orderId: user.cart.id,
-                  productId: currentProduct.id,
-                }),
-              }
-            );
+            const response = await fetch("/api/order/updateCartItem", {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                orderId: user.cart.id,
+                productId: currentProduct.id,
+              }),
+            });
 
             await fetchUser();
             return;
@@ -77,7 +74,7 @@ const App = () => {
         }
       }
 
-      const response = await fetch("http://localhost:3001/api/order/cart", {
+      const response = await fetch("/api/order/cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -20,20 +20,17 @@ const Cart = ({
   };
 
   const handleCheckOut = async (orderId, creatorId) => {
-    const response = await fetch(
-      "http://localhost:3001/api/order/checkoutOrder",
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          orderId,
-          creatorId,
-        }),
-      }
-    );
+    const response = await fetch("/api/order/checkoutOrder", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        orderId,
+        creatorId,
+      }),
+    });
     const data = await response.json();
     console.log(data);
     fetchUser();
@@ -42,7 +39,7 @@ const Cart = ({
 
   // FUNCTIONS WHEN A USER IS LOGGED IN
   const deleteCartItem = async (currentProduct) => {
-    const response = await fetch("http://localhost:3001/api/order/deleteItem", {
+    const response = await fetch("/api/order/deleteItem", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -60,20 +57,17 @@ const Cart = ({
 
   const decreaseQuantity = async (currentProduct) => {
     if (currentProduct.quantity > 1) {
-      const response = await fetch(
-        "http://localhost:3001/api/order/decreaseCartItem",
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            orderId: user.cart.id,
-            productId: currentProduct.id,
-          }),
-        }
-      );
+      const response = await fetch("/api/order/decreaseCartItem", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          orderId: user.cart.id,
+          productId: currentProduct.id,
+        }),
+      });
       const data = await response.json();
       await fetchUser();
       console.log(data);
@@ -83,7 +77,7 @@ const Cart = ({
   };
 
   const getOrderPrice = async (orderId) => {
-    const response = await fetch("http://localhost:3001/api/order/orderPrice", {
+    const response = await fetch("/api/order/orderPrice", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -254,56 +248,5 @@ const Cart = ({
       );
     }
   }
-
-  {
-    /* // return (
-  //   <div className="cart-container"> */
-  }
-  //     {//IF A USER IS LOGGED IN
-  //     user
-  //       ? user.cart.products.map((product) => {
-  //           return (
-  //             <div className="single-product-container" key={product.id}>
-  //               <h3>{product.title}</h3>
-  //               <h4>{product.price}</h4>
-  //               <h4>{product.quantity}</h4>
-  //               <img src={product.imgurl} width="300"></img>
-  //               <button onClick={() => addItemToCart(product)}>+</button>
-  //               <button onClick={() => decreaseQuantity(product)}>-</button>
-  //               <button onClick={() => deleteCartItem(product)}>
-  //                 Remove from cart
-  //               </button>
-  //               <br></br>
-  //             </div>
-  //           );
-  //         })
-  //       : //IF NO USER LOGGED IN
-
-  //         cartItems.map((item) => {
-  //           return (
-  //             <div className="single-product-container" key={item.id}>
-  //               <h3>{item.title}</h3>
-  //               <h4>{item.price}</h4>
-  //               <h4>{item.qty}</h4>
-  //               <div>
-  //                 <button onClick={() => addItemToCart(item)}>+</button>
-  //                 <button onClick={() => decreaseCartItemQuantity(item)}>
-  //                   -
-  //                 </button>
-  //                 <button onClick={() => removeCartItem(item)}>
-  //                   Remove from cart
-  //                 </button>
-  //               </div>
-  //             </div>
-  //           );
-  //         })}
-
-  //     <div className="checkout-container">
-  //       <h3>total: </h3>
-  //       <p>{total}</p>
-  //       <button onClick={() => getOrderPrice(user.cart.id)}>Purchase</button>
-  //     </div>
-  //   </div>
-  // );
 };
 export default Cart;

@@ -16,14 +16,14 @@ const Admin = ({ products, token, fetchProducts }) => {
   // }
 
   const fetchAllUsers = async () => {
-    const response = await fetch("http://localhost:3001/api/user/all");
+    const response = await fetch("/api/user/all");
     const data = await response.json();
     setUserss(data);
   };
 
   const updateProduct = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:3001/api/products`, {
+    await fetch(`/api/products`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const Admin = ({ products, token, fetchProducts }) => {
   };
 
   const setCurrent = async (id) => {
-    const resp = await fetch(`http://localhost:3001/api/products/${id}`);
+    const resp = await fetch(`/api/products/${id}`);
     const info = await resp.json();
     setCurrentProduct(info);
   };
